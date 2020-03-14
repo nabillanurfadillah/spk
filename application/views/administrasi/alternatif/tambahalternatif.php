@@ -56,6 +56,7 @@
                     <div class="col-sm-8">
                         <?php
                         $ik = $q['id_kriteria'];
+
                         $query4 = "SELECT * FROM subkriteria join kriteria on subkriteria.id_kriteria=kriteria.id_kriteria where subkriteria.id_kriteria=$ik";
                         $subKr = $this->db->query($query4)->result_array();
 

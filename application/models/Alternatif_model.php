@@ -31,13 +31,52 @@ class Alternatif_model extends CI_Model
             'alamat' => $this->input->post('alamat', true)
         ];
         $this->db->insert('alternatif', $dataa);
-
         $id_alternatif = $this->db->insert_id();
 
+
         foreach ($ids as $i) {
+            $subK = $this->db->get_where('subkriteria', ['id_subkriteria' => $i])->result_array();
+
+            foreach ($subK as $sub) {
+                $nilaiS = $sub['nilai_subkriteria'];
+
+                $kriteria = $this->db->get_where('kriteria', ['id_kriteria' => $sub['id_kriteria']])->result_array();
+                foreach ($kriteria as $K) {
+                    $tipeK = $K['tipe_kriteria'];
+                    $idk = $K['id_kriteria'];
+
+                    if ($tipeK == 'Cost') {
+                        $query = "SELECT MIN(nilai_subkriteria) AS min
+                        FROM subkriteria 
+                        JOIN hitung
+                        ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                        WHERE subkriteria.id_kriteria = $idk";
+                        $hs = $this->db->query($query)->result_array();
+
+                        foreach ($hs as $HS) {
+                            $min = $HS['min'];
+                            $normalisasi = $min / $nilaiS;
+                        }
+                    } else {
+                        $query = "SELECT MAX(nilai_subkriteria) AS max
+                        FROM subkriteria 
+                        JOIN hitung
+                        ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                        WHERE subkriteria.id_kriteria = $idk";
+                        $hs = $this->db->query($query)->result_array();
+
+                        foreach ($hs as $HS) {
+                            $max = $HS['max'];
+                            $normalisasi = $nilaiS / $max;
+                        }
+                    }
+                }
+            }
+
             $data = [
                 'id_alternatif' => $id_alternatif,
                 'id_subkriteria' => $i,
+                'nilai_normalisasi' => $normalisasi,
                 'hasil' => ''
             ];
             $this->db->insert('hitung', $data);

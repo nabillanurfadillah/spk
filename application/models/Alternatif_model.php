@@ -55,7 +55,12 @@ class Alternatif_model extends CI_Model
 
                         foreach ($hs as $HS) {
                             $min = $HS['min'];
-                            $normalisasi = $min / $nilaiS;
+                            if ($min != 0) {
+
+                                $normalisasi = $min / $nilaiS;
+                            } else {
+                                $normalisasi = $nilaiS / $nilaiS;
+                            }
                         }
                     } else {
                         $query = "SELECT MAX(nilai_subkriteria) AS max
@@ -67,12 +72,16 @@ class Alternatif_model extends CI_Model
 
                         foreach ($hs as $HS) {
                             $max = $HS['max'];
-                            $normalisasi = $nilaiS / $max;
+                            if ($max != 0) {
+
+                                $normalisasi = $nilaiS / $max;
+                            } else {
+                                $normalisasi = $nilaiS / $nilaiS;
+                            }
                         }
                     }
                 }
             }
-
             $data = [
                 'id_alternatif' => $id_alternatif,
                 'id_subkriteria' => $i,
@@ -80,6 +89,69 @@ class Alternatif_model extends CI_Model
                 'hasil' => ''
             ];
             $this->db->insert('hitung', $data);
+        }
+    }
+
+    public function updateNormalisasi()
+    {
+
+        $hitung = $this->db->get('hitung')->result_array();
+        foreach ($hitung as $h) {
+            $ids = $h['id_subkriteria'];
+
+            $subK = $this->db->get_where('subkriteria', ['id_subkriteria' => $ids])->result_array();
+            foreach ($subK as $sub) {
+                $nilaiS = $sub['nilai_subkriteria'];
+
+                $kriteria = $this->db->get_where('kriteria', ['id_kriteria' => $sub['id_kriteria']])->result_array();
+                foreach ($kriteria as $K) {
+                    $tipeK = $K['tipe_kriteria'];
+                    $idk = $K['id_kriteria'];
+
+                    if ($tipeK == 'Cost') {
+                        $query = "SELECT MIN(nilai_subkriteria) AS min
+                    FROM subkriteria 
+                    JOIN hitung
+                    ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                    WHERE subkriteria.id_kriteria = $idk";
+                        $hs = $this->db->query($query)->result_array();
+
+                        foreach ($hs as $HS) {
+                            $min = $HS['min'];
+                            if ($min != 0) {
+
+                                $normalisasi = $min / $nilaiS;
+                            } else {
+                                $normalisasi = $nilaiS / $nilaiS;
+                            }
+                        }
+                    } else {
+                        $query = "SELECT MAX(nilai_subkriteria) AS max
+                    FROM subkriteria 
+                    JOIN hitung
+                    ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                    WHERE subkriteria.id_kriteria = $idk";
+                        $hs = $this->db->query($query)->result_array();
+
+                        foreach ($hs as $HS) {
+                            $max = $HS['max'];
+                            if ($max != 0) {
+
+                                $normalisasi = $nilaiS / $max;
+                            } else {
+                                $normalisasi = $nilaiS / $nilaiS;
+                            }
+                        }
+                    }
+                }
+            }
+
+            $data = [
+                'nilai_normalisasi' => $normalisasi
+            ];
+            $this->db->set($data);
+            $this->db->where('id_hitung', $h['id_hitung']);
+            $this->db->update('hitung');
         }
     }
 

@@ -276,6 +276,7 @@ class Administrasi extends CI_Controller
         } else {
 
             $this->Alternatif_model->tambahDataAlternatif();
+            $this->Alternatif_model->updateNormalisasi();
             $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('administrasi/alternatif');
         }

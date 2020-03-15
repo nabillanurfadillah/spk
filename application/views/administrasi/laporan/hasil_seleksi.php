@@ -24,11 +24,11 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
+                        <th scope="col" style="vertical-align : middle;text-align:center;">No</th>
+                        <th scope="col" style="vertical-align : middle;text-align:center;">Nama</th>
 
                         <?php foreach ($kriteria as $k) : ?>
-                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?></th>
+                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?><br>(<?= $k['tipe_kriteria']; ?>)</th>
 
                         <?php endforeach; ?>
                     </tr>
@@ -49,7 +49,7 @@
                             <?php foreach ($hasil1 as $h) : ?>
 
 
-                                <td>
+                                <td style="text-align:center;">
                                     <?= $h['nama_subkriteria']; ?>
                                 </td>
 
@@ -65,11 +65,11 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
+                        <th scope="col" style="vertical-align : middle;text-align:center;">No</th>
+                        <th scope="col" style="vertical-align : middle;text-align:center;">Nama</th>
 
                         <?php foreach ($kriteria as $k) : ?>
-                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?></th>
+                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?><br>(<?= $k['tipe_kriteria']; ?>)</th>
 
                         <?php endforeach; ?>
                     </tr>
@@ -92,7 +92,7 @@
                             <?php foreach ($hasil1 as $h) : ?>
 
 
-                                <td>
+                                <td style="text-align:center;">
                                     <?= $h['nilai_subkriteria']; ?>
                                 </td>
 
@@ -111,11 +111,11 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
+                        <th scope="col" style="vertical-align : middle;text-align:center;">No</th>
+                        <th scope="col" style="vertical-align : middle;text-align:center;">Nama</th>
 
                         <?php foreach ($kriteria as $k) : ?>
-                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?></th>
+                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?><br>(<?= $k['tipe_kriteria']; ?>)</th>
 
                         <?php endforeach; ?>
                     </tr>
@@ -138,7 +138,7 @@
                             <?php foreach ($hasil1 as $h) : ?>
 
 
-                                <td>
+                                <td style="text-align:center;">
                                     <?= $h['nilai_normalisasi']; ?>
                                 </td>
 

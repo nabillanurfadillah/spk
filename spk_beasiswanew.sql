@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Mar 2020 pada 09.11
+-- Generation Time: 15 Mar 2020 pada 08.37
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -38,8 +38,11 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `nama_alternatif`, `jk`, `alamat`) VALUES
-(82, 'Nabilla Nur Fadillahh', 'Perempuan', 'Jl. Budi Utomo No. 04 RT 04 RW 04 Desa Buntu Kec. Kroya Kab. Cilacap 53282'),
-(83, 'Samson Sugiyarto', 'Laki-laki', 'Jl. Gadaian No. 645 Desa Sudagaran , Banyumas');
+(100, 'Nabilla Nur Fadillah', 'Perempuan', 'Kroya'),
+(101, 'Samson Sugiyarto', 'Laki-laki', 'Banyumas'),
+(102, 'Vita', 'Perempuan', 'Banyumas'),
+(103, 'Melin', 'Perempuan', 'Banyumas'),
+(104, 'Nur', 'Perempuan', 'Banyumas');
 
 -- --------------------------------------------------------
 
@@ -51,7 +54,6 @@ CREATE TABLE `hitung` (
   `id_hitung` int(11) NOT NULL,
   `id_alternatif` int(11) NOT NULL,
   `id_subkriteria` int(11) NOT NULL,
-  `nilai_subkriteria` double NOT NULL,
   `nilai_normalisasi` double NOT NULL,
   `hasil` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -60,15 +62,27 @@ CREATE TABLE `hitung` (
 -- Dumping data untuk tabel `hitung`
 --
 
-INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_subkriteria`, `nilai_normalisasi`, `hasil`) VALUES
-(10, 82, 7, 0, 0, 0),
-(11, 82, 18, 0, 0, 0),
-(12, 82, 11, 0, 0, 0),
-(13, 82, 21, 0, 0, 0),
-(14, 83, 4, 0, 0, 0),
-(15, 83, 18, 0, 0, 0),
-(16, 83, 11, 0, 0, 0),
-(17, 83, 24, 0, 0, 0);
+INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_normalisasi`, `hasil`) VALUES
+(32, 100, 4, 1, 0),
+(33, 100, 15, 0.25, 0),
+(34, 100, 13, 0.75, 0),
+(35, 100, 24, 1, 0),
+(36, 101, 7, 0.25, 0),
+(37, 101, 18, 1, 0),
+(38, 101, 14, 1, 0),
+(39, 101, 24, 1, 0),
+(40, 102, 6, 0.33333333333333, 0),
+(41, 102, 17, 0.75, 0),
+(42, 102, 13, 0.75, 0),
+(43, 102, 22, 0.6, 0),
+(44, 103, 7, 0.25, 0),
+(45, 103, 16, 0.5, 0),
+(46, 103, 11, 0.25, 0),
+(47, 103, 20, 0.2, 0),
+(48, 104, 7, 0.25, 0),
+(49, 104, 18, 1, 0),
+(50, 104, 14, 1, 0),
+(51, 104, 24, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -88,10 +102,10 @@ CREATE TABLE `kriteria` (
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`, `tipe_kriteria`, `id_nilai`) VALUES
-(5, 'Pendapatan Orang Tua', 'Cost', 5),
-(6, 'IPK Terakhir', 'Benefit', 4),
+(5, 'Pendapatan Orang Tua', 'Cost', 4),
+(6, 'IPK Terakhir', 'Benefit', 7),
 (7, 'Jumlah Bersaudara', 'Benefit', 6),
-(10, 'Semester', 'Benefit', 7);
+(10, 'Semester', 'Benefit', 5);
 
 -- --------------------------------------------------------
 
@@ -110,10 +124,10 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `keterangan_nilai`, `jumlah_nilai`) VALUES
-(4, 'Sangat Layak', 5),
-(5, 'Layak', 3),
-(6, 'Tidak Layak', 2),
-(7, 'Sangat Layak Sekali', 7);
+(4, 'Sangat Tinggi', 20),
+(5, 'Sedang', 15),
+(6, 'Rendah', 10),
+(7, 'Sangat Tinggi Sekali', 25);
 
 -- --------------------------------------------------------
 
@@ -163,25 +177,26 @@ CREATE TABLE `subkriteria` (
 --
 
 INSERT INTO `subkriteria` (`id_subkriteria`, `id_kriteria`, `nama_subkriteria`, `nilai_subkriteria`) VALUES
-(4, 5, '> 5.000.000.000', 2.5),
-(5, 5, '>3.000.000 - 5.000.000', 5),
-(6, 5, '>1.000.000 - 3.000.000', 7.5),
-(7, 5, '&lt;=1.000.000', 10),
-(10, 7, '0 Saudara', 0),
-(11, 7, '1 Saudara', 2.5),
-(12, 7, '2 Saudara', 5),
-(13, 7, '3 Saudara', 7.5),
-(14, 7, '> 4 Saudara', 10),
-(15, 6, 'IPK &lt; 2.50', 2.5),
-(16, 6, '2.50 &lt;=IPK&lt;= 3.00', 5),
-(17, 6, '3.00 > IPK &lt;=3.50', 7.5),
-(18, 6, 'IPK > 3.50', 10),
-(19, 10, 'Semester 2', 0),
-(20, 10, 'Semester 3', 2),
-(21, 10, 'Semester 4', 4),
-(22, 10, 'Semester 5', 6),
-(23, 10, 'Semester 6', 8),
-(24, 10, 'Semester 7', 10);
+(4, 5, '&lt;= Rp 4.500.000', 40),
+(5, 5, '&lt;= Rp 3.000.000', 60),
+(6, 5, '&lt;= Rp 1.500.000', 80),
+(7, 5, '&lt;= Rp 1.000.000', 100),
+(11, 7, '1 Saudara', 20),
+(12, 7, '2 Saudara', 40),
+(13, 7, '3 Saudara', 60),
+(14, 7, '> 4 Saudara', 100),
+(15, 6, '&lt;= 3.25', 40),
+(16, 6, '&lt;= 3.50', 60),
+(17, 6, '&lt; 3.75', 80),
+(18, 6, '>= 3.75', 100),
+(19, 10, 'Semester 2', 20),
+(20, 10, 'Semester 3', 40),
+(21, 10, 'Semester 4', 60),
+(22, 10, 'Semester 5', 80),
+(23, 10, 'Semester 6', 100),
+(25, 5, '> Rp 4.500.000', 20),
+(26, 6, '>= 3.00', 20),
+(27, 7, '4 Saudara', 80);
 
 -- --------------------------------------------------------
 
@@ -419,12 +434,12 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 --
 -- AUTO_INCREMENT for table `hitung`
 --
 ALTER TABLE `hitung`
-  MODIFY `id_hitung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_hitung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
@@ -444,7 +459,7 @@ ALTER TABLE `rangking`
 -- AUTO_INCREMENT for table `subkriteria`
 --
 ALTER TABLE `subkriteria`
-  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `user`
 --

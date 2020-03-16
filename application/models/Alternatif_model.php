@@ -33,7 +33,7 @@ class Alternatif_model extends CI_Model
         $this->db->insert('alternatif', $dataa);
         $id_alternatif = $this->db->insert_id();
 
-
+        $hasil = 0;
         foreach ($ids as $i) {
             $subK = $this->db->get_where('subkriteria', ['id_subkriteria' => $i])->result_array();
 
@@ -44,6 +44,7 @@ class Alternatif_model extends CI_Model
                 foreach ($kriteria as $K) {
                     $tipeK = $K['tipe_kriteria'];
                     $idk = $K['id_kriteria'];
+                    $idn = $K['id_nilai'];
 
                     if ($tipeK == 'Cost') {
                         $query = "SELECT MIN(nilai_subkriteria) AS min
@@ -80,8 +81,18 @@ class Alternatif_model extends CI_Model
                             }
                         }
                     }
+
+                    $nilai = $this->db->get_where('nilai', ['id_nilai' => $idn])->result_array();
+
+                    foreach ($nilai as $n) {
+                        $jn = $n['jumlah_nilai'];
+                        $kali = $jn * $normalisasi;
+                        $hasil += $kali;
+                    }
                 }
             }
+
+
             $data = [
                 'id_alternatif' => $id_alternatif,
                 'id_subkriteria' => $i,
@@ -90,14 +101,21 @@ class Alternatif_model extends CI_Model
             ];
             $this->db->insert('hitung', $data);
         }
+        $data1 = [
+            'id_alternatif' => $id_alternatif,
+            'hasil' => $hasil
+        ];
+        $this->db->insert('hasil', $data1);
     }
 
-    public function updateNormalisasi()
+    public function updateNormalisasiHasil()
     {
 
         $hitung = $this->db->get('hitung')->result_array();
+
         foreach ($hitung as $h) {
             $ids = $h['id_subkriteria'];
+            $ida = $h['id_alternatif'];
 
             $subK = $this->db->get_where('subkriteria', ['id_subkriteria' => $ids])->result_array();
             foreach ($subK as $sub) {
@@ -107,6 +125,8 @@ class Alternatif_model extends CI_Model
                 foreach ($kriteria as $K) {
                     $tipeK = $K['tipe_kriteria'];
                     $idk = $K['id_kriteria'];
+                    $idn = $K['id_nilai'];
+                    // var_dump($K['nama_kriteria']);
 
                     if ($tipeK == 'Cost') {
                         $query = "SELECT MIN(nilai_subkriteria) AS min
@@ -152,6 +172,41 @@ class Alternatif_model extends CI_Model
             $this->db->set($data);
             $this->db->where('id_hitung', $h['id_hitung']);
             $this->db->update('hitung');
+        }
+
+        $tHasil = $this->db->get('hasil')->result_array();
+        foreach ($tHasil as $th) {
+            $hasil = 0;
+            $ida1 = $th['id_alternatif'];
+            $idh = $th['id'];
+
+            $hitung1 = $this->db->get_where('hitung', ['id_alternatif' => $ida1])->result_array();
+            foreach ($hitung1 as $h) {
+
+                $subK1 = $this->db->get_where('subkriteria', ['id_subkriteria' => $h['id_subkriteria']])->result_array();
+                foreach ($subK1 as $sk) {
+                    $kriteria1 = $this->db->get_where('kriteria', ['id_kriteria' => $sk['id_kriteria']])->result_array();
+                    foreach ($kriteria1 as $k1) {
+
+                        $idn1 = $k1['id_nilai'];
+
+                        $nilai1 = $this->db->get_where('nilai', ['id_nilai' => $idn1])->result_array();
+
+                        foreach ($nilai1 as $n1) {
+                            $jn1 = $n1['jumlah_nilai'];
+                            $nor = $h['nilai_normalisasi'];
+                            $hasil += $nor * $jn1;
+                        }
+                    }
+                }
+            }
+            $data1 = [
+                'hasil' => $hasil
+            ];
+            // var_dump($hasil);
+            $this->db->set($data1);
+            $this->db->where('id', $idh);
+            $this->db->update('hasil');
         }
     }
 
@@ -199,6 +254,8 @@ class Alternatif_model extends CI_Model
                     $tipeK = $K['tipe_kriteria'];
                     $idk = $K['id_kriteria'];
 
+
+
                     if ($tipeK == 'Cost') {
                         $query = "SELECT MIN(nilai_subkriteria) AS min
                             FROM subkriteria 
@@ -236,6 +293,8 @@ class Alternatif_model extends CI_Model
                     }
                 }
             }
+
+
 
 
             $data1 = [

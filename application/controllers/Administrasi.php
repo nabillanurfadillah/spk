@@ -276,7 +276,7 @@ class Administrasi extends CI_Controller
         } else {
 
             $this->Alternatif_model->tambahDataAlternatif();
-            $this->Alternatif_model->updateNormalisasi();
+            $this->Alternatif_model->updateNormalisasiHasil();
             $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('administrasi/alternatif');
         }
@@ -306,7 +306,7 @@ class Administrasi extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Alternatif_model->ubahDataAlternatif($alternatif, $id_alternatif);
-            $this->Alternatif_model->updateNormalisasi();
+            $this->Alternatif_model->updateNormalisasiHasil();
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('administrasi/alternatif');
         }

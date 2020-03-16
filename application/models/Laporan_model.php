@@ -18,4 +18,10 @@ class Laporan_model extends CI_Model
     {
         return $this->db->get('kriteria')->result_array();
     }
+    public function getAllHasil()
+    {
+        $query = "SELECT nama_alternatif, hasil from alternatif join hasil on alternatif.id_alternatif=hasil.id_alternatif order by hasil DESC";
+        $hasil = $this->db->query($query)->result_array();
+        return $hasil;
+    }
 }

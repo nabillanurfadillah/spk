@@ -449,6 +449,7 @@ class Administrasi extends CI_Controller
         $data['hitung'] = $this->Laporan_model->getAllHitung();
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteria();
         $data['kriteria'] = $this->Laporan_model->getAllKriteria();
+        $data['hasil'] = $this->Laporan_model->getAllHasil();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

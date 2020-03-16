@@ -240,7 +240,7 @@ class Alternatif_model extends CI_Model
         foreach ($id_hitung as $key => $value) {
             $out[] = array_merge((array) $idsub[$key], (array) $value);
         }
-
+        $hasil = 0;
 
         foreach ($out as $ids) {
 
@@ -253,7 +253,7 @@ class Alternatif_model extends CI_Model
                 foreach ($kriteria as $K) {
                     $tipeK = $K['tipe_kriteria'];
                     $idk = $K['id_kriteria'];
-
+                    $idn = $K['id_nilai'];
 
 
                     if ($tipeK == 'Cost') {
@@ -291,6 +291,13 @@ class Alternatif_model extends CI_Model
                             }
                         }
                     }
+                    $nilai = $this->db->get_where('nilai', ['id_nilai' => $idn])->result_array();
+
+                    foreach ($nilai as $n) {
+                        $jn = $n['jumlah_nilai'];
+                        $kali = $jn * $normalisasi;
+                        $hasil += $kali;
+                    }
                 }
             }
 
@@ -306,6 +313,13 @@ class Alternatif_model extends CI_Model
             $this->db->where('id_hitung', $ids['id_hitung']);
             $this->db->update('hitung');
         }
+        $data2 = [
+
+            'hasil' => $hasil
+        ];
+        $this->db->set($data2);
+        $this->db->where('id_alternatif', $id_alternatif);
+        $this->db->update('hasil');
     }
 
     public function hapusDataAlternatif($id_alternatif)

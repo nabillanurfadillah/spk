@@ -75,7 +75,7 @@
                         <?php
                         if (count($graph) > 0) {
                             foreach ($graph as $data) {
-                                echo $data->hasil_alternatif . ", ";
+                                echo $data->hasil . ", ";
                             }
                         }
                         ?>

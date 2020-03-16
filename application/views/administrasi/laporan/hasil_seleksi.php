@@ -153,6 +153,36 @@
 
                 </tbody>
             </table>
+            <h4>Hasil Akhir</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Hasil</th>
+                        <th scope="col">Rank</th>
+
+
+                    </tr>
+                </thead>
+                <?php
+
+                ?>
+                <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($hasil as $a) : ?>
+
+                        <tr>
+                            <th scope="row"><?= $i ?></th>
+                            <td><?= $a['nama_alternatif']; ?></td>
+                            <td><?= $a['hasil']; ?></td>
+                            <td><?= $i; ?></td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
+
+                </tbody>
+            </table>
 
         </div>
     </div>

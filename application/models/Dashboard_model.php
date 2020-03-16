@@ -18,7 +18,8 @@ class Dashboard_model extends CI_Model
 
     public function graph()
     {
-        $data = $this->db->query("SELECT * from alternatif");
+        $query = "SELECT nama_alternatif, hasil from alternatif join hasil on alternatif.id_alternatif=hasil.id_alternatif order by hasil DESC";
+        $data = $this->db->query($query);
         return $data->result();
     }
 }

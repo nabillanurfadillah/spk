@@ -25,9 +25,20 @@
 			<a class="navbar-brand js-scroll-trigger" href="#page-top">SPK Beasiswa</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							LOGIN
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="<?= base_url('auth/login'); ?>">Beasiswa PPA</a>
+							<a class="dropdown-item" href="<?= base_url('auth/login'); ?>">Beasiswa Bidik Misi</a>
+							<a class="dropdown-item" href="<?= base_url('auth/login'); ?>">Beasiswa Berprestasi</a>
+							<a class="dropdown-item" href="<?= base_url('auth/login'); ?>">Beasiswa Kurang Mampu</a>
+
+						</div>
+					</li>
+					<!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li> -->
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
 				</ul>
 			</div>
@@ -45,13 +56,13 @@
 				<div class="col-lg-8 align-self-baseline">
 					<p class="text-white-75 font-weight-light mb-5">Sekolah Tinggi Ilmu Komputer (STIKOM) Yos Sudarso Purwokerto
 					</p>
-					<a class="btn btn-primary btn-xl js-scroll-trigger" href="<?= base_url('auth/login'); ?>">LOGIN</a>
+					<!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="">LOGIN</a> -->
 				</div>
 			</div>
 		</div>
 	</header>
 	<!-- About section-->
-	<section class="page-section bg-primary" id="about">
+	<!-- <section class="page-section bg-primary" id="about">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
@@ -65,8 +76,8 @@
 			</div>
 		</div>
 	</section>
-	<!-- Services section-->
-	<section class="page-section" id="services">
+	 Services section 
+	 <section class="page-section" id="services">
 		<div class="container">
 			<h2 class="text-center mt-0">At Your Service</h2>
 			<hr class="divider my-4" />
@@ -101,9 +112,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Portfolio section-->
-	<section id="portfolio">
+	<!-- <section id="portfolio">
 		<div class="container-fluid p-0">
 			<div class="row no-gutters">
 				<div class="col-lg-4 col-sm-6">
@@ -156,23 +167,22 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Call to action section-->
-	<section class="page-section bg-dark text-white">
+	<!-- <section class="page-section bg-dark text-white">
 		<div class="container text-center">
 			<h2 class="mb-4">Free Download at Start Bootstrap!</h2>
 			<a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
 		</div>
-	</section>
+	</section> -->
 	<!-- Contact section-->
 	<section class="page-section" id="contact">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
-					<h2 class="mt-0">Let's Get In Touch!</h2>
+					<h2 class="mt-0">CONTACT</h2>
 					<hr class="divider my-4" />
-					<p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an
-						email and we will get back to you as soon as possible!</p>
+					<p class="text-muted mb-5"></p>
 				</div>
 			</div>
 			<div class="row">

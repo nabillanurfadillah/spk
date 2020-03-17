@@ -28,6 +28,18 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function tipeBeasiswa()
+    {
+        $data['title'] = 'Pilih Beasiswa';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/tipe-beasiswa', $data);
+        $this->load->view('templates/footer');
+    }
     public function role()
     {
         $data['title'] = 'Role';

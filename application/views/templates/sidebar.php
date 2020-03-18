@@ -4,9 +4,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-paw"></i>
+            <i class="fas fa-code"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Nabilla Admin </div>
+        <div class="sidebar-brand-text mx-3">Admin </div>
     </a>
 
     <!-- Divider -->
@@ -30,14 +30,14 @@
 
         <!-- SIAPKAN SUB-MENU SESUAI MENU -->
         <?php
-            $menuId = $m['id'];
-            $querySubMenu = "SELECT *
+        $menuId = $m['id'];
+        $querySubMenu = "SELECT *
                             FROM `user_sub_menu` JOIN `user_menu`
                             ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
                             WHERE `user_sub_menu`.`menu_id` = $menuId
                             AND `user_sub_menu`.`is_active` = 1";
-            $subMenu = $this->db->query($querySubMenu)->result_array();
-            ?>
+        $subMenu = $this->db->query($querySubMenu)->result_array();
+        ?>
         <?php foreach ($subMenu as $sm) : ?>
             <?php if ($title == $sm['title']) : ?>
                 <li class="nav-item active">

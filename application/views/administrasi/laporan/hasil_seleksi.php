@@ -44,7 +44,7 @@
                             <?php
                             $beaId = $this->session->userdata('beasiswa_id');
                             $query1 = "SELECT nama_subkriteria from subkriteria join hitung on hitung.id_subkriteria=subkriteria.id_subkriteria
-                            where hitung.id_alternatif=$ida and subkriteria.beasiswa_id = $beaid";
+                            where hitung.id_alternatif=$ida and subkriteria.beasiswa_id = $beaId";
                             $hasil1 = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($hasil1 as $h) : ?>

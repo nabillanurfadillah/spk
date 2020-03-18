@@ -2,25 +2,25 @@
 
 class Laporan_model extends CI_Model
 {
-    public function getAllAlternatif()
+
+    public function getAllHitungbyBea()
     {
-        return $this->db->get('alternatif')->result_array();
+        $beaId = $this->session->userdata('beasiswa_id');
+        $query = "SELECT * FROM hitung join alternatif
+        ON hitung.id_alternatif = alternatif.id_alternatif
+        WHERE alternatif.beasiswa_id = $beaId ";
+        $hitung = $this->db->query($query)->result_array();
+        return $hitung;
     }
-    public function getAllHitung()
+
+    public function getAllSubKriteriaByBea()
     {
-        return $this->db->get('hitung')->result_array();
+        return $this->db->get_where('subkriteria', ['beasiswa_id' => $this->session->userdata('beasiswa_id')])->result_array();
     }
-    public function getAllSubKriteria()
+    public function getAllHasilByBea()
     {
-        return $this->db->get('subkriteria')->result_array();
-    }
-    public function getAllKriteria()
-    {
-        return $this->db->get('kriteria')->result_array();
-    }
-    public function getAllHasil()
-    {
-        $query = "SELECT nama_alternatif, hasil from alternatif join hasil on alternatif.id_alternatif=hasil.id_alternatif order by hasil DESC";
+        $beaId =  $this->session->userdata('beasiswa_id');
+        $query = "SELECT nama_alternatif, hasil from alternatif join hasil on alternatif.id_alternatif=hasil.id_alternatif where alternatif.beasiswa_id = $beaId order by hasil DESC";
         $hasil = $this->db->query($query)->result_array();
         return $hasil;
     }

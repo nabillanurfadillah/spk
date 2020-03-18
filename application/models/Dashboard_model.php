@@ -8,6 +8,10 @@ class Dashboard_model extends CI_Model
         return $this->db->get('nilai')->result_array();
     }
 
+    public function getBeasiswaByBea()
+    {
+        return $this->db->get_where('tipe_beasiswa', ['id' => $this->session->userdata('beasiswa_id')])->row_array();
+    }
     public function getAllKriteriaByBea()
     {
         return $this->db->get_where('kriteria', ['beasiswa_id' => $this->session->userdata('beasiswa_id')])->result_array();

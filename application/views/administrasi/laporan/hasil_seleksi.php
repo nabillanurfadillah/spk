@@ -42,8 +42,9 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['nama_alternatif']; ?></td>
                             <?php
+                            $beaId = $this->session->userdata('beasiswa_id');
                             $query1 = "SELECT nama_subkriteria from subkriteria join hitung on hitung.id_subkriteria=subkriteria.id_subkriteria
-                            where hitung.id_alternatif=$ida";
+                            where hitung.id_alternatif=$ida and subkriteria.beasiswa_id = $beaid";
                             $hasil1 = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($hasil1 as $h) : ?>
@@ -85,8 +86,9 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['nama_alternatif']; ?></td>
                             <?php
+                            $beaId = $this->session->userdata('beasiswa_id');
                             $query1 = "SELECT subkriteria.nilai_subkriteria from subkriteria join hitung on hitung.id_subkriteria=subkriteria.id_subkriteria
-                            where hitung.id_alternatif=$ida";
+                            where hitung.id_alternatif=$ida and subkriteria.beasiswa_id = $beaId";
                             $hasil1 = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($hasil1 as $h) : ?>
@@ -131,8 +133,11 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['nama_alternatif']; ?></td>
                             <?php
-
-                            $query1 = "SELECT nilai_normalisasi from hitung where hitung.id_alternatif=$ida";
+                            $beaId = $this->session->userdata('beasiswa_id');
+                            $query1 = "SELECT nilai_normalisasi from hitung join alternatif 
+                            on hitung.id_alternatif = alternatif.id_alternatif
+                             where hitung.id_alternatif=$ida
+                             and alternatif.beasiswa_id = $beaId";
                             $hasil1 = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($hasil1 as $h) : ?>

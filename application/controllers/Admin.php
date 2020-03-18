@@ -16,6 +16,7 @@ class Admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['nilai'] = $this->Dashboard_model->getAllNilai();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
         $data['alternatif'] = $this->Dashboard_model->getAllAlternatifByBea();
 
         $data['graph'] = $this->Dashboard_model->graph();

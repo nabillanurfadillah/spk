@@ -2,7 +2,16 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <?php if ($beasiswa['id'] == 1) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa PPA</h1>
+    <?php elseif ($beasiswa['id'] == 2) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Bidik Misi</h1>
+    <?php elseif ($beasiswa['id'] == 3) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Prestasi</h1>
+    <?php elseif ($beasiswa['id'] == 4) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Kurang Msmpu</h1>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col-lg-4">
             <h4 class="text-center">Nilai Preferensi</h4>

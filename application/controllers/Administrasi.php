@@ -149,7 +149,7 @@ class Administrasi extends CI_Controller
         $this->form_validation->set_rules('nama_subkriteria', 'Nama Subkriteria', 'required|trim');
         $this->form_validation->set_rules('nilai_subkriteria', 'Nilai Subkriteria', 'required|trim');
         $data['subkriteria'] = $this->db->get('subkriteria')->result_array();
-        $data['kriteria'] = $this->db->get('kriteria')->result_array();
+        $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
 
 
 
@@ -444,11 +444,11 @@ class Administrasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['alternatif'] = $this->Laporan_model->getAllAlternatif();
-        $data['hitung'] = $this->Laporan_model->getAllHitung();
-        $data['subkriteria'] = $this->Laporan_model->getAllSubKriteria();
-        $data['kriteria'] = $this->Laporan_model->getAllKriteria();
-        $data['hasil'] = $this->Laporan_model->getAllHasil();
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
+        $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
+        $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
+        $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
+        $data['hasil'] = $this->Laporan_model->getAllHasilByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

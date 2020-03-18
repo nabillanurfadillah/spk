@@ -202,10 +202,10 @@ class Administrasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['subkriteria'] = $this->SubKriteria_model->getSubKriteriaById($id_subkriteria);
         $subkriteria = $this->SubKriteria_model->getSubKriteriaById($id_subkriteria);
+        $data['subkriteria'] = $this->SubKriteria_model->getSubKriteriaById($id_subkriteria);
+        $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
 
-        $data['kriteria'] = $this->db->get('kriteria')->result_array();
         $data['subkriteriaall'] = $this->db->get('subkriteria')->result_array();
 
         $this->form_validation->set_rules('nama_subkriteria', 'Nama Sub Kriteria', 'required|trim');

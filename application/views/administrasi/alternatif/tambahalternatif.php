@@ -44,7 +44,8 @@
             ?>
 
             <?php
-            $qu = "SELECT nama_kriteria , id_kriteria from kriteria";
+            $beaId = $this->session->userdata('beasiswa_id');
+            $qu = "SELECT nama_kriteria , id_kriteria, beasiswa_id from kriteria where beasiswa_id = $beaId ";
             $qu1 = "SELECT nama_subkriteria from subkriteria";
             $que = $this->db->query($qu)->result_array();
             ?>
@@ -56,8 +57,8 @@
                     <div class="col-sm-8">
                         <?php
                         $ik = $q['id_kriteria'];
-
-                        $query4 = "SELECT * FROM subkriteria join kriteria on subkriteria.id_kriteria=kriteria.id_kriteria where subkriteria.id_kriteria=$ik";
+                        $beaId = $this->session->userdata('beasiswa_id');
+                        $query4 = "SELECT * FROM subkriteria join kriteria on subkriteria.id_kriteria=kriteria.id_kriteria where subkriteria.id_kriteria=$ik and subkriteria.beasiswa_id = $beaId";
                         $subKr = $this->db->query($query4)->result_array();
 
                         ?>

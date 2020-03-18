@@ -6,15 +6,21 @@ class SubKriteria_model extends CI_Model
     {
         return $this->db->get_where('subkriteria', ['id_subkriteria' => $id_subkriteria])->row_array();
     }
-    public function getAllSubKriteria()
+    public function getAllSubKriteriaByBea()
     {
-        return $this->db->get('subkriteria')->result_array();
+        $beaId = $this->session->userdata('beasiswa_id');
+        $query = "SELECT subkriteria.*, subkriteria.beasiswa_id, nama_kriteria
+                    FROM subkriteria join kriteria
+                    ON subkriteria.id_kriteria = kriteria.id_kriteria
+                    WHERE  subkriteria.beasiswa_id = $beaId";
+        return $this->db->query($query)->result_array();
     }
 
     public function tambahDataSubKriteria()
     {
-
+        $beaId = $this->session->userdata('beasiswa_id');
         $data = [
+            'beasiswa_id' => $beaId,
             'id_kriteria' => $this->input->post('id_kriteria', true),
             'nama_subkriteria' => $this->input->post('nama_subkriteria', true),
             'nilai_subkriteria' => $this->input->post('nilai_subkriteria', true)

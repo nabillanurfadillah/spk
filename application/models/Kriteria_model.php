@@ -6,14 +6,16 @@ class Kriteria_model extends CI_Model
     {
         return $this->db->get_where('kriteria', ['id_kriteria' => $id_kriteria])->row_array();
     }
-    public function getAllKriteria()
+    public function getAllKriteriaByBea()
     {
-        return $this->db->get('kriteria')->result_array();
+        return $this->db->get_where('kriteria', ['beasiswa_id' => $this->session->userdata('beasiswa_id')])->result_array();
     }
 
     public function tambahDataKriteria()
     {
+        $beaId = $this->session->userdata('beasiswa_id');
         $data = [
+            'beasiswa_id' => $beaId,
             'nama_kriteria' => $this->input->post('nama_kriteria', true),
             'tipe_kriteria' => $this->input->post('tipe_kriteria', true),
             'id_nilai' => $this->input->post('id_nilai', true)

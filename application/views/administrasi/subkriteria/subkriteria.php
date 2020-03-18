@@ -48,7 +48,7 @@
                 ?>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($datasubkriteria as $sk) : ?>
+                    <?php foreach ($subkriteria as $sk) : ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
                             <td><?= $sk['nama_kriteria']; ?></td>

@@ -16,7 +16,7 @@
 
     <div class="row justify-content-center col-lg-12">
         <div>
-            <a href="<?= base_url('admin/berprestasi'); ?>" class="btn btn-primary mb-3">Beasiswa Berprestasi</a>
+            <a href="<?= base_url('admin/prestasi'); ?>" class="btn btn-primary mb-3">Beasiswa Berprestasi</a>
         </div>
     </div>
     <div class="row justify-content-center col-lg-12">

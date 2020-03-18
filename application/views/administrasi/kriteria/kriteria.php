@@ -31,8 +31,10 @@
                     </tr>
                 </thead>
                 <?php
+                $beaId =  $this->session->userdata('beasiswa_id');
+
                 $query = "SELECT kriteria.nama_kriteria, kriteria.tipe_kriteria, nilai.jumlah_nilai, id_kriteria
-                            FROM kriteria INNER JOIN nilai ON kriteria.id_nilai = nilai.id_nilai";
+                            FROM kriteria INNER JOIN nilai ON kriteria.id_nilai = nilai.id_nilai where kriteria.beasiswa_id = $beaId";
                 $datakriteria = $this->db->query($query)->result_array();
 
                 ?>

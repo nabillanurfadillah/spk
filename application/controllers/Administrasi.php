@@ -93,7 +93,7 @@ class Administrasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['kriteria'] = $this->Kriteria_model->getAllKriteria();
+        $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -107,7 +107,7 @@ class Administrasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['subkriteria'] = $this->SubKriteria_model->getAllSubKriteria();
+        $data['subkriteria'] = $this->SubKriteria_model->getAllSubKriteriaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -248,7 +248,7 @@ class Administrasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -265,7 +265,6 @@ class Administrasi extends CI_Controller
 
         $this->form_validation->set_rules('nama_alternatif', 'Nama Alternatif', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);

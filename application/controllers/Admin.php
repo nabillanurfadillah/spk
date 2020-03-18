@@ -16,10 +16,11 @@ class Admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['nilai'] = $this->Dashboard_model->getAllNilai();
-        $data['kriteria'] = $this->Dashboard_model->getAllKriteria();
-        $data['alternatif'] = $this->Dashboard_model->getAllAlternatif();
+        $data['alternatif'] = $this->Dashboard_model->getAllAlternatifByBea();
 
         $data['graph'] = $this->Dashboard_model->graph();
+        $data['kriteria'] = $this->Dashboard_model->getAllKriteriaByBea();
+
 
 
         $this->load->view('templates/header', $data);
@@ -39,6 +40,66 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/tipe-beasiswa', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function ppa()
+    {
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '1'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+    public function bidikMisi()
+    {
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '2'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+    public function prestasi()
+    {
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '3'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+    public function kurangMampu()
+    {
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '4'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+
+    public function menuBeasiswa()
+    {
+
+        $this->session->unset_userdata('beasiswa_id');
+        redirect('admin/tipebeasiswa');
     }
     public function role()
     {

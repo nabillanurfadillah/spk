@@ -43,16 +43,24 @@
             </div>
 
             <?php
-
-            $query = "SELECT nama_kriteria , id_kriteria from kriteria";
+            $beaId = $this->session->userdata('beasiswa_id');
+            $query = "SELECT nama_kriteria , id_kriteria from kriteria where beasiswa_id = $beaId";
             $kri = $this->db->query($query)->result_array();
 
+
             $out = [];
+
+            // $query1 = "SELECT hitung.* from hitung join alternatif
+            // on hitung.id_alternatif = alternatif.id_alternatif 
+            // where alternatif.beasiswa_id = $beaId ";
+            // $hitung = $this->db->query($query1)->result_array();
+            // var_dump($hitung);
+            // die;
 
             foreach ($hitung as $key => $value) {
                 $out[] = array_merge((array) $kri[$key], (array) $value);
             }
-           
+
             ?>
 
             <?php foreach ($out as $kr) : ?>
@@ -64,7 +72,8 @@
                     <div class="col-sm-8">
 
                         <?php
-                        $query1 = "SELECT * FROM subkriteria WHERE subkriteria.id_kriteria = $idk";
+                        $beaId = $this->session->userdata('beasiswa_id');
+                        $query1 = "SELECT * FROM subkriteria WHERE subkriteria.id_kriteria = $idk and beasiswa_id = $beaId";
                         $subKr = $this->db->query($query1)->result_array();
                         ?>
 

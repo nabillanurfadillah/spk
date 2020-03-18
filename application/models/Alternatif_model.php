@@ -2,10 +2,10 @@
 
 class Alternatif_model extends CI_Model
 {
-    public function getAllAlternatif()
+    public function getAllAlternatifByBea()
     {
-
-        return $this->db->get('alternatif')->result_array();
+        $beaId = $this->session->userdata('beasiswa_id');
+        return $this->db->get_where('alternatif', ['beasiswa_id' => $beaId])->result_array();
     }
     public function getAllSubkriteria()
     {
@@ -24,8 +24,9 @@ class Alternatif_model extends CI_Model
     public function tambahDataAlternatif()
     {
         $ids = $this->input->post('id_subkriteria', true);
-
+        $beaId = $this->session->userdata('beasiswa_id');
         $dataa = [
+            'beasiswa_id' => $beaId,
             'nama_alternatif' => $this->input->post('nama_alternatif', true),
             'jk' => $this->input->post('jk', true),
             'alamat' => $this->input->post('alamat', true)
@@ -47,11 +48,12 @@ class Alternatif_model extends CI_Model
                     $idn = $K['id_nilai'];
 
                     if ($tipeK == 'Cost') {
-                        $query = "SELECT MIN(nilai_subkriteria) AS min
+                        $beaId = $this->session->userdata('beasiswa_id');
+                        $query = "SELECT  MIN(nilai_subkriteria) AS min
                         FROM subkriteria 
                         JOIN hitung
                         ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                        WHERE subkriteria.id_kriteria = $idk";
+                        WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId ";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -64,11 +66,12 @@ class Alternatif_model extends CI_Model
                             }
                         }
                     } else {
+                        $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MAX(nilai_subkriteria) AS max
                         FROM subkriteria 
                         JOIN hitung
                         ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                        WHERE subkriteria.id_kriteria = $idk";
+                        WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId ";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -110,8 +113,11 @@ class Alternatif_model extends CI_Model
 
     public function updateNormalisasiHasil()
     {
-
-        $hitung = $this->db->get('hitung')->result_array();
+        $beaId = $this->session->userdata('beasiswa_id');
+        $query = "SELECT * FROM hitung join alternatif
+        ON hitung.id_alternatif = alternatif.id_alternatif
+        WHERE alternatif.beasiswa_id = $beaId ";
+        $hitung = $this->db->query($query)->result_array();
 
         foreach ($hitung as $h) {
             $ids = $h['id_subkriteria'];
@@ -129,11 +135,12 @@ class Alternatif_model extends CI_Model
                     // var_dump($K['nama_kriteria']);
 
                     if ($tipeK == 'Cost') {
+                        $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MIN(nilai_subkriteria) AS min
                     FROM subkriteria 
                     JOIN hitung
                     ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                    WHERE subkriteria.id_kriteria = $idk";
+                    WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -146,11 +153,12 @@ class Alternatif_model extends CI_Model
                             }
                         }
                     } else {
+                        $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MAX(nilai_subkriteria) AS max
                     FROM subkriteria 
                     JOIN hitung
                     ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                    WHERE subkriteria.id_kriteria = $idk";
+                    WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -173,8 +181,12 @@ class Alternatif_model extends CI_Model
             $this->db->where('id_hitung', $h['id_hitung']);
             $this->db->update('hitung');
         }
+        $beaId = $this->session->userdata('beasiswa_id');
+        $query = " SELECT hasil.* from hasil join alternatif
+        on hasil.id_alternatif = alternatif.id_alternatif 
+        where alternatif.beasiswa_id = $beaId";
+        $tHasil = $this->db->query($query)->result_array();
 
-        $tHasil = $this->db->get('hasil')->result_array();
         foreach ($tHasil as $th) {
             $hasil = 0;
             $ida1 = $th['id_alternatif'];
@@ -257,11 +269,12 @@ class Alternatif_model extends CI_Model
 
 
                     if ($tipeK == 'Cost') {
+                        $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MIN(nilai_subkriteria) AS min
                             FROM subkriteria 
                             JOIN hitung
                             ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                            WHERE subkriteria.id_kriteria = $idk";
+                            WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -274,11 +287,12 @@ class Alternatif_model extends CI_Model
                             }
                         }
                     } else {
+                        $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MAX(nilai_subkriteria) AS max
                             FROM subkriteria 
                             JOIN hitung
                             ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                            WHERE subkriteria.id_kriteria = $idk";
+                            WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {

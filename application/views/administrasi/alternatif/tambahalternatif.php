@@ -11,6 +11,13 @@
 
 
             <div class="form-group row">
+                <label for="nim" class="col-sm-4 col-form-label">NIM</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control col-sm-9" id="nim" name="nim" placeholder="Masukkan NIM" value="<?= set_value('nim'); ?>">
+                    <?= form_error('nim', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="nama_alternatif" class="col-sm-4 col-form-label">Nama</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control col-sm-9" id="nama_alternatif" name="nama_alternatif" placeholder="Masukkan Nama Alternatif" value="<?= set_value('nama_alternatif'); ?>">
@@ -34,7 +41,7 @@
             <div class="form-group row">
                 <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control col-sm-9" id="alamat" name="alamat" placeholder="Masukkan Nama Alternatif" value="<?= set_value('alamat'); ?>">
+                    <input type="text" class="form-control col-sm-9" id="alamat" name="alamat" placeholder="Masukkan Alamat" value="<?= set_value('alamat'); ?>">
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>

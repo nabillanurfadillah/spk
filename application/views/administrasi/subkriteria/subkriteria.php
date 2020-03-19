@@ -18,20 +18,9 @@
 
                 <div class="flash-data-subkriteria" data-flashdatasubkriteria="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
-            <div class="form-group row">
-                <label for="kriteria" class="col-sm-2 col-form-label"><b>Pilih Kriteria</b></label>
-                <div class="col-sm-4">
-                    <select name="kriteria" id="kriteria" class="form-control col-sm-9">
-                        <?php foreach ($kriteria as $k) : ?>
 
-                            <option value="<?= $k['id_kriteria'] ?>"><?= $k['nama_kriteria'] ?></option>
-
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
             <a href="<?= base_url('administrasi/tambahsubkriteria'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
-            <table class="table table-hover">
+            <table class="table table-bordered table-hover" id="reminders">
                 <thead>
                     <tr>
                         <th scope="col">No</th>

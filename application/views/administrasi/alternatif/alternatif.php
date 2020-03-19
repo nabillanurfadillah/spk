@@ -23,6 +23,7 @@
                 <thead>
                     <tr>
                         <th scope="col">No</th>
+                        <th scope="col">NIM</th>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Jenis Kelamin</th>
@@ -36,6 +37,7 @@
                     <?php foreach ($alternatif as $a) : ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
+                            <td><?= $a['nim']; ?></td>
                             <td><?= $a['nama_alternatif']; ?></td>
                             <td><?= $a['alamat']; ?></td>
                             <td><?= $a['jk']; ?></td>

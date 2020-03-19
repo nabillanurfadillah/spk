@@ -12,6 +12,13 @@
 
 
             <div class="form-group row">
+                <label for="nim" class="col-sm-4 col-form-label">NIM</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="nim" name="nim" value="<?= $alternatif['nim']; ?>">
+                    <?= form_error('nim', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="nama_alternatif" class="col-sm-4 col-form-label">Nama Alternatif</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="nama_alternatif" name="nama_alternatif" value="<?= $alternatif['nama_alternatif']; ?>">

@@ -21,7 +21,7 @@
             <?php endif; ?>
             <ul class="nav nav-pills mb-4">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Nilai Alternatif</a>
+                    <a class="nav-link" href="<?= base_url() ?>administrasi/hasil_seleksi/">Nilai Alternatif</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>administrasi/konversi/">Konversi</a>
@@ -30,53 +30,42 @@
                     <a class="nav-link" href="<?= base_url() ?>administrasi/normalisasi/">Normalisasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>administrasi/hasil_akhir/">Hasil Akhir</a>
+                    <a class="nav-link active" href="#">Hasil Akhir</a>
                 </li>
 
 
             </ul>
-            <h4>Nilai Alternatif</h4>
+
+            <h4>Hasil Akhir</h4>
             <table class="table table-bordered table-hover" id="reminders">
                 <thead>
                     <tr>
-                        <th scope="col" style="vertical-align : middle;text-align:center;">No</th>
-                        <th scope="col" style="vertical-align : middle;text-align:center;">Nama</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Hasil</th>
+                        <th scope="col">Rank</th>
 
-                        <?php foreach ($kriteria as $k) : ?>
-                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?><br>(<?= $k['tipe_kriteria']; ?>)</th>
 
-                        <?php endforeach; ?>
                     </tr>
                 </thead>
+                <?php
 
+                ?>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($alternatif as $a) : ?>
+                    <?php foreach ($hasil as $a) : ?>
+
                         <tr>
-                            <?php $ida = $a['id_alternatif']; ?>
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['nama_alternatif']; ?></td>
-                            <?php
-                            $beaId = $this->session->userdata('beasiswa_id');
-                            $query1 = "SELECT nama_subkriteria from subkriteria join hitung on hitung.id_subkriteria=subkriteria.id_subkriteria
-                            where hitung.id_alternatif=$ida and subkriteria.beasiswa_id = $beaId";
-                            $hasil1 = $this->db->query($query1)->result_array();
-                            ?>
-                            <?php foreach ($hasil1 as $h) : ?>
-
-
-                                <td style="text-align:center;">
-                                    <?= $h['nama_subkriteria']; ?>
-                                </td>
-
-                            <?php endforeach; ?>
+                            <td><?= $a['hasil']; ?></td>
+                            <td><?= $i; ?></td>
                         </tr>
                         <?php $i++; ?>
                     <?php endforeach; ?>
 
                 </tbody>
             </table>
-
 
         </div>
     </div>

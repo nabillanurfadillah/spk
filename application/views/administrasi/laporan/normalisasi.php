@@ -21,13 +21,13 @@
             <?php endif; ?>
             <ul class="nav nav-pills mb-4">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Nilai Alternatif</a>
+                    <a class="nav-link" href="<?= base_url() ?>administrasi/hasil_seleksi/">Nilai Alternatif</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>administrasi/konversi/">Konversi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>administrasi/normalisasi/">Normalisasi</a>
+                    <a class="nav-link active" href="#">Normalisasi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>administrasi/hasil_akhir/">Hasil Akhir</a>
@@ -35,7 +35,7 @@
 
 
             </ul>
-            <h4>Nilai Alternatif</h4>
+            <h4>Normalisasi</h4>
             <table class="table table-bordered table-hover" id="reminders">
                 <thead>
                     <tr>
@@ -48,28 +48,36 @@
                         <?php endforeach; ?>
                     </tr>
                 </thead>
+                <?php
 
+                ?>
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($alternatif as $a) : ?>
+                        <?php $ida = $a['id_alternatif']; ?>
                         <tr>
-                            <?php $ida = $a['id_alternatif']; ?>
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['nama_alternatif']; ?></td>
                             <?php
                             $beaId = $this->session->userdata('beasiswa_id');
-                            $query1 = "SELECT nama_subkriteria from subkriteria join hitung on hitung.id_subkriteria=subkriteria.id_subkriteria
-                            where hitung.id_alternatif=$ida and subkriteria.beasiswa_id = $beaId";
+                            $query1 = "SELECT nilai_normalisasi from hitung join alternatif 
+                            on hitung.id_alternatif = alternatif.id_alternatif
+                             where hitung.id_alternatif=$ida
+                             and alternatif.beasiswa_id = $beaId";
                             $hasil1 = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($hasil1 as $h) : ?>
 
 
                                 <td style="text-align:center;">
-                                    <?= $h['nama_subkriteria']; ?>
+                                    <?= $h['nilai_normalisasi']; ?>
                                 </td>
 
                             <?php endforeach; ?>
+
+
+
+
                         </tr>
                         <?php $i++; ?>
                     <?php endforeach; ?>

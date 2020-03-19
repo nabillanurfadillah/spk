@@ -27,6 +27,7 @@ class Alternatif_model extends CI_Model
         $beaId = $this->session->userdata('beasiswa_id');
         $dataa = [
             'beasiswa_id' => $beaId,
+            'nim' => $this->input->post('nim', true),
             'nama_alternatif' => $this->input->post('nama_alternatif', true),
             'jk' => $this->input->post('jk', true),
             'alamat' => $this->input->post('alamat', true)
@@ -99,8 +100,8 @@ class Alternatif_model extends CI_Model
             $data = [
                 'id_alternatif' => $id_alternatif,
                 'id_subkriteria' => $i,
-                'nilai_normalisasi' => $normalisasi,
-                'hasil' => ''
+                'nilai_normalisasi' => $normalisasi
+
             ];
             $this->db->insert('hitung', $data);
         }
@@ -224,11 +225,13 @@ class Alternatif_model extends CI_Model
 
     public function ubahDataAlternatif($alternatif, $id_alternatif)
     {
+        $nim = $this->input->post('nim', true);
         $nama_alternatif = $this->input->post('nama_alternatif', true);
         $jk = $this->input->post('jk', true);
         $alamat = $this->input->post('alamat', true);
 
         $data = [
+            'nim' => $nim,
             'nama_alternatif' => $nama_alternatif,
             'jk' => $jk,
             'alamat' => $alamat,
@@ -320,8 +323,8 @@ class Alternatif_model extends CI_Model
 
             $data1 = [
                 'id_subkriteria' => $ids['id_subkriteria'],
-                'nilai_normalisasi' => $normalisasi,
-                'hasil' => ''
+                'nilai_normalisasi' => $normalisasi
+
             ];
             $this->db->set($data1);
             $this->db->where('id_hitung', $ids['id_hitung']);
@@ -340,5 +343,6 @@ class Alternatif_model extends CI_Model
     {
         $this->db->delete('alternatif', ['id_alternatif' => $id_alternatif]);
         $this->db->delete('hitung', ['id_alternatif' => $id_alternatif]);
+        $this->db->delete('hasil', ['id_alternatif' => $id_alternatif]);
     }
 }

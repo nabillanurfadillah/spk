@@ -8,6 +8,7 @@ class Menu extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Menu_model');
+        $this->load->model('Submenu_model', 'Submenu');
     }
     public function index()
     {
@@ -17,7 +18,10 @@ class Menu extends CI_Controller
 
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
-        $this->form_validation->set_rules('menu', 'Menu', 'required');
+        $this->form_validation->set_rules('menu', 'Menu', 'required|trim');
+
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -27,61 +31,62 @@ class Menu extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
-            $this->session->set_flashdata('message', 'Ditambahkan');
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> New menu added!</div>');
             redirect('menu');
         }
     }
 
-    public function editmenu($id)
+    public function editmenu()
     {
-        $data['title'] = 'Edit Menu';
+
+        $data['title'] = 'Menu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
-        $data['menu'] = $this->Menu_model->getMenuById($id);
-        $menu = $this->Menu_model->getMenuById($id);
-
-        $this->form_validation->set_rules('menu', 'Menu Name', 'required|trim');
-
+        $this->form_validation->set_rules('menuedit', 'Menu', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('menu/editmenu', $data);
+            $this->load->view('menu/index', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Menu_model->ubahDataMenu($menu, $id);
-
-            $this->session->set_flashdata('message', 'Diubah!');
-            redirect('menu/index');
+            $this->Menu_model->ubahDataMenu();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Menu Berhasil Diubah!</div>');
+            redirect('menu');
         }
     }
 
-    public function hapusmenu($id)
+    public function hapusmenu()
     {
-        $menu = $this->Menu_model->getMenuById($id);
-
-        $this->Menu_model->hapusDataMenu($id, $menu);
-        $this->session->set_flashdata('message', 'Dihapus!');
-        redirect('menu/index');
+        $this->Menu_model->hapusDataMenu();
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert"> Menu Berhasil Dihapus!</div>');
+        redirect('menu');
     }
+
+
 
     public function submenu()
     {
         $data['title'] = 'Submenu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+
         $this->load->model('Menu_model', 'menu');
 
         $data['subMenu'] = $this->menu->getSubMenu();
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('menu_id', 'Menu', 'required');
-        $this->form_validation->set_rules('url', 'URL', 'required');
-        $this->form_validation->set_rules('icon', 'Icon', 'required');
-
+        $this->form_validation->set_rules('title', 'Title', 'required|trim');
+        $this->form_validation->set_rules('menu_id', 'Menu', 'required|trim');
+        $this->form_validation->set_rules('url', 'URL', 'required|trim');
+        $this->form_validation->set_rules('icon', 'icon', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -98,44 +103,41 @@ class Menu extends CI_Controller
                 'is_active' => $this->input->post('is_active')
             ];
             $this->db->insert('user_sub_menu', $data);
-            $this->session->set_flashdata('message', 'Ditambahkan!');
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> New sub menu added!</div>');
             redirect('menu/submenu');
         }
     }
 
-    public function editsubmenu($id)
+    public function editSubmenu()
     {
-        $data['title'] = 'Edit Sub Menu';
+        $data['title'] = 'Submenu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
-        $data['submenu'] = $this->Menu_model->getSubMenuById($id);
-        $submenu = $this->Menu_model->getSubMenuById($id);
-        $data['menu'] = $this->db->get('user_menu')->result_array();
         $this->form_validation->set_rules('title', 'Title', 'required|trim');
+        $this->form_validation->set_rules('menu_id', 'Menu', 'required|trim');
         $this->form_validation->set_rules('url', 'URL', 'required|trim');
-        $this->form_validation->set_rules('icon', 'Icon', 'required|trim');
-
+        $this->form_validation->set_rules('icon', 'icon', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('menu/editsubmenu', $data);
+            $this->load->view('menu/submenu', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Menu_model->ubahDataSubMenu($submenu, $id);
-
-            $this->session->set_flashdata('message', 'Diubah!');
+            $this->Submenu->ubahDataSubMenu();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Sub Menu Berhasil Diubah!</div>');
             redirect('menu/submenu');
         }
     }
-    public function hapussubmenu($id)
-    {
-        $submenu = $this->Menu_model->getSubMenuById($id);
 
-        $this->Menu_model->hapusDataSubMenu($id, $submenu);
-        $this->session->set_flashdata('message', 'Dihapus!');
+    public function hapussubmenu()
+    {
+        $this->Submenu->hapusSubMenu();
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert"> Sub Menu Berhasil Dihapus!</div>');
         redirect('menu/submenu');
     }
 }

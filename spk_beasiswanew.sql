@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Mar 2020 pada 11.22
+-- Generation Time: 20 Mar 2020 pada 10.03
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -40,17 +40,14 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `beasiswa_id`, `nim`, `nama_alternatif`, `jk`, `alamat`) VALUES
-(2, 1, 201601053, 'Nabilla Nur Fadillah', 'Perempuan', 'Kroya'),
-(3, 1, 201601041, 'Samson Sugiyarto', 'Laki-laki', 'Banyumas'),
-(4, 1, 201801077, 'Lyodra Ginting', 'Perempuan', 'Medan'),
-(5, 1, 201901089, 'Tiara Anugrah', 'Perempuan', 'Jember'),
-(6, 1, 201702034, 'Ziva Magnolya', 'Perempuan', 'Jakarta'),
 (7, 2, 201601076, 'Nuca', 'Laki-laki', 'Salatiga'),
 (8, 2, 201503023, 'Mahalini', 'Perempuan', 'Bali'),
 (9, 3, 201701098, 'Mirabeth Sonia', 'Perempuan', 'Jakarta'),
 (10, 3, 201801097, 'Ainun', 'Perempuan', 'Sulawesi'),
 (11, 4, 201801065, 'Novia Bachmid', 'Perempuan', 'Jakarta'),
-(12, 4, 201901076, 'Agseisa Galuh', 'Perempuan', 'Banjarmasin');
+(12, 4, 201901076, 'Agseisa Galuh', 'Perempuan', 'Banjarmasin'),
+(17, 1, 201601078, 'Lyodra Ginting', 'Perempuan', 'Medan'),
+(18, 1, 201601011, 'Samson Sugiyarto', 'Laki-laki', 'Banyumas');
 
 -- --------------------------------------------------------
 
@@ -70,17 +67,14 @@ CREATE TABLE `hasil` (
 --
 
 INSERT INTO `hasil` (`id`, `beasiswa_id`, `id_alternatif`, `hasil`) VALUES
-(2, 0, 2, 76.666666666667),
-(3, 0, 3, 81.166666666667),
-(4, 0, 4, 57.333333333333),
-(5, 0, 5, 56.333333333333),
-(6, 0, 6, 67.5),
-(7, 0, 7, 100),
-(8, 0, 8, 66.666666666667),
-(9, 0, 9, 33),
-(10, 0, 10, 100),
-(11, 0, 11, 67),
-(12, 0, 12, 77.5);
+(7, 0, 7, 116.66666666667),
+(8, 0, 8, 120),
+(9, 0, 9, 72.5),
+(10, 0, 10, 126),
+(11, 0, 11, 74),
+(12, 0, 12, 150),
+(17, 0, 17, 150),
+(18, 0, 18, 108);
 
 -- --------------------------------------------------------
 
@@ -100,37 +94,12 @@ CREATE TABLE `hitung` (
 --
 
 INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_normalisasi`) VALUES
-(6, 2, 4, 1),
-(7, 2, 10, 1),
-(8, 2, 13, 0.6),
-(9, 2, 16, 0.2),
-(10, 2, 22, 0.66666666666667),
-(11, 3, 3, 0.75),
-(12, 3, 10, 1),
-(13, 3, 13, 0.6),
-(14, 3, 20, 1),
-(15, 3, 22, 0.66666666666667),
-(16, 4, 4, 1),
-(17, 4, 6, 0.2),
-(18, 4, 11, 0.2),
-(19, 4, 20, 1),
-(20, 4, 21, 0.33333333333333),
-(21, 5, 2, 0.5),
-(22, 5, 8, 0.6),
-(23, 5, 12, 0.4),
-(24, 5, 20, 1),
-(25, 5, 21, 0.33333333333333),
-(26, 6, 3, 0.75),
-(27, 6, 7, 0.4),
-(28, 6, 15, 1),
-(29, 6, 18, 0.33333333333333),
-(30, 6, 23, 1),
-(31, 7, 28, 1),
+(31, 7, 28, 0.33333333333333),
 (32, 7, 31, 1),
 (33, 7, 38, 1),
 (34, 7, 43, 1),
 (35, 7, 47, 1),
-(36, 8, 26, 0.6),
+(36, 8, 26, 1),
 (37, 8, 31, 1),
 (38, 8, 36, 0.33333333333333),
 (39, 8, 41, 0.6),
@@ -138,23 +107,33 @@ INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_nor
 (41, 9, 51, 0.25),
 (42, 9, 56, 0.5),
 (43, 9, 61, 0.33333333333333),
-(44, 9, 66, 0.2),
+(44, 9, 66, 1),
 (45, 9, 71, 0.33333333333333),
 (46, 10, 54, 1),
 (47, 10, 57, 1),
 (48, 10, 63, 1),
-(49, 10, 70, 1),
+(49, 10, 70, 0.2),
 (50, 10, 73, 1),
-(51, 11, 80, 1),
+(51, 11, 80, 0.4),
 (52, 11, 82, 0.4),
 (53, 11, 89, 0.8),
 (54, 11, 93, 0.6),
 (55, 11, 96, 0.2),
-(56, 12, 77, 0.25),
+(56, 12, 77, 1),
 (57, 12, 85, 1),
 (58, 12, 90, 1),
 (59, 12, 95, 1),
-(60, 12, 100, 1);
+(60, 12, 100, 1),
+(81, 17, 5, 1),
+(82, 17, 6, 1),
+(83, 17, 11, 1),
+(84, 17, 16, 1),
+(85, 17, 21, 1),
+(86, 18, 4, 0.8),
+(87, 18, 6, 1),
+(88, 18, 11, 1),
+(89, 18, 20, 0.2),
+(90, 18, 21, 1);
 
 -- --------------------------------------------------------
 
@@ -176,10 +155,10 @@ CREATE TABLE `kriteria` (
 
 INSERT INTO `kriteria` (`id_kriteria`, `beasiswa_id`, `nama_kriteria`, `tipe_kriteria`, `id_nilai`) VALUES
 (1, 1, 'IPK Terakhir', 'Benefit', 8),
-(2, 1, 'Semester', 'Benefit', 7),
-(3, 1, 'Keaktifan Organisasi', 'Benefit', 4),
-(4, 1, 'Pendapatan Orang Tua', 'Cost', 5),
-(5, 1, 'Jumlah Saudara', 'Benefit', 6),
+(2, 1, 'Semester', 'Benefit', 5),
+(3, 1, 'Keaktifan Organisasi', 'Benefit', 6),
+(4, 1, 'Pendapatan Orang Tua', 'Cost', 7),
+(5, 1, 'Jumlah Saudara', 'Benefit', 4),
 (6, 2, 'Penghasilan Orang Tua', 'Cost', 8),
 (7, 2, 'Jumlah Tanggungan', 'Benefit', 7),
 (8, 2, 'Rata-rata Nilai Raport', 'Benefit', 4),
@@ -187,9 +166,9 @@ INSERT INTO `kriteria` (`id_kriteria`, `beasiswa_id`, `nama_kriteria`, `tipe_kri
 (10, 2, 'Bukti Pembayaran PBB', 'Cost', 6),
 (11, 3, 'IPK Terakhir', 'Benefit', 8),
 (12, 3, 'Keikutsertaan Organisasi', 'Benefit', 7),
-(13, 3, 'Semester', 'Benefit', 4),
-(14, 3, 'Pendapatan Orang Tua', 'Cost', 5),
-(15, 3, 'Jumlah Bersaudara', 'Benefit', 6),
+(13, 3, 'Semester', 'Benefit', 6),
+(14, 3, 'Pendapatan Orang Tua', 'Cost', 4),
+(15, 3, 'Jumlah Bersaudara', 'Benefit', 5),
 (16, 4, 'Pendapatan Orang Tua', 'Cost', 8),
 (17, 4, 'Jumlah Saudara', 'Benefit', 7),
 (18, 4, 'IPK Terakhir', 'Benefit', 4),
@@ -213,11 +192,11 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `keterangan_nilai`, `jumlah_nilai`) VALUES
-(4, 'Sedang', 20),
-(5, 'Rendah', 15),
+(4, 'Sedang', 30),
+(5, 'Rendah', 20),
 (6, 'Sangat Rendah', 10),
-(7, 'Tinggi', 25),
-(8, 'Sangat Tinggi', 30);
+(7, 'Tinggi', 40),
+(8, 'Sangat Tinggi', 50);
 
 -- --------------------------------------------------------
 
@@ -253,21 +232,21 @@ INSERT INTO `subkriteria` (`id_subkriteria`, `beasiswa_id`, `id_kriteria`, `nama
 (13, 1, 3, 'Mengikuti 2 Organisasi', 60),
 (14, 1, 3, 'Mengikuti 3 Organisasi', 80),
 (15, 1, 3, 'Mengikuti > 3 Organisasi', 100),
-(16, 1, 4, '&lt;= Rp 1.000.000', 100),
-(17, 1, 4, '&lt;= Rp 1.500.000', 80),
+(16, 1, 4, '&lt;= Rp 1.000.000', 20),
+(17, 1, 4, '&lt;= Rp 1.500.000', 40),
 (18, 1, 4, '&lt;= Rp 3.000.000', 60),
-(19, 1, 4, '&lt;= Rp 4.500.000', 40),
-(20, 1, 4, '> 4.500.000.000', 20),
+(19, 1, 4, '&lt;= Rp 4.500.000', 80),
+(20, 1, 4, '> 4.500.000.000', 100),
 (21, 1, 5, '0 Saudara', 20),
 (22, 1, 5, '1 Saudara', 40),
 (23, 1, 5, '2 Saudara', 60),
 (24, 1, 5, '3 Saudara', 80),
 (25, 1, 5, '> 3 Saudara', 100),
-(26, 2, 6, '&lt;= Rp 1.000.000', 100),
-(27, 2, 6, '&lt;= Rp 1.500.000', 80),
+(26, 2, 6, '&lt;= Rp 1.000.000', 20),
+(27, 2, 6, '&lt;= Rp 1.500.000', 40),
 (28, 2, 6, '&lt;= Rp 3.000.000', 60),
-(29, 2, 6, '&lt;= Rp 4.500.000', 40),
-(30, 2, 6, '> Rp 4.500.000', 20),
+(29, 2, 6, '&lt;= Rp 4.500.000', 80),
+(30, 2, 6, '> Rp 4.500.000', 100),
 (31, 2, 7, '1 Tanggungan', 20),
 (32, 2, 7, '2 Tanggungan', 40),
 (33, 2, 7, '3 Tanggungan', 60),
@@ -303,21 +282,21 @@ INSERT INTO `subkriteria` (`id_subkriteria`, `beasiswa_id`, `id_kriteria`, `nama
 (63, 3, 13, 'Semester 4', 60),
 (64, 3, 13, 'Semester 5', 80),
 (65, 3, 13, 'Semester 6', 100),
-(66, 3, 14, '&lt;= Rp 1.000.000', 100),
-(67, 3, 14, '&lt;= Rp 1.500.000', 80),
+(66, 3, 14, '&lt;= Rp 1.000.000', 20),
+(67, 3, 14, '&lt;= Rp 1.500.000', 40),
 (68, 3, 14, '&lt;= Rp 3.000.000', 60),
-(69, 3, 14, '&lt;= Rp 4.500.000', 40),
-(70, 3, 14, '> Rp 4.500.000', 20),
+(69, 3, 14, '&lt;= Rp 4.500.000', 80),
+(70, 3, 14, '> Rp 4.500.000', 100),
 (71, 3, 15, '0 Saudara', 20),
 (72, 3, 15, '1 Saudara', 40),
 (73, 3, 15, '2 Saudara', 60),
 (74, 3, 15, '3 Saudara', 80),
 (75, 3, 15, '> 3 Saudara', 100),
-(76, 4, 16, '&lt;= Rp 1.000.000', 100),
-(77, 4, 16, '&lt;= Rp 1.500.000', 80),
+(76, 4, 16, '&lt;= Rp 1.000.000', 20),
+(77, 4, 16, '&lt;= Rp 1.500.000', 40),
 (78, 4, 16, '&lt;= Rp 3.000.000', 60),
-(79, 4, 16, '&lt;= Rp 4.500.000', 40),
-(80, 4, 16, '> Rp 4.500.000', 20),
+(79, 4, 16, '&lt;= Rp 4.500.000', 80),
+(80, 4, 16, '> Rp 4.500.000', 100),
 (81, 4, 17, '0 Saudara', 20),
 (82, 4, 17, '1 Saudara', 40),
 (83, 4, 17, '2 Saudara', 60),
@@ -410,7 +389,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (2, 1, 2),
 (3, 2, 2),
 (4, 1, 3),
-(5, 1, 4);
+(5, 1, 4),
+(6, 1, 5),
+(7, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -420,18 +401,20 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 
 CREATE TABLE `user_menu` (
   `id` int(11) NOT NULL,
-  `menu` varchar(128) NOT NULL
+  `menu` varchar(128) NOT NULL,
+  `urutan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user_menu`
 --
 
-INSERT INTO `user_menu` (`id`, `menu`) VALUES
-(1, 'Admin'),
-(2, 'User'),
-(3, 'Menu'),
-(4, 'Administrasi');
+INSERT INTO `user_menu` (`id`, `menu`, `urutan`) VALUES
+(1, 'Admin', 2),
+(2, 'User', 3),
+(3, 'Menu', 4),
+(4, 'Administrasi', 5),
+(5, 'Super Admin', 1);
 
 -- --------------------------------------------------------
 
@@ -464,27 +447,28 @@ CREATE TABLE `user_sub_menu` (
   `title` varchar(128) NOT NULL,
   `url` varchar(128) NOT NULL,
   `icon` varchar(128) NOT NULL,
-  `is_active` int(1) NOT NULL
+  `is_active` int(1) NOT NULL,
+  `urutan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user_sub_menu`
 --
 
-INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(1, 1, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
-(2, 2, 'My Profile', 'user', 'fas fa-fw fa-user', 1),
-(3, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
-(4, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1),
-(5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
-(7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
-(8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
-(9, 4, 'Nilai', 'administrasi/nilai', 'fas fa-fw fa-tachometer-alt', 1),
-(10, 4, 'Kriteria', 'administrasi/kriteria', 'fas fa-fw fa-folder', 1),
-(11, 4, 'Alternatif', 'administrasi/alternatif', 'fas fa-fw fa-user', 1),
-(13, 4, 'Laporan', 'administrasi/hasil_seleksi', 'fas fa-fw fa-folder-open', 1),
-(14, 4, 'Subkriteria', 'administrasi/subkriteria', 'fas fa-fw fa-folder-open', 1),
-(15, 1, 'Menu Beasiswa', 'admin/menubeasiswa', 'fas fa-fw fa-folder', 1);
+INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`, `urutan`) VALUES
+(1, 1, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1, 1),
+(2, 2, 'My Profile', 'user', 'fas fa-fw fa-user', 1, 4),
+(3, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1, 5),
+(4, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1, 6),
+(5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1, 7),
+(7, 5, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1, 3),
+(8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1, 8),
+(9, 4, 'Nilai', 'administrasi/nilai', 'fas fa-fw fa-tachometer-alt', 1, 9),
+(10, 4, 'Kriteria', 'administrasi/kriteria', 'fas fa-fw fa-folder', 1, 10),
+(11, 4, 'Alternatif', 'administrasi/alternatif', 'fas fa-fw fa-user', 1, 12),
+(13, 4, 'Laporan', 'administrasi/hasil_seleksi', 'fas fa-fw fa-folder-open', 1, 13),
+(14, 4, 'Subkriteria', 'administrasi/subkriteria', 'fas fa-fw fa-folder-open', 1, 11),
+(15, 1, 'Menu Beasiswa', 'admin/menubeasiswa', 'fas fa-fw fa-folder', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -602,17 +586,17 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `hitung`
 --
 ALTER TABLE `hitung`
-  MODIFY `id_hitung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_hitung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
@@ -642,12 +626,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
@@ -657,7 +641,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `user_token`
 --

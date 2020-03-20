@@ -17,7 +17,7 @@ class Administrasi extends CI_Controller
     }
     public function nilai()
     {
-        $data['title'] = 'Data Nilai';
+        $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -32,7 +32,7 @@ class Administrasi extends CI_Controller
     }
     public function tambahnilai()
     {
-        $data['title'] = 'Tambah Nilai';
+        $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -54,7 +54,7 @@ class Administrasi extends CI_Controller
     }
     public function editnilai($id_nilai)
     {
-        $data['title'] = 'Ubah Nilai Preferensi';
+        $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -89,7 +89,7 @@ class Administrasi extends CI_Controller
 
     public function kriteria()
     {
-        $data['title'] = 'Data Kriteria';
+        $data['title'] = 'Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -103,7 +103,7 @@ class Administrasi extends CI_Controller
     }
     public function subkriteria()
     {
-        $data['title'] = 'Data Subkriteria';
+        $data['title'] = 'Subkriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -118,7 +118,7 @@ class Administrasi extends CI_Controller
 
     public function tambahkriteria()
     {
-        $data['title'] = 'Tambah Kriteria';
+        $data['title'] = 'Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -141,7 +141,7 @@ class Administrasi extends CI_Controller
     }
     public function tambahsubkriteria()
     {
-        $data['title'] = 'Tambah Subkriteria';
+        $data['title'] = 'Subkriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -169,7 +169,7 @@ class Administrasi extends CI_Controller
 
     public function editkriteria($id_kriteria)
     {
-        $data['title'] = 'Ubah Kriteria';
+        $data['title'] = 'Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -191,14 +191,14 @@ class Administrasi extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Kriteria_model->ubahDataKriteria($kriteria, $id_kriteria);
-
+            $this->Alternatif_model->updateNormalisasiHasil();
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('administrasi/kriteria');
         }
     }
     public function editsubkriteria($id_subkriteria)
     {
-        $data['title'] = 'Ubah Subkriteria';
+        $data['title'] = 'Subkriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -220,7 +220,7 @@ class Administrasi extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->SubKriteria_model->ubahDataSubKriteria($subkriteria, $id_subkriteria);
-
+            $this->Alternatif_model->updateNormalisasiHasil();
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('administrasi/subkriteria');
         }
@@ -244,7 +244,7 @@ class Administrasi extends CI_Controller
     }
     public function alternatif()
     {
-        $data['title'] = 'Data Alternatif';
+        $data['title'] = 'Alternatif';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -258,7 +258,7 @@ class Administrasi extends CI_Controller
     }
     public function tambahalternatif()
     {
-        $data['title'] = 'Tambah Alternatif';
+        $data['title'] = 'Alternatif';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['subkriteria'] = $this->Alternatif_model->getAllSubkriteria();
@@ -283,7 +283,7 @@ class Administrasi extends CI_Controller
     }
     public function editalternatif($id_alternatif)
     {
-        $data['title'] = 'Ubah Alternatif';
+        $data['title'] = 'Alternatif';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -321,127 +321,9 @@ class Administrasi extends CI_Controller
         redirect('administrasi/alternatif');
     }
 
-    public function rangking()
-    {
-        $data['title'] = 'Data Rangking';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $data['rangking'] = $this->Rangking_model->getAllRangking();
-
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('administrasi/rangking/rangking', $data);
-        $this->load->view('templates/footer');
-    }
-    public function tambahrangking()
-    {
-        $data['title'] = 'Tambah Data Rangking';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $data['alternatif'] = $this->db->get('alternatif')->result_array();
-        $data['kriteria'] = $this->db->get('kriteria')->result_array();
-        $data['nilai'] = $this->db->get('nilai')->result_array();
-
-        $this->form_validation->set_rules('alternatif', 'Alternatif', 'required|trim');
-
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('administrasi/rangking/tambahrangking', $data);
-            $this->load->view('templates/footer');
-        } else {
-
-            $this->Rangking_model->tambahDatarangking();
-            $this->session->set_flashdata('message', 'Ditambahkan!');
-            redirect('administrasi/rangking');
-        }
-    }
-
-    public function hapusrangking($id_rangking)
-    {
-        $rangking = $this->Rangking_model->getRangkingById($id_rangking);
-
-        $this->Rangking_model->hapusDataRangking($id_rangking, $rangking);
-        $this->session->set_flashdata('message', 'Dihapus!');
-        redirect('administrasi/rangking');
-    }
-    public function editrangking($id_rangking)
-    {
-        $data['title'] = 'Rangking';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-
-
-        $data['alternatif'] = $this->db->get('alternatif')->result_array();
-        $data['kriteria'] = $this->db->get('kriteria')->result_array();
-        $data['nilai'] = $this->db->get('nilai')->result_array();
-
-        $this->form_validation->set_rules('alternatif', 'Alternatif', 'required|trim');
-        $data['rangking'] = $this->Rangking_model->getRangkingById($id_rangking);
-
-
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('administrasi/rangking/editrangking', $data);
-            $this->load->view('templates/footer');
-        } else {
-
-            $this->Rangking_model->editDataRangking($id_rangking);
-            $this->session->set_flashdata('message', 'Diedit!');
-            redirect('administrasi/rangking');
-        }
-    }
-    public function perangkingan()
-    {
-        $data['title'] = 'Normalisasi R Perangkingan';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $data['alternatif'] = $this->Perangkingan_model->getAllAlternatif();
-        // $alternatif = $this->Perangkingan_model->getAllAlternatif();
-        $data['rangking'] = $this->Perangkingan_model->getAllRangking();
-        $data['kriteria'] = $this->Perangkingan_model->getAllKriteria();
-        // $kriteria = $this->Perangkingan_model->getAllKriteria();
-        // foreach ($alternatif as $al) {
-
-        //     foreach ($kriteria as $kr) {
-
-        //         $ida = $al['id_alternatif'];
-        //     }
-
-        //     $query1 = "SELECT SUM(bobot_normalisasi) as hasil from rangking where id_alternatif = $ida ";
-        //     $query2 = $this->db->query($query1)->result_array();
-
-        //     foreach ($query2 as $hasil) {
-        //         $h = $hasil['hasil'];
-        //     }
-        //     $data2 = ['hasil_alternatif' => $h];
-        //     $this->db->set($data2);
-        //     $this->db->where('id_alternatif', $ida);
-        //     $this->db->update('alternatif');
-        // }
-
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('administrasi/rangking/perangkingan', $data);
-        $this->load->view('templates/footer');
-    }
-
-
-
     public function hasil_seleksi()
     {
-        $data['title'] = 'Data Hasil Seleksi';
+        $data['title'] = 'Laporan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -459,7 +341,7 @@ class Administrasi extends CI_Controller
     }
     public function konversi()
     {
-        $data['title'] = 'Data Hasil Seleksi';
+        $data['title'] = 'Laporan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -477,7 +359,7 @@ class Administrasi extends CI_Controller
     }
     public function normalisasi()
     {
-        $data['title'] = 'Data Hasil Seleksi';
+        $data['title'] = 'Laporan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -495,7 +377,7 @@ class Administrasi extends CI_Controller
     }
     public function hasil_akhir()
     {
-        $data['title'] = 'Data Hasil Seleksi';
+        $data['title'] = 'Laporan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

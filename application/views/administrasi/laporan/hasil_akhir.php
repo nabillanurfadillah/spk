@@ -3,7 +3,7 @@
 
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 mt-4 text-gray-800">Data Hasil Seleksi</h1>
+    <h1 class="h3 mb-4 mt-4 text-gray-800">Hasil Akhir</h1>
 
 
     <div class="row">

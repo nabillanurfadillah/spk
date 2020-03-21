@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Mar 2020 pada 10.03
+-- Generation Time: 21 Mar 2020 pada 10.03
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -348,7 +348,9 @@ INSERT INTO `tipe_beasiswa` (`id`, `nama_beasiswa`) VALUES
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
+  `jk` varchar(10) NOT NULL,
   `email` varchar(128) NOT NULL,
+  `hp` varchar(15) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
@@ -360,13 +362,10 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(4, 'Nabilla Nur F', 'nurfadillah@gmail.com', 'IMG-20171102-WA0005.jpg', '$2y$10$64G1VdTiw9l6/gQwsD0nOOmpJU0Qmqp5QlDUgYPCUQCZ1imCh6dHm', 1, 1, 1568447511),
-(5, 'Samson', 'samson@gmail.com', 'IMG-20171029-WA0008.jpg', '$2y$10$3Byc6zmBH0JZNYSJlUXFi.zeyISPqUtOyXTAR7XtqT04C/Xs2wYKS', 2, 1, 1568520170),
-(7, 'Pipo', 'pipo@gmail.com', 'default.jpg', '$2y$10$sqTTPidfPzA8gxGVBaOh8.3SamMlDLbMqWekfvB6J6KH.JNrrgTNW', 2, 0, 1569132835),
-(8, 'Samson Sugiyarto', 'samsonsugiyarto123@gmail.com', 'default.jpg', '$2y$10$Rt/X50gQ0PW6TOIY2x1LG.1UXh5bM0bG6SxkvUYfxhnDz76w4teS.', 2, 1, 1569135771),
-(9, 'Nabilla Nur F', 'nabilla@gmail.com', 'default.jpg', '$2y$10$4mEm4IblbvkDwwmxHjMRaO1PRsXmXMzQUzJbDQkJu28yqG3tXHbSy', 2, 0, 1573907668),
-(10, 'Nabilla Nur F', 'nabillanurf@gmail.com', 'default.jpg', '$2y$10$1GUjY7dQy.D/pbbypknoIO7KSvTYQU8OroYBrclTL5YWpLZs0GWDC', 1, 1, 1573907862);
+INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(10, 'Nabilla Nur F', '', 'nabillanurf@gmail.com', '', 'default1.jpg', '$2y$10$1GUjY7dQy.D/pbbypknoIO7KSvTYQU8OroYBrclTL5YWpLZs0GWDC', 1, 1, 1573907862),
+(11, 'Admin SPK', 'L', 'adminspk@gmail.com', '0989xxxx', 'default.jpg', '$2y$10$ppZRWODqTe2a5gATNjvnfe7ma.rQZWYWjDfrscXso9MuXaccWRPSy', 2, 1, 1584775601),
+(12, 'Admin 1', 'P', 'admin1@gmail.com', '0987679097', 'default.jpg', '$2y$10$n6wfF8Bt.roWhPHly5BhvOiko6jA7yrB1q7fcasROh2rWXgaLgezG', 2, 1, 1584775831);
 
 -- --------------------------------------------------------
 
@@ -391,7 +390,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (4, 1, 3),
 (5, 1, 4),
 (6, 1, 5),
-(7, 1, 6);
+(7, 1, 6),
+(8, 2, 4),
+(9, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -432,8 +433,8 @@ CREATE TABLE `user_role` (
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
-(1, 'administrator'),
-(2, 'member');
+(1, 'Super Admin'),
+(2, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -468,7 +469,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (11, 4, 'Alternatif', 'administrasi/alternatif', 'fas fa-fw fa-user', 1, 12),
 (13, 4, 'Laporan', 'administrasi/hasil_seleksi', 'fas fa-fw fa-folder-open', 1, 13),
 (14, 4, 'Subkriteria', 'administrasi/subkriteria', 'fas fa-fw fa-folder-open', 1, 11),
-(15, 1, 'Menu Beasiswa', 'admin/menubeasiswa', 'fas fa-fw fa-folder', 1, 2);
+(15, 1, 'Menu Beasiswa', 'admin/menubeasiswa', 'fas fa-fw fa-folder', 1, 2),
+(17, 5, 'Admin', 'admin/admin', 'fas fa-fw fa-user', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -621,12 +623,12 @@ ALTER TABLE `tipe_beasiswa`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
@@ -636,12 +638,12 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `user_token`
 --

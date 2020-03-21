@@ -82,6 +82,7 @@
  <script src="<?= base_url('assets/js/scriptmenu.js'); ?>"></script>
  <script src="<?= base_url('assets/js/scriptsubmenu.js'); ?>"></script>
  <script src="<?= base_url('assets/js/subkriteriascript.js'); ?>"></script>
+ <script src="<?= base_url('assets/js/scriptadmin.js'); ?>"></script>
 
 
  <!-- <script src="//code.jquery.com/jquery-3.4.1.min.js"></script> -->

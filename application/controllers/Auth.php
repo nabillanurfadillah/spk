@@ -36,6 +36,9 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
+
+        $id_role = $user['role_id'];
+        $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
         //jika usernya ada
         if ($user) {
             //jika usernya aktif
@@ -44,10 +47,11 @@ class Auth extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
-                        'role_id' => $user['role_id']
+                        'role_id' => $user['role_id'],
+                        'id' => $role['id']
                     ];
                     $this->session->set_userdata($data);
-                    if ($user['role_id'] == 1) {
+                    if ($user['role_id'] == 1 || $user['role_id'] == 2) {
                         redirect('admin/tipeBeasiswa');
                     } else {
                         redirect('user');

@@ -9,7 +9,7 @@ class Auth extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function login()
+    public function index()
     {
         if ($this->session->userdata('email')) {
             redirect('user');
@@ -192,7 +192,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out! </div>');
-        redirect('auth');
+        redirect('home');
     }
     public function blocked()
     {

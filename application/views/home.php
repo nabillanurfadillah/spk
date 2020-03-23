@@ -56,7 +56,7 @@
 				<div class="col-lg-8 align-self-baseline">
 					<p class="text-white-75 font-weight-light mb-5">Sekolah Tinggi Ilmu Komputer (STIKOM) Yos Sudarso Purwokerto
 					</p>
-					<a class="btn btn-primary btn-xl js-scroll-trigger" href="<?= base_url('auth/login'); ?>">LOGIN</a>
+					<a class="btn btn-primary btn-xl js-scroll-trigger" href="<?= base_url('auth'); ?>">LOGIN</a>
 				</div>
 			</div>
 		</div>

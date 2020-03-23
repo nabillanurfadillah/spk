@@ -1,7 +1,7 @@
 <div class="container">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <div class="mt-5 row justify-content-center">
 
         <div class="col-lg-5">
 
@@ -28,16 +28,16 @@
                                     <button type="submit" class="btn btn-o btn-user btn-block">
                                         Login
                                     </button>
-                                    <hr>
+                                    <!-- <hr> -->
 
                                 </form>
 
-                                <div class="text-center">
+                                <!-- <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
                                 </div>
                                 <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/registration'); ?>">Create an Account!</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

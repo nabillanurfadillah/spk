@@ -277,6 +277,7 @@ class Administrasi extends CI_Controller
         $this->form_validation->set_rules('nim', 'NIM', 'is_unique[alternatif.nim]|required|trim');
         $this->form_validation->set_rules('nama_alternatif', 'Nama Alternatif', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -308,6 +309,7 @@ class Administrasi extends CI_Controller
 
         $this->form_validation->set_rules('nama_alternatif', 'Nama Alternatif', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'required|trim');
 
 
         if ($this->form_validation->run() == false) {
@@ -407,6 +409,25 @@ class Administrasi extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('administrasi/laporan/hasil_akhir', $data);
+        $this->load->view('templates/footer');
+    }
+    public function laporan_tahunan()
+    {
+        $data['title'] = 'Laporan';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
+        $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
+        $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
+        $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
+        $data['hasil'] = $this->Laporan_model->getAllHasilByBea();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('administrasi/laporan/laporan_tahunan', $data);
         $this->load->view('templates/footer');
     }
 }

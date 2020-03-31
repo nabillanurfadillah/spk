@@ -45,6 +45,13 @@
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="tahun" class="col-sm-4 col-form-label">Tahun</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control col-sm-9" id="tahun" name="tahun" placeholder="Masukkan Tahun Sekarang" value="<?= set_value('tahun'); ?>">
+                    <?= form_error('tahun', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
             <?php
             $query1 = "SELECT nama_subkriteria from subkriteria WHERE id_kriteria=5";
             $query = $this->db->query($query1)->result_array();

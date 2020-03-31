@@ -48,6 +48,13 @@
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="tahun" class="col-sm-4 col-form-label">Tahun</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control col-sm-9" id="tahun" name="tahun" value="<?= $alternatif['tahun']; ?>">
+                    <?= form_error('tahun', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
 
             <?php
             $beaId = $this->session->userdata('beasiswa_id');

@@ -9,7 +9,7 @@
     <?php elseif ($beasiswa['id'] == 3) : ?>
         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Prestasi</h1>
     <?php elseif ($beasiswa['id'] == 4) : ?>
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Kurang Msmpu</h1>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Kurang Mampu</h1>
     <?php endif; ?>
 
     <div class="row">

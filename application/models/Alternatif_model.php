@@ -30,7 +30,8 @@ class Alternatif_model extends CI_Model
             'nim' => $this->input->post('nim', true),
             'nama_alternatif' => $this->input->post('nama_alternatif', true),
             'jk' => $this->input->post('jk', true),
-            'alamat' => $this->input->post('alamat', true)
+            'alamat' => $this->input->post('alamat', true),
+            'tahun' => $this->input->post('tahun', true)
         ];
         $this->db->insert('alternatif', $dataa);
         $id_alternatif = $this->db->insert_id();
@@ -229,12 +230,14 @@ class Alternatif_model extends CI_Model
         $nama_alternatif = $this->input->post('nama_alternatif', true);
         $jk = $this->input->post('jk', true);
         $alamat = $this->input->post('alamat', true);
+        $tahun = $this->input->post('tahun', true);
 
         $data = [
             'nim' => $nim,
             'nama_alternatif' => $nama_alternatif,
             'jk' => $jk,
             'alamat' => $alamat,
+            'tahun' => $tahun
 
         ];
         $this->db->set($data);

@@ -32,9 +32,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>administrasi/hasil_akhir/">Hasil Akhir</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url() ?>administrasi/laporan_tahunan/">Laporan Tahunan</a>
+                </li>
 
 
             </ul>
+
             <h4>Normalisasi</h4>
             <table class="table table-bordered table-hover" id="reminders">
                 <thead>

@@ -3,7 +3,16 @@
 
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 mt-4 text-gray-800">Normalisasi</h1>
+    <?php if ($beasiswa['id'] == 1) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa PPA Tahun <?= date('Y'); ?></h1>
+    <?php elseif ($beasiswa['id'] == 2) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa Bidik Misi Tahun <?= date('Y'); ?></h1>
+    <?php elseif ($beasiswa['id'] == 3) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa Berprestasi Tahun <?= date('Y'); ?></h1>
+    <?php elseif ($beasiswa['id'] == 4) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa Kurang Mampu Tahun <?= date('Y'); ?></h1>
+    <?php endif; ?>
+
 
 
     <div class="row">

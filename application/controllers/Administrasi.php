@@ -7,10 +7,13 @@ class Administrasi extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+
         $this->load->model('Nilai_model');
         $this->load->model('Kriteria_model');
         $this->load->model('SubKriteria_model');
         $this->load->model('Alternatif_model');
+        $this->load->model('Dashboard_model');
+        $this->load->model('File_model');
 
         $this->load->model('Laporan_model');
     }
@@ -347,6 +350,7 @@ class Administrasi extends CI_Controller
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
         $data['hasil'] = $this->Laporan_model->getAllHasilByBea();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -366,6 +370,7 @@ class Administrasi extends CI_Controller
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
         $data['hasil'] = $this->Laporan_model->getAllHasilByBea();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -385,6 +390,7 @@ class Administrasi extends CI_Controller
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
         $data['hasil'] = $this->Laporan_model->getAllHasilByBea();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -404,6 +410,7 @@ class Administrasi extends CI_Controller
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
         $data['hasil'] = $this->Laporan_model->getAllHasilByBea();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -429,5 +436,28 @@ class Administrasi extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('administrasi/laporan/laporan_tahunan', $data);
         $this->load->view('templates/footer');
+    }
+    public function upload()
+    {
+        $data['title'] = 'Upload Hasil Beasiswa';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim');
+        if ($this->form_validation->run() == false) {
+
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('administrasi/upload', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->File_model->insert();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> File berhasil Diupload!</div>');
+            redirect('administrasi/upload');
+        }
     }
 }

@@ -11,4 +11,9 @@ class Home extends CI_Controller
     {
         $this->load->view('home');
     }
+
+    public function download()
+    {
+        force_download('uploads/uas_ppl_new42.pdf', null);
+    }
 }

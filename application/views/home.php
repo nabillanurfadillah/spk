@@ -72,7 +72,29 @@
 					<p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and
 						running in no time! Choose one of our open source, free to download, and easy to use themes! No
 						strings attached!</p> -->
-					<a class="btn btn-light btn-xl js-scroll-trigger" href="<?= base_url('home/download'); ?>">Download</a>
+					<!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="<?= base_url('home/download'); ?>">Download</a> -->
+					 <table class="table table-bordered" >
+                    <thead >
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama File</th>
+                            <th scope="col">Waktu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php $i = 1; ?>
+                        <?php foreach ($file as $f) : ?>
+
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td ><a style="color: white;" href="<?= base_url('home/download/') . $f['id']; ?>"><?= $f['filename']; ?></a></td>
+                                <td> <p  style="color: white;"><?= $f['created_at']; ?></p> </td>                 
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 				</div>
 			</div>
 		</div>

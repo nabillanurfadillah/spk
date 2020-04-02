@@ -3,15 +3,7 @@
 
 
     <!-- Page Heading -->
-    <?php if ($beasiswa['id'] == 1) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa PPA Tahun <?= date('Y'); ?></h1>
-    <?php elseif ($beasiswa['id'] == 2) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa Bidik Misi Tahun <?= date('Y'); ?></h1>
-    <?php elseif ($beasiswa['id'] == 3) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa Berprestasi Tahun <?= date('Y'); ?></h1>
-    <?php elseif ($beasiswa['id'] == 4) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Normalisasi Beasiswa Kurang Mampu Tahun <?= date('Y'); ?></h1>
-    <?php endif; ?>
+    <h1 class="h3 mb-4 text-gray-800"> <?= $judul; ?></h1>
 
 
 
@@ -75,8 +67,8 @@
                             $beaId = $this->session->userdata('beasiswa_id');
                             $query1 = "SELECT nilai_normalisasi from hitung join alternatif 
                             on hitung.id_alternatif = alternatif.id_alternatif
-                             where hitung.id_alternatif=$ida
-                             and alternatif.beasiswa_id = $beaId";
+                            where hitung.id_alternatif=$ida
+                            and alternatif.beasiswa_id = $beaId";
                             $hasil1 = $this->db->query($query1)->result_array();
                             ?>
                             <?php foreach ($hasil1 as $h) : ?>

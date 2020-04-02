@@ -9,11 +9,15 @@ class Home extends CI_Controller
     }
     public function index()
     {
-        $this->load->view('home');
+        $data['file'] = $this->db->get('tbl_file')->result_array();
+        $this->load->view('home',$data);
     }
 
-    public function download()
+    public function download($id)
     {
-        force_download('uploads/uas_ppl_new42.pdf', null);
+       $file =  $this->db->get_where('tbl_file', ['id' => $id])->row_array();
+       $filename = $file['filename'];
+
+        force_download('uploads/'.$filename, null);
     }
 }

@@ -3,16 +3,7 @@
 
 
     <!-- Page Heading -->
-    <?php if ($beasiswa['id'] == 1) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Hasil Akhir Beasiswa PPA Tahun <?= date('Y'); ?></h1>
-    <?php elseif ($beasiswa['id'] == 2) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Hasil Akhir Beasiswa Bidik Misi Tahun <?= date('Y'); ?></h1>
-    <?php elseif ($beasiswa['id'] == 3) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Hasil Akhir Beasiswa Berprestasi Tahun <?= date('Y'); ?></h1>
-    <?php elseif ($beasiswa['id'] == 4) : ?>
-        <h1 class="h3 mb-4 text-gray-800">Hasil Akhir Beasiswa Kurang Mampu Tahun <?= date('Y'); ?></h1>
-    <?php endif; ?>
-
+    <h1 class="h3 mb-4 text-gray-800"> <?= $judul; ?></h1>
 
 
     <div class="row">

@@ -341,6 +341,18 @@ class Administrasi extends CI_Controller
     public function hasil_seleksi()
     {
         $data['title'] = 'Laporan';
+        $beaId = $this->session->userdata('beasiswa_id');
+      
+        if($beaId == 1){
+              $data['judul'] = 'Nilai Alternatif Beasiswa PPA Tahun'.date(' Y') ;
+          }elseif ($beaId == 2) {
+               $data['judul'] = 'Nilai Alternatif Beasiswa Bidik Misi Tahun'.date(' Y') ;
+          }elseif ($beaId == 3) {
+              $data['judul'] = 'Nilai Alternatif Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }elseif ($beaId == 4) {
+            $data['judul'] = 'Nilai Alternatif Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }
+      
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -356,11 +368,24 @@ class Administrasi extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('administrasi/laporan/hasil_seleksi', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer', $data);
     }
     public function konversi()
     {
         $data['title'] = 'Laporan';
+
+        $beaId = $this->session->userdata('beasiswa_id');
+      
+        if($beaId == 1){
+              $data['judul'] = 'Konversi Beasiswa PPA Tahun'.date(' Y') ;
+          }elseif ($beaId == 2) {
+               $data['judul'] = 'Konversi Beasiswa Bidik Misi Tahun'.date(' Y') ;
+          }elseif ($beaId == 3) {
+              $data['judul'] = 'Konversi Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }elseif ($beaId == 4) {
+            $data['judul'] = 'Konversi Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }
+
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -376,11 +401,25 @@ class Administrasi extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('administrasi/laporan/konversi', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer', $data);
     }
     public function normalisasi()
     {
         $data['title'] = 'Laporan';
+
+         $beaId = $this->session->userdata('beasiswa_id');
+      
+        if($beaId == 1){
+              $data['judul'] = 'Normalisasi Beasiswa PPA Tahun'.date(' Y') ;
+          }elseif ($beaId == 2) {
+               $data['judul'] = 'Normalisasi Beasiswa Bidik Misi Tahun'.date(' Y') ;
+          }elseif ($beaId == 3) {
+              $data['judul'] = 'Normalisasi Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }elseif ($beaId == 4) {
+            $data['judul'] = 'Normalisasi Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }
+
+
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -396,11 +435,24 @@ class Administrasi extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('administrasi/laporan/normalisasi', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer', $data);
     }
     public function hasil_akhir()
     {
         $data['title'] = 'Laporan';
+
+          $beaId = $this->session->userdata('beasiswa_id');
+      
+        if($beaId == 1){
+              $data['judul'] = 'Hasil Akhir Beasiswa PPA Tahun'.date(' Y') ;
+          }elseif ($beaId == 2) {
+               $data['judul'] = 'Hasil Akhir Beasiswa Bidik Misi Tahun'.date(' Y') ;
+          }elseif ($beaId == 3) {
+              $data['judul'] = 'Hasil Akhir Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }elseif ($beaId == 4) {
+            $data['judul'] = 'Hasil Akhir Beasiswa Berprestasi Tahun'.date(' Y') ;
+          }
+
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -444,7 +496,7 @@ class Administrasi extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim');
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'trim');
         if ($this->form_validation->run() == false) {
 
 

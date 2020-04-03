@@ -3,8 +3,8 @@
 
 
     <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800"> <?= $judul; ?></h1>
-   
+    <h1 class="h3 mb-4 text-gray-800"> <?= $judul; ?></h1>
+
 
     <div class="row">
         <div class="col-lg-12">
@@ -32,9 +32,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>administrasi/hasil_akhir/">Hasil Akhir</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>administrasi/laporan_tahunan/">Laporan per Tahun</a>
-                </li>
+
 
 
             </ul>

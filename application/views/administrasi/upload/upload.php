@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
-            <?= form_open_multipart('administrasi/upload'); ?>
-            <div class="custom-file col-sm-6">
+            <?= form_open_multipart('administrasi/upload/upload'); ?>
+            <div class="custom-file col-sm-8">
                 <input type="file" id="filename" name="filename" class="custom-file-input" id="customFile" required>
                 <?= form_error('filename', ' <small class="text-danger pl-3">', '</small>'); ?>
                 <label class="custom-file-label" for="customFile">Choose File</label>

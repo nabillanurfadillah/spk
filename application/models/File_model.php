@@ -5,8 +5,8 @@ class File_model extends CI_Model
     public function insert()
     {
         $data = [
-            'filename' => $this->upload(),
-            'keterangan' => $this->input->post('keterangan', true)
+            'filename' => $this->upload()
+
         ];
         $this->db->insert('tbl_file', $data);
     }

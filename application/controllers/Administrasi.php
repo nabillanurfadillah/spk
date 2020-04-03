@@ -21,9 +21,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
 
         $data['nilai'] = $this->Nilai_model->getAllNilai();
 
@@ -38,9 +38,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $this->form_validation->set_rules('keterangan_nilai', 'Keterangan Nilai', 'required|trim');
         $this->form_validation->set_rules('jumlah_nilai', 'Jumlah Nilai', 'required|trim');
 
@@ -61,9 +61,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['nilai'] = $this->Nilai_model->getNilaiById($id_nilai);
         $nilai = $this->Nilai_model->getNilaiById($id_nilai);
 
@@ -97,9 +97,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
 
         $this->load->view('templates/header', $data);
@@ -112,9 +112,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Subkriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['subkriteria'] = $this->SubKriteria_model->getAllSubKriteriaByBea();
 
         $this->load->view('templates/header', $data);
@@ -128,9 +128,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'required|trim');
         $data['nilai'] = $this->db->get('nilai')->result_array();
 
@@ -152,9 +152,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Subkriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $this->form_validation->set_rules('id_kriteria', 'Kriteria', 'required');
         $this->form_validation->set_rules('nama_subkriteria', 'Nama Subkriteria', 'required|trim');
         $this->form_validation->set_rules('nilai_subkriteria', 'Nilai Subkriteria', 'required|trim');
@@ -181,9 +181,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['kriteria'] = $this->Kriteria_model->getKriteriaById($id_kriteria);
         $kriteria = $this->Kriteria_model->getKriteriaById($id_kriteria);
         $data['tipe_kriteria'] = ['Cost', 'Benefit'];
@@ -211,9 +211,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Subkriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $subkriteria = $this->SubKriteria_model->getSubKriteriaById($id_subkriteria);
         $data['subkriteria'] = $this->SubKriteria_model->getSubKriteriaById($id_subkriteria);
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
@@ -258,9 +258,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Alternatif';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
 
         $this->load->view('templates/header', $data);
@@ -273,10 +273,10 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Alternatif';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['subkriteria'] = $this->Alternatif_model->getAllSubkriteria();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $this->form_validation->set_rules('nim', 'NIM', 'is_unique[alternatif.nim]|required|trim');
         $this->form_validation->set_rules('nama_alternatif', 'Nama Alternatif', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
@@ -300,9 +300,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Alternatif';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAlternatifById($id_alternatif);
         $alternatif = $this->Alternatif_model->getAlternatifById($id_alternatif);
         $data['jk'] = ['Laki-laki', 'Perempuan'];
@@ -354,9 +354,9 @@ class Administrasi extends CI_Controller
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
         $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
@@ -387,9 +387,9 @@ class Administrasi extends CI_Controller
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
         $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
@@ -421,9 +421,9 @@ class Administrasi extends CI_Controller
 
 
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
         $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
@@ -454,9 +454,9 @@ class Administrasi extends CI_Controller
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
         $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
@@ -474,9 +474,9 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Laporan';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
         $data['hitung'] = $this->Laporan_model->getAllHitungByBea();
         $data['subkriteria'] = $this->Laporan_model->getAllSubKriteriaByBea();
@@ -493,19 +493,23 @@ class Administrasi extends CI_Controller
     {
         $data['title'] = 'Upload Hasil Beasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+            $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
+            $this->session->userdata('id')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('administrasi/upload', $data);
-        $this->load->view('templates/footer');
+    
+        if (empty($_FILES['filename']['name'])) {
 
-        $this->File_model->insert();
-        $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert"> File berhasil Diupload!</div>');
-        redirect('administrasi/upload');
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('administrasi/upload', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->File_model->upload();
+            $this->session->set_flashdata('message', '<div class="alert
+                alert-success" role="alert"> File berhasil Diupload!</div>');
+            redirect('administrasi/upload');
+        }
     }
 }

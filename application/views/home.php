@@ -72,7 +72,7 @@
 					<hr class="divider light my-4" />
 					<p class="text-white-50 mb-4">Klik file dibawah ini untuk mendownload</p>
 					<!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="<?= base_url('home/download'); ?>">Download</a> -->
-					<table class="table table-bordered">
+					<table class="table table-sm table-bordered">
 						<thead>
 							<tr>
 								<th scope="col">No</th>

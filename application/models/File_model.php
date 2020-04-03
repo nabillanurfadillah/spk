@@ -2,14 +2,7 @@
 
 class File_model extends CI_Model
 {
-    public function insert()
-    {
-        $data = [
-            'filename' => $this->upload()
 
-        ];
-        $this->db->insert('tbl_file', $data);
-    }
     public function upload()
     {
         $upload_file = $_FILES['filename']['name'];
@@ -24,10 +17,17 @@ class File_model extends CI_Model
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('filename')) {
-                return $this->upload->data('file_name');
+                $filename =  $this->upload->data('file_name');
+
             } else {
                 echo $this->upload->display_errors();
             }
+
+            $data = [
+                'filename' =>  $filename
+
+            ];
+            $this->db->insert('tbl_file', $data);
         }
     }
 }

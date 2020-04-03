@@ -6,6 +6,7 @@
 
     <div class="row">
         <div class="col-lg-8">
+            <?= $this->session->flashdata('message'); ?>
             <?= form_open_multipart('administrasi/upload'); ?>
             <div class="custom-file col-sm-6">
                 <input type="file" id="filename" name="filename" class="custom-file-input" id="customFile" required>

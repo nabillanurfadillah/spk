@@ -18,7 +18,12 @@
 
                 <div class="flash-data-alternatif" data-flashdataalternatif="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
+          
+             <?= $this->session->flashdata('messagehapus'); ?>
+            <div class="row justify-content-between">
             <a href="<?= base_url('administrasi/tambahalternatif'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
+             <a href="<?= base_url('administrasi/hapussemuadata'); ?>" class="btn btn-danger mb-3">Hapus Semua Data</a>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>

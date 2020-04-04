@@ -512,4 +512,11 @@ class Administrasi extends CI_Controller
             redirect('administrasi/upload');
         }
     }
+
+     public function hapusSemuaData(){
+        $this->Alternatif_model->hapusSemuaData();
+         $this->session->set_flashdata('messagehapus', '<div class="alert
+                alert-success" role="alert"> Semua Data Telah Dihapus!</div>');
+            redirect('administrasi/alternatif');
+    }
 }

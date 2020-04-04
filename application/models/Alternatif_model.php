@@ -139,10 +139,10 @@ class Alternatif_model extends CI_Model
                     if ($tipeK == 'Cost') {
                         $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MIN(nilai_subkriteria) AS min
-                    FROM subkriteria 
-                    JOIN hitung
-                    ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                    WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
+                        FROM subkriteria 
+                        JOIN hitung
+                        ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                        WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -157,10 +157,10 @@ class Alternatif_model extends CI_Model
                     } else {
                         $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MAX(nilai_subkriteria) AS max
-                    FROM subkriteria 
-                    JOIN hitung
-                    ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                    WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
+                        FROM subkriteria 
+                        JOIN hitung
+                        ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                        WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -277,10 +277,10 @@ class Alternatif_model extends CI_Model
                     if ($tipeK == 'Cost') {
                         $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MIN(nilai_subkriteria) AS min
-                            FROM subkriteria 
-                            JOIN hitung
-                            ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                            WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
+                        FROM subkriteria 
+                        JOIN hitung
+                        ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                        WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -295,10 +295,10 @@ class Alternatif_model extends CI_Model
                     } else {
                         $beaId = $this->session->userdata('beasiswa_id');
                         $query = "SELECT MAX(nilai_subkriteria) AS max
-                            FROM subkriteria 
-                            JOIN hitung
-                            ON subkriteria.id_subkriteria = hitung.id_subkriteria
-                            WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
+                        FROM subkriteria 
+                        JOIN hitung
+                        ON subkriteria.id_subkriteria = hitung.id_subkriteria
+                        WHERE subkriteria.id_kriteria = $idk and subkriteria.beasiswa_id = $beaId";
                         $hs = $this->db->query($query)->result_array();
 
                         foreach ($hs as $HS) {
@@ -347,5 +347,20 @@ class Alternatif_model extends CI_Model
         $this->db->delete('alternatif', ['id_alternatif' => $id_alternatif]);
         $this->db->delete('hitung', ['id_alternatif' => $id_alternatif]);
         $this->db->delete('hasil', ['id_alternatif' => $id_alternatif]);
+    }
+    public function hapusSemuaData()
+    {
+        $beaId = $this->session->userdata('beasiswa_id');
+
+        $query  = "SELECT * FROM alternatif WHERE beasiswa_id = $beaId";
+        $alt = $this->db->query($query)->result_array();
+        
+        foreach ($alt as $alId) {
+            $id_alternatif = $alId['id_alternatif'];
+            $this->db->delete('hitung', ['id_alternatif' => $id_alternatif]);
+            $this->db->delete('hasil', ['id_alternatif' => $id_alternatif]);
+        }
+
+        $this->db->delete('alternatif', ['beasiswa_id' => $beaId]);
     }
 }

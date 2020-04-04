@@ -2,7 +2,21 @@
 
 class File_model extends CI_Model
 {
+    public function getAllFile()
+    {
+        return $this->db->get('tbl_file')->result_array();
+    }
+    public function getFileById($id)
+    {
+        return $this->db->get_where('tbl_file', ['id' => $id])->row_array();
+    }
+    public function hapusDataUpload($id, $file)
+    {
+        $old_file = $file['filename'];
 
+        unlink(FCPATH . 'uploads/' . $old_file);
+        $this->db->delete('tbl_file', ['id' => $id]);
+    }
     public function upload()
     {
         $upload_file = $_FILES['filename']['name'];
@@ -18,7 +32,6 @@ class File_model extends CI_Model
 
             if ($this->upload->do_upload('filename')) {
                 $filename =  $this->upload->data('file_name');
-
             } else {
                 echo $this->upload->display_errors();
             }

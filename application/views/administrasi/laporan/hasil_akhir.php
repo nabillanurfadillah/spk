@@ -32,9 +32,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Hasil Akhir</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>administrasi/laporan_tahunan/">Laporan per Tahun</a>
-                </li>
+
 
             </ul>
 

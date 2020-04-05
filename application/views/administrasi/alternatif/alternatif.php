@@ -18,11 +18,15 @@
 
                 <div class="flash-data-alternatif" data-flashdataalternatif="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
-          
-             <?= $this->session->flashdata('messagehapus'); ?>
-            <div class="row justify-content-between">
-            <a href="<?= base_url('administrasi/tambahalternatif'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
-             <a href="<?= base_url('administrasi/hapussemuadata'); ?>" class="btn btn-danger mb-3">Hapus Semua Data</a>
+
+            <?= $this->session->flashdata('messagehapus'); ?>
+            <div class="row justify-content-between col-sm-12">
+                <a href="<?= base_url('administrasi/tambahalternatif'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
+                <a href="<?= base_url('administrasi/hapussemuadata'); ?>" class="btn btn-danger mb-3 hapussemua">Hapus Semua Data</a>
+            </div>
+            <div class="row justify-content-end col-sm-12">
+
+                <p class="text-gray-800 ml-6">*Hati-hati semua data mahasiswa akan terhapus! Pastikan File Hasil Beasiswa sudah diupload!</p>
             </div>
             <table class="table table-hover">
                 <thead>

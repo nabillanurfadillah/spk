@@ -513,8 +513,7 @@ class Administrasi extends CI_Controller
     public function hapusSemuaData()
     {
         $this->Alternatif_model->hapusSemuaData();
-        $this->session->set_flashdata('messagehapus', '<div class="alert
-                alert-success" role="alert"> Semua Data Telah Dihapus!</div>');
+        $this->session->set_flashdata('message', 'Dihapus!');
         redirect('administrasi/alternatif');
     }
 

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2020 at 01:13 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: 05 Apr 2020 pada 09.37
+-- Versi Server: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alternatif`
+-- Struktur dari tabel `alternatif`
 --
 
 CREATE TABLE `alternatif` (
@@ -39,27 +37,22 @@ CREATE TABLE `alternatif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `alternatif`
+-- Dumping data untuk tabel `alternatif`
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `beasiswa_id`, `nim`, `nama_alternatif`, `jk`, `alamat`, `tahun`) VALUES
 (7, 2, 201601076, 'Nuca', 'Laki-laki', 'Salatiga', 0),
 (8, 2, 201503023, 'Mahalini', 'Perempuan', 'Bali', 0),
-(9, 3, 201701098, 'Mirabeth Sonia', 'Perempuan', 'Jakarta', 0),
-(10, 3, 201801097, 'Ainun', 'Perempuan', 'Sulawesi', 0),
-(11, 4, 201801065, 'Novia Bachmid', 'Perempuan', 'Jakarta', 2020),
-(12, 4, 201901076, 'Agseisa Galuh', 'Perempuan', 'Banjarmasin', 0),
 (19, 1, 201601001, 'Samuel Cipta', 'Laki-laki', 'Jl. Anggrek No. 80 Purwokerto Selatan', 0),
 (20, 1, 201601002, 'Tiara Anugrah', 'Perempuan', 'Jl. Kenanga No. 70 Ajibarang', 0),
 (21, 1, 201601003, 'Della Ayu', 'Laki-laki', 'Jl. Bougenvile No. 78 Purbalingga', 0),
 (22, 1, 201601004, 'Richard Jeremy', 'Laki-laki', 'Jl. Mawar No. 67 Banjarnegara', 0),
-(23, 1, 201601005, 'Keisya Levronka', 'Perempuan', 'Jl. Kamboja No. 90 Cilacap', 0),
-(24, 4, 2016010089, 'Ola', 'Laki-laki', 'Banyumas', 2020);
+(23, 1, 201601005, 'Keisya Levronka', 'Perempuan', 'Jl. Kamboja No. 90 Cilacap', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hasil`
+-- Struktur dari tabel `hasil`
 --
 
 CREATE TABLE `hasil` (
@@ -70,14 +63,12 @@ CREATE TABLE `hasil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `hasil`
+-- Dumping data untuk tabel `hasil`
 --
 
 INSERT INTO `hasil` (`id`, `beasiswa_id`, `id_alternatif`, `hasil`) VALUES
 (7, 0, 7, 116.66666666667),
 (8, 0, 8, 120),
-(9, 0, 9, 72.5),
-(10, 0, 10, 126),
 (11, 0, 11, 64),
 (12, 0, 12, 125),
 (19, 0, 19, 83),
@@ -90,7 +81,7 @@ INSERT INTO `hasil` (`id`, `beasiswa_id`, `id_alternatif`, `hasil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hitung`
+-- Struktur dari tabel `hitung`
 --
 
 CREATE TABLE `hitung` (
@@ -101,7 +92,7 @@ CREATE TABLE `hitung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `hitung`
+-- Dumping data untuk tabel `hitung`
 --
 
 INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_normalisasi`) VALUES
@@ -115,16 +106,6 @@ INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_nor
 (38, 8, 36, 0.33333333333333),
 (39, 8, 41, 0.6),
 (40, 8, 46, 0.8),
-(41, 9, 51, 0.25),
-(42, 9, 56, 0.5),
-(43, 9, 61, 0.33333333333333),
-(44, 9, 66, 1),
-(45, 9, 71, 0.33333333333333),
-(46, 10, 54, 1),
-(47, 10, 57, 1),
-(48, 10, 63, 1),
-(49, 10, 70, 0.2),
-(50, 10, 73, 1),
 (51, 11, 80, 0.2),
 (52, 11, 82, 0.4),
 (53, 11, 89, 0.8),
@@ -169,7 +150,7 @@ INSERT INTO `hitung` (`id_hitung`, `id_alternatif`, `id_subkriteria`, `nilai_nor
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria`
+-- Struktur dari tabel `kriteria`
 --
 
 CREATE TABLE `kriteria` (
@@ -181,7 +162,7 @@ CREATE TABLE `kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kriteria`
+-- Dumping data untuk tabel `kriteria`
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `beasiswa_id`, `nama_kriteria`, `tipe_kriteria`, `id_nilai`) VALUES
@@ -209,7 +190,7 @@ INSERT INTO `kriteria` (`id_kriteria`, `beasiswa_id`, `nama_kriteria`, `tipe_kri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nilai`
+-- Struktur dari tabel `nilai`
 --
 
 CREATE TABLE `nilai` (
@@ -219,7 +200,7 @@ CREATE TABLE `nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `nilai`
+-- Dumping data untuk tabel `nilai`
 --
 
 INSERT INTO `nilai` (`id_nilai`, `keterangan_nilai`, `jumlah_nilai`) VALUES
@@ -232,7 +213,7 @@ INSERT INTO `nilai` (`id_nilai`, `keterangan_nilai`, `jumlah_nilai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subkriteria`
+-- Struktur dari tabel `subkriteria`
 --
 
 CREATE TABLE `subkriteria` (
@@ -244,7 +225,7 @@ CREATE TABLE `subkriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `subkriteria`
+-- Dumping data untuk tabel `subkriteria`
 --
 
 INSERT INTO `subkriteria` (`id_subkriteria`, `beasiswa_id`, `id_kriteria`, `nama_subkriteria`, `nilai_subkriteria`) VALUES
@@ -352,30 +333,27 @@ INSERT INTO `subkriteria` (`id_subkriteria`, `beasiswa_id`, `id_kriteria`, `nama
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_file`
+-- Struktur dari tabel `tbl_file`
 --
 
 CREATE TABLE `tbl_file` (
   `id` int(11) NOT NULL,
   `filename` varchar(255) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_file`
+-- Dumping data untuk tabel `tbl_file`
 --
 
-INSERT INTO `tbl_file` (`id`, `filename`, `keterangan`, `created_at`) VALUES
-(3, 'Hasil_Akhir_Beasiswa_PPA_Tahun_2020.pdf', '', '2020-04-02 10:30:04'),
-(4, 'Konversi_Beasiswa_PPA_Tahun_2020.pdf', '', '2020-04-02 10:39:09'),
-(5, 'Nilai_Alternatif_Beasiswa_PPA_Tahun_2020.pdf', '', '2020-04-02 10:39:27'),
-(6, 'Normalisasi_Beasiswa_PPA_Tahun_2020.pdf', '', '2020-04-02 10:39:40');
+INSERT INTO `tbl_file` (`id`, `filename`, `created_at`) VALUES
+(7, 'Hasil_Akhir_Beasiswa_Berprestasi_Tahun_2020.pdf', '2020-04-03 05:01:54'),
+(11, 'Hasil_Akhir_Beasiswa_Bidik_Misi_Tahun_2020_(1).pdf', '2020-04-03 08:13:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipe_beasiswa`
+-- Struktur dari tabel `tipe_beasiswa`
 --
 
 CREATE TABLE `tipe_beasiswa` (
@@ -384,7 +362,7 @@ CREATE TABLE `tipe_beasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tipe_beasiswa`
+-- Dumping data untuk tabel `tipe_beasiswa`
 --
 
 INSERT INTO `tipe_beasiswa` (`id`, `nama_beasiswa`) VALUES
@@ -396,7 +374,7 @@ INSERT INTO `tipe_beasiswa` (`id`, `nama_beasiswa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -413,7 +391,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
@@ -424,7 +402,7 @@ INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `rol
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_access_menu`
+-- Struktur dari tabel `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -434,7 +412,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_access_menu`
+-- Dumping data untuk tabel `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -451,7 +429,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_menu`
+-- Struktur dari tabel `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -461,7 +439,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_menu`
+-- Dumping data untuk tabel `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`, `urutan`) VALUES
@@ -474,7 +452,7 @@ INSERT INTO `user_menu` (`id`, `menu`, `urutan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Struktur dari tabel `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -483,7 +461,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data untuk tabel `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -493,7 +471,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_sub_menu`
+-- Struktur dari tabel `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -507,7 +485,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_sub_menu`
+-- Dumping data untuk tabel `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`, `urutan`) VALUES
@@ -525,12 +503,12 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 4, 'Subkriteria', 'administrasi/subkriteria', 'fas fa-fw fa-folder-open', 1, 11),
 (15, 1, 'Menu Beasiswa', 'admin/menubeasiswa', 'fas fa-fw fa-folder', 1, 2),
 (17, 5, 'Admin', 'admin/admin', 'fas fa-fw fa-user', 1, 0),
-(18, 4, 'Upload Hasil Beasiswa', 'administrasi/upload', 'fas fa-fw fa-folder-open', 1, 0);
+(18, 4, 'Upload Hasil Beasiswa', 'administrasi/tampilDataUpload', 'fas fa-fw fa-folder-open', 1, 14);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_token`
+-- Struktur dari tabel `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -541,7 +519,7 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_token`
+-- Dumping data untuk tabel `user_token`
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
@@ -649,87 +627,72 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
+  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `hitung`
 --
 ALTER TABLE `hitung`
-  MODIFY `id_hitung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
-
+  MODIFY `id_hitung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
   MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
   MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `subkriteria`
 --
 ALTER TABLE `subkriteria`
   MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
-
 --
 -- AUTO_INCREMENT for table `tbl_file`
 --
 ALTER TABLE `tbl_file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tipe_beasiswa`
 --
 ALTER TABLE `tipe_beasiswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

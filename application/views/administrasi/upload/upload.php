@@ -13,7 +13,10 @@
                 <?= form_error('filename', ' <small class="text-danger pl-3">', '</small>'); ?>
                 <label class="custom-file-label" for="customFile">Choose File</label>
             </div>
+            <div class="row col-sm-12">
 
+                <p class="text-gray-800 ml-6">*Pastikan file yang dipilih adalah file PDF yang telah didownload pada menu Laporan!</p>
+            </div>
 
             <div class="form-group justify-content-end row mt-3">
                 <div class="col-sm-10">

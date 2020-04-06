@@ -46,7 +46,7 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function ppa()
+    public function ppaBerprestasi()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
@@ -61,7 +61,7 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
-    public function bidikMisi()
+    public function ppaKurangMampu()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
@@ -76,7 +76,7 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
-    public function prestasi()
+    public function wkriBerprestasi()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
@@ -91,7 +91,7 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
-    public function kurangMampu()
+    public function wkriKurangMampu()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
@@ -106,6 +106,52 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
+    public function perseorangan()
+    {
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '5'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+    public function bidikMisi()
+    {
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '6'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+    public function bidikMisiDifabel()
+    {
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+
+        $data = [
+            'email' => $email,
+            'role_id' => $role_id,
+            'beasiswa_id' => '7'
+        ];
+        $this->session->set_userdata($data);
+        redirect('admin');
+    }
+
 
     public function menuBeasiswa()
     {

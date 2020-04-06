@@ -344,13 +344,19 @@ class Administrasi extends CI_Controller
         $beaId = $this->session->userdata('beasiswa_id');
 
         if ($beaId == 1) {
-            $data['judul'] = 'Nilai Alternatif Beasiswa PPA Tahun' . date(' Y');
+            $data['judul'] = 'Nilai Alternatif Beasiswa PPA (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 2) {
-            $data['judul'] = 'Nilai Alternatif Beasiswa Bidik Misi Tahun' . date(' Y');
+            $data['judul'] = 'Nilai Alternatif Beasiswa PPA (Kurang Mampu) Tahun' . date(' Y');
         } elseif ($beaId == 3) {
-            $data['judul'] = 'Nilai Alternatif Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Nilai Alternatif Beasiswa WKRI (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 4) {
-            $data['judul'] = 'Nilai Alternatif Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Nilai Alternatif Beasiswa WKRI (Kurang Mampu) Tahun' . date(' Y');
+        } elseif ($beaId == 5) {
+            $data['judul'] = 'Nilai Alternatif Beasiswa Perseorangan Tahun' . date(' Y');
+        } elseif ($beaId == 6) {
+            $data['judul'] = 'Nilai Alternatif Beasiswa Bidik Misi Tahun' . date(' Y');
+        } elseif ($beaId == 7) {
+            $data['judul'] = 'Nilai Alternatif Beasiswa Bidik Misi (Difabel) Tahun' . date(' Y');
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -377,13 +383,19 @@ class Administrasi extends CI_Controller
         $beaId = $this->session->userdata('beasiswa_id');
 
         if ($beaId == 1) {
-            $data['judul'] = 'Konversi Beasiswa PPA Tahun' . date(' Y');
+            $data['judul'] = 'Konversi Beasiswa PPA (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 2) {
-            $data['judul'] = 'Konversi Beasiswa Bidik Misi Tahun' . date(' Y');
+            $data['judul'] = 'Konversi Beasiswa PPA (Kurang Mampu) Tahun' . date(' Y');
         } elseif ($beaId == 3) {
-            $data['judul'] = 'Konversi Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Konversi Beasiswa WKRI (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 4) {
-            $data['judul'] = 'Konversi Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Konversi Beasiswa WKRI (Kurang Mampu) Tahun' . date(' Y');
+        } elseif ($beaId == 5) {
+            $data['judul'] = 'Konversi Beasiswa Perseorangan Tahun' . date(' Y');
+        } elseif ($beaId == 6) {
+            $data['judul'] = 'Konversi Beasiswa Bidik Misi Tahun' . date(' Y');
+        } elseif ($beaId == 7) {
+            $data['judul'] = 'Konversi Beasiswa Bidik Misi (Difabel) Tahun' . date(' Y');
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -410,13 +422,19 @@ class Administrasi extends CI_Controller
         $beaId = $this->session->userdata('beasiswa_id');
 
         if ($beaId == 1) {
-            $data['judul'] = 'Normalisasi Beasiswa PPA Tahun' . date(' Y');
+            $data['judul'] = 'Normalisasi Beasiswa PPA (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 2) {
-            $data['judul'] = 'Normalisasi Beasiswa Bidik Misi Tahun' . date(' Y');
+            $data['judul'] = 'Normalisasi Beasiswa PPA (Kurang Mampu) Tahun' . date(' Y');
         } elseif ($beaId == 3) {
-            $data['judul'] = 'Normalisasi Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Normalisasi Beasiswa WKRI (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 4) {
-            $data['judul'] = 'Normalisasi Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Normalisasi Beasiswa WKRI (Kurang Mampu) Tahun' . date(' Y');
+        } elseif ($beaId == 5) {
+            $data['judul'] = 'Normalisasi Beasiswa Perseorangan Tahun' . date(' Y');
+        } elseif ($beaId == 6) {
+            $data['judul'] = 'Normalisasi Beasiswa Bidik Misi Tahun' . date(' Y');
+        } elseif ($beaId == 7) {
+            $data['judul'] = 'Normalisasi Beasiswa Bidik Misi (Difabel) Tahun' . date(' Y');
         }
 
 
@@ -444,13 +462,19 @@ class Administrasi extends CI_Controller
         $beaId = $this->session->userdata('beasiswa_id');
 
         if ($beaId == 1) {
-            $data['judul'] = 'Hasil Akhir Beasiswa PPA Tahun' . date(' Y');
+            $data['judul'] = 'Hasil Akhir Beasiswa PPA (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 2) {
-            $data['judul'] = 'Hasil Akhir Beasiswa Bidik Misi Tahun' . date(' Y');
+            $data['judul'] = 'Hasil Akhir Beasiswa PPA (Kurang Mampu) Tahun' . date(' Y');
         } elseif ($beaId == 3) {
-            $data['judul'] = 'Hasil Akhir Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Hasil Akhir Beasiswa WKRI (Berprestasi) Tahun' . date(' Y');
         } elseif ($beaId == 4) {
-            $data['judul'] = 'Hasil Akhir Beasiswa Berprestasi Tahun' . date(' Y');
+            $data['judul'] = 'Hasil Akhir Beasiswa WKRI (Kurang Mampu) Tahun' . date(' Y');
+        } elseif ($beaId == 5) {
+            $data['judul'] = 'Hasil Akhir Beasiswa Perseorangan Tahun' . date(' Y');
+        } elseif ($beaId == 6) {
+            $data['judul'] = 'Hasil Akhir Beasiswa Bidik Misi Tahun' . date(' Y');
+        } elseif ($beaId == 7) {
+            $data['judul'] = 'Hasil Akhir Beasiswa Bidik Misi (Difabel) Tahun' . date(' Y');
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>

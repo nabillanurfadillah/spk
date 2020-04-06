@@ -3,13 +3,19 @@
 
     <!-- Page Heading -->
     <?php if ($beasiswa['id'] == 1) : ?>
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa PPA</h1>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa PPA (Berprestasi)</h1>
     <?php elseif ($beasiswa['id'] == 2) : ?>
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Bidik Misi</h1>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa PPA (Kurang Mampu)</h1>
     <?php elseif ($beasiswa['id'] == 3) : ?>
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Prestasi</h1>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa WKRI (Berprestasi)</h1>
     <?php elseif ($beasiswa['id'] == 4) : ?>
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Kurang Mampu</h1>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa WKRI (Kurang Mampu)</h1>
+    <?php elseif ($beasiswa['id'] == 5) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Perseorangan</h1>
+    <?php elseif ($beasiswa['id'] == 6) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Bidik Misi</h1>
+    <?php elseif ($beasiswa['id'] == 7) : ?>
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Beasiswa Bidik Misi (Difabel)</h1>
     <?php endif; ?>
 
     <div class="row">

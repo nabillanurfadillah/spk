@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05 Apr 2020 pada 09.37
+-- Generation Time: 06 Apr 2020 pada 10.48
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -366,10 +366,13 @@ CREATE TABLE `tipe_beasiswa` (
 --
 
 INSERT INTO `tipe_beasiswa` (`id`, `nama_beasiswa`) VALUES
-(1, 'ppa'),
-(2, 'bidikmisi'),
-(3, 'prestasi'),
-(4, 'kurangmampu');
+(1, 'ppaberprestasi'),
+(2, 'ppakurangmampu'),
+(3, 'wkriberprestasi'),
+(4, 'wkrikurangmampu'),
+(5, 'perseorangan'),
+(6, 'bidikmisi'),
+(7, 'bidikmisidifabel');
 
 -- --------------------------------------------------------
 
@@ -662,7 +665,7 @@ ALTER TABLE `tbl_file`
 -- AUTO_INCREMENT for table `tipe_beasiswa`
 --
 ALTER TABLE `tipe_beasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --

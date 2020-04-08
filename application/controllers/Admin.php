@@ -27,6 +27,8 @@ class Admin extends CI_Controller
 
 
 
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -39,6 +41,34 @@ class Admin extends CI_Controller
         $data['title'] = 'Pilih Beasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $this->db->like('beasiswa_id', 1);
+        $this->db->from('alternatif');
+        $data['ppaber'] = $this->db->count_all_results();
+
+        $this->db->like('beasiswa_id', 2);
+        $this->db->from('alternatif');
+        $data['ppakm'] = $this->db->count_all_results();
+
+        $this->db->like('beasiswa_id', 3);
+        $this->db->from('alternatif');
+        $data['wber'] = $this->db->count_all_results();
+
+        $this->db->like('beasiswa_id', 4);
+        $this->db->from('alternatif');
+        $data['wkm'] = $this->db->count_all_results();
+
+        $this->db->like('beasiswa_id', 5);
+        $this->db->from('alternatif');
+        $data['per'] = $this->db->count_all_results();
+
+        $this->db->like('beasiswa_id', 6);
+        $this->db->from('alternatif');
+        $data['bm'] = $this->db->count_all_results();
+
+        $this->db->like('beasiswa_id', 7);
+        $this->db->from('alternatif');
+        $data['bmd'] = $this->db->count_all_results();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);

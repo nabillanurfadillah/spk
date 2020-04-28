@@ -2,7 +2,21 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Data Alternatif</h1>
+    <?php if ($beasiswa['id'] == 1) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa PPA (Berprestasi)</h1>
+    <?php elseif ($beasiswa['id'] == 2) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa PPA (Kurang Mampu)</h1>
+    <?php elseif ($beasiswa['id'] == 3) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa WKRI (Berprestasi)</h1>
+    <?php elseif ($beasiswa['id'] == 4) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa WKRI (Kurang Mampu)</h1>
+    <?php elseif ($beasiswa['id'] == 5) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa Perseorangan</h1>
+    <?php elseif ($beasiswa['id'] == 6) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa Bidik Misi</h1>
+    <?php elseif ($beasiswa['id'] == 7) : ?>
+        <h1 class="h3 mb-4 text-gray-800">Data <?= $title; ?> Beasiswa Bidik Misi (Difabel)</h1>
+    <?php endif; ?>
 
 
     <div class="row">
@@ -26,14 +40,14 @@
             </div>
             <div class="row justify-content-end col-sm-12">
 
-                <p class="text-gray-800 ml-6">*Hati-hati semua data mahasiswa akan terhapus! Pastikan File Hasil Beasiswa sudah diupload!</p>
+                <p class="text-gray-800 ml-6">*Hati-hati semua data mahasiswa akan terhapus! Pastikan File Hasil Beasiswa sudah diarsipkan!</p>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover" id="reminders">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">NIM</th>
-                        <th scope="col">Nama Alternatif</th>
+                        <th scope="col">Nama</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Tahun</th>

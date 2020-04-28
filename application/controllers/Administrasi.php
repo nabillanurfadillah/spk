@@ -8,13 +8,15 @@ class Administrasi extends CI_Controller
         parent::__construct();
         is_logged_in();
 
+
+
         $this->load->model('Nilai_model');
         $this->load->model('Kriteria_model');
         $this->load->model('SubKriteria_model');
         $this->load->model('Alternatif_model');
         $this->load->model('Dashboard_model');
         $this->load->model('File_model');
-
+        $this->load->model('Arsip_model');
         $this->load->model('Laporan_model');
     }
     public function nilai()
@@ -24,7 +26,7 @@ class Administrasi extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
         $data['nilai'] = $this->Nilai_model->getAllNilai();
 
 
@@ -100,6 +102,7 @@ class Administrasi extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
         $data['kriteria'] = $this->Kriteria_model->getAllKriteriaByBea();
 
         $this->load->view('templates/header', $data);
@@ -116,6 +119,7 @@ class Administrasi extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $data['subkriteria'] = $this->SubKriteria_model->getAllSubKriteriaByBea();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -133,6 +137,7 @@ class Administrasi extends CI_Controller
         $this->session->userdata('id')])->row_array();
         $this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'required|trim');
         $data['nilai'] = $this->db->get('nilai')->result_array();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
 
         if ($this->form_validation->run() == false) {
@@ -256,12 +261,13 @@ class Administrasi extends CI_Controller
     }
     public function alternatif()
     {
-        $data['title'] = 'Alternatif';
+        $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatifByBea();
+        $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -334,6 +340,13 @@ class Administrasi extends CI_Controller
         $alternatif = $this->Alternatif_model->getAlternatifById($id_alternatif);
 
         $this->Alternatif_model->hapusDataAlternatif($id_alternatif, $alternatif);
+        $this->session->set_flashdata('message', 'Dihapus!');
+        redirect('administrasi/alternatif');
+    }
+
+    public function hapusSemuaData()
+    {
+        $this->Alternatif_model->hapusSemuaData();
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('administrasi/alternatif');
     }
@@ -510,6 +523,7 @@ class Administrasi extends CI_Controller
         $this->load->view('administrasi/upload/tampilDataUpload', $data);
         $this->load->view('templates/footer');
     }
+
     public function upload()
     {
         $data['title'] = 'Upload Hasil Beasiswa';
@@ -534,13 +548,6 @@ class Administrasi extends CI_Controller
         }
     }
 
-    public function hapusSemuaData()
-    {
-        $this->Alternatif_model->hapusSemuaData();
-        $this->session->set_flashdata('message', 'Dihapus!');
-        redirect('administrasi/alternatif');
-    }
-
     public function hapusDataUpload($id)
     {
         $file = $this->File_model->getFileById($id);
@@ -549,5 +556,80 @@ class Administrasi extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert
         alert-success" role="alert"> File berhasil Dihapus!</div>');
         redirect('administrasi/tampilDataUpload');
+    }
+
+    public function arsipFile()
+    {
+        $data['title'] = 'Arsip Hasil Beasiswa';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $data['arsip'] = $this->Arsip_model->getAllArsip();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('administrasi/arsip/arsipFile', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function arsip()
+    {
+        $data['title'] = 'Upload File Arsip Hasil Beasiswa';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+
+
+        if (empty($_FILES['filename']['name'])) {
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('administrasi/arsip/arsip', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Arsip_model->upload();
+            $this->session->set_flashdata('message', '<div class="alert
+                alert-success" role="alert"> File berhasil Diupload!</div>');
+            redirect('administrasi/arsipFile');
+        }
+    }
+
+    public function daftarArsip()
+    {
+        $data['title'] = 'Arsip Hasil Beasiswa';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $data['arsip'] = $this->db->get('tbl_arsip')->result_array();
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('administrasi/arsip/daftarArsip', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function download($id)
+    {
+        $file =  $this->db->get_where('tbl_arsip', ['id' => $id])->row_array();
+        $filename = $file['filename'];
+
+        force_download('arsip/' . $filename, null);
+    }
+
+    public function hapusDataArsip($id)
+    {
+        $file = $this->Arsip_model->getFileById($id);
+
+        $this->Arsip_model->hapusDataUpload($id, $file);
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert"> File berhasil Dihapus!</div>');
+        redirect('administrasi/arsipFile');
     }
 }

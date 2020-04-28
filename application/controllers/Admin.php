@@ -25,10 +25,6 @@ class Admin extends CI_Controller
         $data['graph'] = $this->Dashboard_model->graph();
         $data['kriteria'] = $this->Dashboard_model->getAllKriteriaByBea();
 
-
-
-
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

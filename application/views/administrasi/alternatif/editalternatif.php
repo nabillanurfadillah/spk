@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Edit Alternatif</h1>
+    <h1 class="h3 mb-4 text-gray-800">Edit Mahasiswa</h1>
 
     <div class="row">
         <div class="col-lg-8">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="nama_alternatif" class="col-sm-4 col-form-label">Nama Alternatif</label>
+                <label for="nama_alternatif" class="col-sm-4 col-form-label">Nama</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="nama_alternatif" name="nama_alternatif" value="<?= $alternatif['nama_alternatif']; ?>">
                     <?= form_error('nama_alternatif', ' <small class="text-danger pl-3">', '</small>'); ?>
@@ -46,13 +46,6 @@
                 <div class="col-sm-8">
                     <input type="text" class="form-control col-sm-9" id="alamat" name="alamat" value="<?= $alternatif['alamat']; ?>">
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="tahun" class="col-sm-4 col-form-label">Tahun</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control col-sm-9" id="tahun" name="tahun" value="<?= $alternatif['tahun']; ?>">
-                    <?= form_error('tahun', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 

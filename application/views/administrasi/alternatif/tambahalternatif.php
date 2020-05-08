@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Tambah Alternatif</h1>
+    <h1 class="h3 mb-4 text-gray-800">Tambah Mahasiswa</h1>
 
     <div class="row">
         <div class="col-lg-8">
@@ -20,7 +20,7 @@
             <div class="form-group row">
                 <label for="nama_alternatif" class="col-sm-4 col-form-label">Nama</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control col-sm-9" id="nama_alternatif" name="nama_alternatif" placeholder="Masukkan Nama Alternatif" value="<?= set_value('nama_alternatif'); ?>">
+                    <input type="text" class="form-control col-sm-9" id="nama_alternatif" name="nama_alternatif" placeholder="Masukkan Nama Mahasiswa" value="<?= set_value('nama_alternatif'); ?>">
                     <?= form_error('nama_alternatif', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -45,13 +45,7 @@
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="tahun" class="col-sm-4 col-form-label">Tahun</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control col-sm-9" id="tahun" name="tahun" placeholder="Masukkan Tahun Sekarang" value="<?= set_value('tahun'); ?>">
-                    <?= form_error('tahun', ' <small class="text-danger pl-3">', '</small>'); ?>
-                </div>
-            </div>
+
             <?php
             $query1 = "SELECT nama_subkriteria from subkriteria WHERE id_kriteria=5";
             $query = $this->db->query($query1)->result_array();

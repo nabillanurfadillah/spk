@@ -50,7 +50,6 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Alamat</th>
-                        <th scope="col">Tahun</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -63,10 +62,6 @@
                             <td><?= $a['nama_alternatif']; ?></td>
                             <td><?= $a['jk']; ?></td>
                             <td><?= $a['alamat']; ?></td>
-                            <td><?= $a['tahun']; ?></td>
-
-
-
                             <td>
                                 <a href="<?= base_url() ?>administrasi/editalternatif/<?= $a['id_alternatif']; ?>" class="badge badge-success">edit</a>
                                 <a href="<?= base_url() ?>administrasi/hapusalternatif/<?= $a['id_alternatif']; ?>" class="badge badge-danger tombolhapusa">delete</a>

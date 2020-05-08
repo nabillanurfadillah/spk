@@ -2,7 +2,7 @@ const flashDataAlternatif = $('.flash-data-alternatif').data('flashdataalternati
 
 if (flashDataAlternatif) {
 	Swal.fire({
-		title: 'Data Alternatif ',
+		title: 'Data Mahasiswa ',
 		text: 'Berhasil ' + flashDataAlternatif,
 		type: 'success'
 	});

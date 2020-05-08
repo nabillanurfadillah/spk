@@ -30,8 +30,7 @@ class Alternatif_model extends CI_Model
             'nim' => $this->input->post('nim', true),
             'nama_alternatif' => $this->input->post('nama_alternatif', true),
             'jk' => $this->input->post('jk', true),
-            'alamat' => $this->input->post('alamat', true),
-            'tahun' => $this->input->post('tahun', true)
+            'alamat' => $this->input->post('alamat', true)
         ];
         $this->db->insert('alternatif', $dataa);
         $id_alternatif = $this->db->insert_id();
@@ -230,15 +229,12 @@ class Alternatif_model extends CI_Model
         $nama_alternatif = $this->input->post('nama_alternatif', true);
         $jk = $this->input->post('jk', true);
         $alamat = $this->input->post('alamat', true);
-        $tahun = $this->input->post('tahun', true);
 
         $data = [
             'nim' => $nim,
             'nama_alternatif' => $nama_alternatif,
             'jk' => $jk,
-            'alamat' => $alamat,
-            'tahun' => $tahun
-
+            'alamat' => $alamat
         ];
         $this->db->set($data);
         $this->db->where('id_alternatif', $id_alternatif);
@@ -354,7 +350,7 @@ class Alternatif_model extends CI_Model
 
         $query  = "SELECT * FROM alternatif WHERE beasiswa_id = $beaId";
         $alt = $this->db->query($query)->result_array();
-        
+
         foreach ($alt as $alId) {
             $id_alternatif = $alId['id_alternatif'];
             $this->db->delete('hitung', ['id_alternatif' => $id_alternatif]);

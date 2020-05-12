@@ -48,6 +48,7 @@
                         <th scope="col">No</th>
                         <th scope="col">NIM</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Jurusan</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Action</th>
@@ -60,6 +61,7 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['nim']; ?></td>
                             <td><?= $a['nama_alternatif']; ?></td>
+                            <td><?= $a['jurusan']; ?></td>
                             <td><?= $a['jk']; ?></td>
                             <td><?= $a['alamat']; ?></td>
                             <td>

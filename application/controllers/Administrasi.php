@@ -277,7 +277,7 @@ class Administrasi extends CI_Controller
     }
     public function tambahalternatif()
     {
-        $data['title'] = 'Alternatif';
+        $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['subkriteria'] = $this->Alternatif_model->getAllSubkriteria();
@@ -286,7 +286,6 @@ class Administrasi extends CI_Controller
         $this->form_validation->set_rules('nim', 'NIM', 'is_unique[alternatif.nim]|required|trim');
         $this->form_validation->set_rules('nama_alternatif', 'Nama Alternatif', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        $this->form_validation->set_rules('tahun', 'Tahun', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -295,7 +294,6 @@ class Administrasi extends CI_Controller
             $this->load->view('administrasi/alternatif/tambahalternatif', $data);
             $this->load->view('templates/footer');
         } else {
-
             $this->Alternatif_model->tambahDataAlternatif();
             $this->Alternatif_model->updateNormalisasiHasil();
             $this->session->set_flashdata('message', 'Ditambahkan!');
@@ -304,7 +302,7 @@ class Administrasi extends CI_Controller
     }
     public function editalternatif($id_alternatif)
     {
-        $data['title'] = 'Alternatif';
+        $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -312,14 +310,10 @@ class Administrasi extends CI_Controller
         $data['alternatif'] = $this->Alternatif_model->getAlternatifById($id_alternatif);
         $alternatif = $this->Alternatif_model->getAlternatifById($id_alternatif);
         $data['jk'] = ['Laki-laki', 'Perempuan'];
-
+        $data['jurusan'] = ['D3 Komputerisasi Akuntansi', 'S1 Sistem Informasi', 'S1 Teknik Informatika', 'S1 Desain Komunikasi Visual'];
         $data['hitung'] = $this->Alternatif_model->getHitungById($id_alternatif);
-
-
         $this->form_validation->set_rules('nama_alternatif', 'Nama Alternatif', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        $this->form_validation->set_rules('tahun', 'Tahun', 'required|trim');
-
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);

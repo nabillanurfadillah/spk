@@ -26,6 +26,17 @@
             </div>
 
             <div class="form-group row">
+                <label for="jurusan" class="col-sm-4 col-form-label">Jurusan</label>
+                <div class="col-sm-8">
+                    <select name="jurusan" id="jurusan" class="form-control col-sm-9">
+                        <option value="D3 Komputerisasi Akuntansi">D3 Komputerisasi Akuntansi</option>
+                        <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
+                        <option value="S1 Teknik Informatika">S1 Teknik Informatika</option>
+                        <option value="S1 Desain Komunikasi Visual">S1 Desain Komunikasi Visual</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="jk" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-8">
                     <select name="jk" id="jk" class="form-control col-sm-9">

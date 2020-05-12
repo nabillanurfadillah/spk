@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <?= form_open_multipart(''); ?>
+            <?= form_open_multipart(); ?>
             <input type="hidden" name="id_alternatif" value="<?= $alternatif['id_alternatif']; ?>">
 
 
@@ -26,6 +26,20 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="jurusan" class="col-sm-4 col-form-label">Jurusan</label>
+                <div class="col-sm-8">
+                    <select name="jurusan" id="jurusan" class="form-control col-sm-9">
+                        <?php foreach ($jurusan as $j) : ?>
+                            <?php if ($j == $alternatif['jurusan']) : ?>
+                                <option value="<?= $j; ?>" selected><?= $j; ?></option>
+                            <?php else : ?>
+                                <option value="<?= $j; ?>"><?= $j; ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="jk" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-8">

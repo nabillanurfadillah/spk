@@ -2,7 +2,7 @@
  <footer class="sticky-footer bg-white">
      <div class="container my-auto">
          <div class="copyright text-center my-auto">
-             <span>Copyright &copy; Nabilla Nur Fadillah <?= date('Y'); ?></span>
+             <span>Copyright &copy; STIKOM Yos Sudarso Purwokerto <?= date('Y'); ?></span>
          </div>
      </div>
  </footer>

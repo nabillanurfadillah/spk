@@ -20,7 +20,7 @@ class Laporan_model extends CI_Model
     public function getAllHasilByBea()
     {
         $beaId =  $this->session->userdata('beasiswa_id');
-        $query = "SELECT nama_alternatif, hasil from alternatif join hasil on alternatif.id_alternatif=hasil.id_alternatif where alternatif.beasiswa_id = $beaId order by hasil DESC";
+        $query = "SELECT nim, nama_alternatif, hasil from alternatif join hasil on alternatif.id_alternatif=hasil.id_alternatif where alternatif.beasiswa_id = $beaId order by hasil DESC";
         $hasil = $this->db->query($query)->result_array();
         return $hasil;
     }

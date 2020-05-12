@@ -29,6 +29,7 @@ class Alternatif_model extends CI_Model
             'beasiswa_id' => $beaId,
             'nim' => $this->input->post('nim', true),
             'nama_alternatif' => $this->input->post('nama_alternatif', true),
+            'jurusan' => $this->input->post('jurusan', true),
             'jk' => $this->input->post('jk', true),
             'alamat' => $this->input->post('alamat', true)
         ];
@@ -227,15 +228,18 @@ class Alternatif_model extends CI_Model
     {
         $nim = $this->input->post('nim', true);
         $nama_alternatif = $this->input->post('nama_alternatif', true);
+        $jurusan = $this->input->post('jurusan', true);
         $jk = $this->input->post('jk', true);
         $alamat = $this->input->post('alamat', true);
 
         $data = [
             'nim' => $nim,
             'nama_alternatif' => $nama_alternatif,
+            'jurusan' => $jurusan,
             'jk' => $jk,
             'alamat' => $alamat
         ];
+
         $this->db->set($data);
         $this->db->where('id_alternatif', $id_alternatif);
         $this->db->update('alternatif');

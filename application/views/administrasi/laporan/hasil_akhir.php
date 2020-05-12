@@ -41,6 +41,7 @@
                 <thead>
                     <tr>
                         <th scope="col">No</th>
+                        <th scope="col">NIM</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Hasil</th>
                         <th scope="col">Rank</th>
@@ -57,6 +58,7 @@
 
                         <tr>
                             <th scope="row"><?= $i ?></th>
+                            <td><?= $a['nim']; ?></td>
                             <td><?= $a['nama_alternatif']; ?></td>
                             <td><?= $a['hasil']; ?></td>
                             <td><?= $i; ?></td>

@@ -39,55 +39,56 @@
             </ul>
 
             <h4>Normalisasi</h4>
-            <table class="table table-bordered table-hover" id="reminders">
-                <thead>
-                    <tr>
-                        <th scope="col" style="vertical-align : middle;text-align:center;">No</th>
-                        <th scope="col" style="vertical-align : middle;text-align:center;">Nama</th>
-
-                        <?php foreach ($kriteria as $k) : ?>
-                            <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?><br>(<?= $k['tipe_kriteria']; ?>)</th>
-
-                        <?php endforeach; ?>
-                    </tr>
-                </thead>
-                <?php
-
-                ?>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($alternatif as $a) : ?>
-                        <?php $ida = $a['id_alternatif']; ?>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="reminders">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $a['nama_alternatif']; ?></td>
-                            <?php
-                            $beaId = $this->session->userdata('beasiswa_id');
-                            $query1 = "SELECT nilai_normalisasi from hitung join alternatif 
+                            <th scope="col" style="vertical-align : middle;text-align:center;">No</th>
+                            <th scope="col" style="vertical-align : middle;text-align:center;">Nama</th>
+
+                            <?php foreach ($kriteria as $k) : ?>
+                                <th class="text-center" scope="col"><?= $k['nama_kriteria']; ?><br>(<?= $k['tipe_kriteria']; ?>)</th>
+
+                            <?php endforeach; ?>
+                        </tr>
+                    </thead>
+                    <?php
+
+                    ?>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($alternatif as $a) : ?>
+                            <?php $ida = $a['id_alternatif']; ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $a['nama_alternatif']; ?></td>
+                                <?php
+                                $beaId = $this->session->userdata('beasiswa_id');
+                                $query1 = "SELECT nilai_normalisasi from hitung join alternatif 
                             on hitung.id_alternatif = alternatif.id_alternatif
                             where hitung.id_alternatif=$ida
                             and alternatif.beasiswa_id = $beaId";
-                            $hasil1 = $this->db->query($query1)->result_array();
-                            ?>
-                            <?php foreach ($hasil1 as $h) : ?>
+                                $hasil1 = $this->db->query($query1)->result_array();
+                                ?>
+                                <?php foreach ($hasil1 as $h) : ?>
 
 
-                                <td style="text-align:center;">
-                                    <?= $h['nilai_normalisasi']; ?>
-                                </td>
+                                    <td style="text-align:center;">
+                                        <?= $h['nilai_normalisasi']; ?>
+                                    </td>
 
-                            <?php endforeach; ?>
-
-
+                                <?php endforeach; ?>
 
 
-                        </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
 
-                </tbody>
-            </table>
 
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>

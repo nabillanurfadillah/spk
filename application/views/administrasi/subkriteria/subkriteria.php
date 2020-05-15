@@ -34,43 +34,45 @@
             <?php endif; ?>
 
             <a href="<?= base_url('administrasi/tambahsubkriteria'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
-            <table class="table table-bordered table-hover" id="reminders">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Kriteria</th>
-                        <th scope="col">Nama Subkriteria</th>
-                        <th scope="col">Nilai Subkriteria</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <?php
-                $query = "SELECT subkriteria.id_subkriteria,kriteria.id_kriteria, subkriteria.nama_subkriteria, subkriteria.nilai_subkriteria, kriteria.nama_kriteria FROM subkriteria INNER JOIN kriteria ON subkriteria.id_kriteria = kriteria.id_kriteria";
-                $datasubkriteria = $this->db->query($query)->result_array();
-
-                ?>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($subkriteria as $sk) : ?>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="reminders">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $sk['nama_kriteria']; ?></td>
-                            <td><?= $sk['nama_subkriteria']; ?></td>
-                            <td><?= $sk['nilai_subkriteria']; ?></td>
-
-
-
-                            <td>
-                                <a href="<?= base_url() ?>administrasi/editsubkriteria/<?= $sk['id_subkriteria']; ?>" class="badge badge-success">edit</a>
-                                <a href="<?= base_url() ?>administrasi/hapussubkriteria/<?= $sk['id_subkriteria']; ?>" class="badge badge-danger tombol-hapus-subkriteria">delete</a>
-                            </td>
-
+                            <th scope="col">No</th>
+                            <th scope="col">Kriteria</th>
+                            <th scope="col">Nama Subkriteria</th>
+                            <th scope="col">Nilai Subkriteria</th>
+                            <th scope="col">Action</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                    </thead>
+                    <?php
+                    $query = "SELECT subkriteria.id_subkriteria,kriteria.id_kriteria, subkriteria.nama_subkriteria, subkriteria.nilai_subkriteria, kriteria.nama_kriteria FROM subkriteria INNER JOIN kriteria ON subkriteria.id_kriteria = kriteria.id_kriteria";
+                    $datasubkriteria = $this->db->query($query)->result_array();
 
-                </tbody>
-            </table>
+                    ?>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($subkriteria as $sk) : ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $sk['nama_kriteria']; ?></td>
+                                <td><?= $sk['nama_subkriteria']; ?></td>
+                                <td><?= $sk['nilai_subkriteria']; ?></td>
+
+
+
+                                <td>
+                                    <a href="<?= base_url() ?>administrasi/editsubkriteria/<?= $sk['id_subkriteria']; ?>" class="badge badge-success">edit</a>
+                                    <a href="<?= base_url() ?>administrasi/hapussubkriteria/<?= $sk['id_subkriteria']; ?>" class="badge badge-danger tombol-hapus-subkriteria">delete</a>
+                                </td>
+
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

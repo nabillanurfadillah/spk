@@ -36,35 +36,37 @@
 
 
             <a href="<?= base_url('administrasi/tambahnilai'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Keterangan Nilai</th>
-                        <th scope="col">Jumlah Nilai</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($nilai as $n) : ?>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $n['keterangan_nilai']; ?></td>
-                            <td><?= $n['jumlah_nilai']; ?></td>
-
-
-                            <td>
-                                <a href="<?= base_url() ?>administrasi/editnilai/<?= $n['id_nilai']; ?>" class="badge badge-success">edit</a>
-                                <a href="<?= base_url() ?>administrasi/hapusnilai/<?= $n['id_nilai']; ?>" class="badge badge-danger hapusnilai">delete</a>
-                            </td>
-
+                            <th scope="col">No</th>
+                            <th scope="col">Keterangan Nilai</th>
+                            <th scope="col">Jumlah Nilai</th>
+                            <th scope="col">Action</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($nilai as $n) : ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $n['keterangan_nilai']; ?></td>
+                                <td><?= $n['jumlah_nilai']; ?></td>
 
-                </tbody>
-            </table>
+
+                                <td>
+                                    <a href="<?= base_url() ?>administrasi/editnilai/<?= $n['id_nilai']; ?>" class="badge badge-success">edit</a>
+                                    <a href="<?= base_url() ?>administrasi/hapusnilai/<?= $n['id_nilai']; ?>" class="badge badge-danger hapusnilai">delete</a>
+                                </td>
+
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

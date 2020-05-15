@@ -42,6 +42,7 @@
 
                 <p class="text-gray-800 ml-6">*Hati-hati semua data mahasiswa akan terhapus! Pastikan File Hasil Beasiswa sudah diarsipkan!</p>
             </div>
+            <div class="table-responsive">
             <table class="table table-hover" id="reminders">
                 <thead>
                     <tr>
@@ -75,6 +76,7 @@
 
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 

@@ -37,38 +37,39 @@
             </ul>
 
             <h4>Hasil Akhir</h4>
-            <table class="table table-bordered table-hover" id="reminders">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Hasil</th>
-                        <th scope="col">Rank</th>
-
-
-                    </tr>
-                </thead>
-                <?php
-
-                ?>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($hasil as $a) : ?>
-
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="reminders">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $a['nim']; ?></td>
-                            <td><?= $a['nama_alternatif']; ?></td>
-                            <td><?= $a['hasil']; ?></td>
-                            <td><?= $i; ?></td>
+                            <th scope="col">No</th>
+                            <th scope="col">NIM</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Hasil</th>
+                            <th scope="col">Rank</th>
+
+
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                    </thead>
+                    <?php
 
-                </tbody>
-            </table>
+                    ?>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($hasil as $a) : ?>
 
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $a['nim']; ?></td>
+                                <td><?= $a['nama_alternatif']; ?></td>
+                                <td><?= $a['hasil']; ?></td>
+                                <td><?= $i; ?></td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

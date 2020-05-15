@@ -7,31 +7,33 @@
     <div class="row">
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
-            <table class="table table-sm table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama File</th>
-                        <th scope="col">Waktu</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php $i = 1; ?>
-                    <?php foreach ($arsip as $a) : ?>
-
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><a href="<?= base_url('administrasi/download/') . $a['id']; ?>"><?= $a['filename']; ?></a></td>
-                            <td>
-                                <p><?= $a['created_at']; ?></p>
-                            </td>
-
+                            <th scope="col">No</th>
+                            <th scope="col">Nama File</th>
+                            <th scope="col">Waktu</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+
+                        <?php $i = 1; ?>
+                        <?php foreach ($arsip as $a) : ?>
+
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><a href="<?= base_url('administrasi/download/') . $a['id']; ?>"><?= $a['filename']; ?></a></td>
+                                <td>
+                                    <p><?= $a['created_at']; ?></p>
+                                </td>
+
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

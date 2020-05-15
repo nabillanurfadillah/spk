@@ -11,39 +11,41 @@
 
 
             <a href="<?= base_url('administrasi/upload/upload'); ?>" class="btn btn-primary mb-3">Upload Hasil Beasiswa</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama File</th>
-                        <th scope="col">Waktu Upload</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($file as $f) : ?>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $f['filename']; ?></td>
-                            <td><?= $f['created_at']; ?></td>
-
-
-                            <td>
-                                <a href="<?= base_url() ?>administrasi/hapusDataUpload/<?= $f['id']; ?>" class="badge badge-danger">delete</a>
-                            </td>
-
+                            <th scope="col">No</th>
+                            <th scope="col">Nama File</th>
+                            <th scope="col">Waktu Upload</th>
+                            <th scope="col">Action</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($file as $f) : ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $f['filename']; ?></td>
+                                <td><?= $f['created_at']; ?></td>
 
-                </tbody>
-            </table>
+
+                                <td>
+                                    <a href="<?= base_url() ?>administrasi/hapusDataUpload/<?= $f['id']; ?>" class="badge badge-danger">delete</a>
+                                </td>
+
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+        </>
 
-</div>
-<!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->

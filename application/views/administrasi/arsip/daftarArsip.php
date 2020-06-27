@@ -17,17 +17,14 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php $i = 1; ?>
                         <?php foreach ($arsip as $a) : ?>
-
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
                                 <td><a href="<?= base_url('administrasi/download/') . $a['id']; ?>"><?= $a['filename']; ?></a></td>
                                 <td>
                                     <p><?= $a['created_at']; ?></p>
                                 </td>
-
                             </tr>
                             <?php $i++; ?>
                         <?php endforeach; ?>
@@ -36,7 +33,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

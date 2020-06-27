@@ -6,10 +6,7 @@
 
     <div class="row">
         <div class="col-lg-8">
-
             <?= form_open_multipart('administrasi/tambahkriteria'); ?>
-
-
             <div class="form-group row">
                 <label for="nama_kriteria" class="col-sm-3 col-form-label">Nama Kriteria</label>
                 <div class="col-sm-7">
@@ -21,11 +18,8 @@
                 <label for="tipe_kriteria" class="col-sm-3 col-form-label">Tipe Kriteria</label>
                 <div class="col-sm-9">
                     <select name="tipe_kriteria" id="tipe_kriteria" class="form-control col-sm-9">
-
                         <option value="Cost">Cost</option>
                         <option value="Benefit">Benefit</option>
-
-
                     </select>
                 </div>
             </div>
@@ -34,9 +28,7 @@
                 <div class="col-sm-9">
                     <select name="id_nilai" id="id_nilai" class="form-control col-sm-9">
                         <?php foreach ($nilai as $nl) : ?>
-
                             <option value="<?= $nl['id_nilai'] ?>"><?= $nl['jumlah_nilai'] ?></option>
-
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -44,18 +36,12 @@
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-
                     <a href="<?= base_url('administrasi/kriteria'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

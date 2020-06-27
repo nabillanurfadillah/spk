@@ -31,9 +31,7 @@ class Auth extends CI_Controller
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
-
         $id_role = $user['role_id'];
         $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
         //jika usernya ada
@@ -66,6 +64,7 @@ class Auth extends CI_Controller
             redirect('auth');
         }
     }
+
     public function registration()
     {
         if ($this->session->userdata('email')) {
@@ -96,7 +95,6 @@ class Auth extends CI_Controller
                 'is_active' => 0,
                 'date_created' => time()
             ];
-
             // siapkan token
             $token = base64_encode(random_bytes(32));
             $user_token = [
@@ -104,12 +102,9 @@ class Auth extends CI_Controller
                 'token' => $token,
                 'date_created' => time()
             ];
-
             $this->db->insert('user', $data);
             $this->db->insert('user_token', $user_token);
-
             //    $this->_sendEmail($token, 'verify');
-
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please Activate Your Account! </div>');
             redirect('auth');
         }
@@ -127,13 +122,10 @@ class Auth extends CI_Controller
             'charset' => 'utf-8',
             'newline' => "\r\n"
         ];
-
         $this->load->library('email', $config);
         $this->email->initialize($config);
-
         $this->email->from('nurfadillahnabilla@gmail.com', 'Nabilla Nur Fadillah');
         $this->email->to($this->input->post('email'));
-
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
             $this->email->message('Click this link to verify your account : <a href="' .
@@ -143,7 +135,6 @@ class Auth extends CI_Controller
             $this->email->message('Click this link to reset your password : <a href="' .
                 base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
         }
-
         if ($this->email->send()) {
             return true;
         } else {
@@ -156,9 +147,7 @@ class Auth extends CI_Controller
     {
         $email = $this->input->get('email');
         $token = $this->input->get('token');
-
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
-
         if ($user) {
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
@@ -166,9 +155,7 @@ class Auth extends CI_Controller
                     $this->db->set('is_active', 1);
                     $this->db->where('email', $email);
                     $this->db->update('user');
-
                     $this->db->delete('user_token', ['email' => $email]);
-
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' has been activated! Please login. </div>');
                     redirect('auth');
                 } else {
@@ -194,6 +181,7 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out! </div>');
         redirect('home');
     }
+
     public function blocked()
     {
         $this->load->view('auth/blocked');
@@ -210,7 +198,6 @@ class Auth extends CI_Controller
         } else {
             $email = $this->input->post('email');
             $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
-
             if ($user) {
                 $token = base64_encode(random_bytes(32));
                 $user_token = [
@@ -218,7 +205,6 @@ class Auth extends CI_Controller
                     'token' => $token,
                     'date_created' => time()
                 ];
-
                 $this->db->insert('user_token', $user_token);
                 $this->_sendEmail($token, 'forgot');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Please check your email to reset your password! </div>');
@@ -234,12 +220,9 @@ class Auth extends CI_Controller
     {
         $email = $this->input->get('email');
         $token = $this->input->get('token');
-
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
-
         if ($user) {
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
-
             if ($user_token) {
                 $this->session->set_userdata('reset_email', $email);
                 $this->changePassword();
@@ -252,12 +235,12 @@ class Auth extends CI_Controller
             redirect('auth');
         }
     }
+
     public function changePassword()
     {
         if (!$this->session->userdata('reset_email')) {
             redirect('auth');
         }
-
         $this->form_validation->set_rules(
             'password1',
             'Password',
@@ -276,13 +259,10 @@ class Auth extends CI_Controller
         } else {
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');
-
             $this->db->set('password', $password);
             $this->db->where('email', $email);
             $this->db->update('user');
-
             $this->session->unset_userdata('reset_email');
-
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password has been changed! Please login.</div>');
             redirect('auth');
         }

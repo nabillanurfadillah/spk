@@ -6,7 +6,6 @@
 
     <div class="row">
         <div class="col-lg-8">
-
             <?= form_open_multipart(); ?>
             <input type="hidden" name="id" value="<?= $admin['id']; ?>">
             <div class="form-group row">
@@ -23,7 +22,6 @@
                     <?= form_error('nama', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
-
             <div class="form-group row">
                 <?php
                 $jk = $admin['jk']; ?>
@@ -41,7 +39,6 @@
                     <label class="form-check-label" for="jk">Perempuan</label>
                 </div>
             </div>
-
             <div class="form-group row">
                 <label for="password" class="col-sm-3 col-form-label">Password</label>
                 <div class="col-sm-6">
@@ -102,16 +99,10 @@
                     <a href="<?= base_url('admin'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
-
 </div>
 <!-- End of Main Content -->

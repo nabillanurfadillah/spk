@@ -16,13 +16,11 @@ class Admin_model extends CI_Model
     {
         // cek jika ada gambar yang akan diupload
         $upload_image = $_FILES['image']['name'];
-
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size']     = '2048';
             $config['upload_path'] = './assets/img/profile';
             $this->load->library('upload', $config);
-
             if ($this->upload->do_upload('image')) {
                 return $this->upload->data('file_name');
             }
@@ -43,7 +41,6 @@ class Admin_model extends CI_Model
             'is_active' => $this->input->post('aktif', true),
             'date_created' => time()
         ];
-
         $this->db->insert('user', $data);
     }
 
@@ -51,15 +48,12 @@ class Admin_model extends CI_Model
     {
         // cek jika ada gambar yang akan diupload
         $upload_image = $_FILES['image']['name'];
-
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size']     = '2048';
             $config['upload_path'] = './assets/img/profile';
             $this->load->library('upload', $config);
-
             if ($this->upload->do_upload('image')) {
-
                 $old_image = $admin['image'];
                 if ($old_image != 'default.jpg') {
                     unlink(FCPATH . 'assets/img/profile/' . $old_image);
@@ -70,14 +64,12 @@ class Admin_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-
         $name = $this->input->post('nama', true);
         $jk = $this->input->post('jk', true);
         $email = $this->input->post('email', true);
         $hp = $this->input->post('hp', true);
         $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         $is_active =  $this->input->post('aktif', true);
-
         $data = [
             'name' => $name,
             'jk' => $jk,
@@ -93,14 +85,12 @@ class Admin_model extends CI_Model
         $this->db->update('user');
     }
 
-
     public function hapusDataAdmin($id, $admin)
     {
         $old_image = $admin['image'];
         if ($old_image != 'default.jpg') {
             unlink(FCPATH . 'assets/img/profile/' . $old_image);
         }
-
         //$this->db->where('id', $id);
         $this->db->delete('user', ['id' => $id]);
     }

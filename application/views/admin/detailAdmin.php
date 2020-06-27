@@ -3,6 +3,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Detail Admin</h1>
+
     <a href="<?= base_url('admin/admin'); ?>" class="btn btn-danger mb-2">Kembali</a>
 
     <div class="row">
@@ -27,7 +28,6 @@
             </div>
         </div>
     </div>
-
 </div>
 </div>
 <!-- End of Main Content -->

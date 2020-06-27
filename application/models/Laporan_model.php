@@ -17,6 +17,7 @@ class Laporan_model extends CI_Model
     {
         return $this->db->get_where('subkriteria', ['beasiswa_id' => $this->session->userdata('beasiswa_id')])->result_array();
     }
+
     public function getAllHasilByBea()
     {
         $beaId =  $this->session->userdata('beasiswa_id');

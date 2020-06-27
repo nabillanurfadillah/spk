@@ -4,26 +4,20 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-
-
     <div class="row">
         <div class="col-lg">
             <?php if (validation_errors()) : ?>
                 <div class="alert alert-danger" role="alert">
                     <?= validation_errors(); ?>
                 </div>
-
-
             <?php endif; ?>
 
             <?php if ($this->session->flashdata('message')) : ?>
-
                 <div class="flash-data-admin" data-flashdataadmin="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
 
             <a href="<?= base_url('admin/tambahAdmin'); ?>" class="btn btn-success mb-3">Tambah Admin</a>
             <div class="table-responsive">
-
                 <table class="table table-bordered table-hover" id="dataTable">
                     <thead class="thead-dark">
                         <tr>
@@ -37,10 +31,8 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php $i = 1; ?>
                         <?php foreach ($admin as $adm) : ?>
-
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
                                 <td><?= $adm['name']; ?></td>
@@ -49,7 +41,6 @@
                                 <td><?= $adm['hp']; ?></td>
                                 <td><?= $adm['is_active']; ?></td>
                                 <td>
-
                                     <div class="dropdown ">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             opsi
@@ -69,12 +60,11 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
-
 </div>
 <!-- End of Main Content -->
+
 <!-- Hapus Modal-->
 <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

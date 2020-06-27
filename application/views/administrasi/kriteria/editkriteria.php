@@ -6,11 +6,7 @@
 
     <div class="row">
         <div class="col-lg-8">
-
             <?= form_open_multipart(); ?>
-
-
-
             <div class="form-group row">
                 <label for="nama_kriteria" class="col-sm-3 col-form-label">Nama Kriteria</label>
                 <div class="col-sm-7">
@@ -29,11 +25,6 @@
                                 <option value="<?= $k; ?>"><?= $k; ?></option>
                             <?php endif; ?>
                         <?php endforeach; ?>
-
-
-
-
-
                     </select>
                 </div>
             </div>
@@ -44,8 +35,6 @@
             $datakriteria = $this->db->query($query)->result_array();
             // var_dump($datakriteria);
             // die;
-
-
             ?>
             <div class="form-group row">
                 <label for="bobot_kriteria" class="col-sm-3 col-form-label">Bobot Kriteria</label>
@@ -57,8 +46,6 @@
                             <?php else : ?>
                                 <option value="<?= $nl['id_nilai'] ?>"><?= $nl['jumlah_nilai'] ?></option>
                             <?php endif; ?>
-
-
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -66,18 +53,12 @@
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Ubah</button>
-
                     <a href="<?= base_url('administrasi/kriteria'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

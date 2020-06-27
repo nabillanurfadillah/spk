@@ -10,19 +10,16 @@ class Menu extends CI_Controller
         $this->load->model('Menu_model');
         $this->load->model('Submenu_model', 'Submenu');
     }
+
     public function index()
     {
         $data['title'] = 'Menu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
         $data['menu'] = $this->db->get('user_menu')->result_array();
-
         $this->form_validation->set_rules('menu', 'Menu', 'required|trim');
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -39,12 +36,10 @@ class Menu extends CI_Controller
 
     public function editmenu()
     {
-
         $data['title'] = 'Menu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('menuedit', 'Menu', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -67,27 +62,20 @@ class Menu extends CI_Controller
         redirect('menu');
     }
 
-
-
     public function submenu()
     {
         $data['title'] = 'Submenu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
         $this->load->model('Menu_model', 'menu');
-
         $data['subMenu'] = $this->menu->getSubMenu();
         $data['menu'] = $this->db->get('user_menu')->result_array();
-
         $this->form_validation->set_rules('title', 'Title', 'required|trim');
         $this->form_validation->set_rules('menu_id', 'Menu', 'required|trim');
         $this->form_validation->set_rules('url', 'URL', 'required|trim');
         $this->form_validation->set_rules('icon', 'icon', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -118,7 +106,6 @@ class Menu extends CI_Controller
         $this->form_validation->set_rules('menu_id', 'Menu', 'required|trim');
         $this->form_validation->set_rules('url', 'URL', 'required|trim');
         $this->form_validation->set_rules('icon', 'icon', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);

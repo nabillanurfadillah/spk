@@ -7,17 +7,17 @@ class Home extends CI_Controller
     {
         parent::__construct();
     }
+
     public function index()
     {
         $data['file'] = $this->db->get('tbl_file')->result_array();
-        $this->load->view('home',$data);
+        $this->load->view('home', $data);
     }
 
     public function download($id)
     {
-       $file =  $this->db->get_where('tbl_file', ['id' => $id])->row_array();
-       $filename = $file['filename'];
-
-        force_download('uploads/'.$filename, null);
+        $file =  $this->db->get_where('tbl_file', ['id' => $id])->row_array();
+        $filename = $file['filename'];
+        force_download('uploads/' . $filename, null);
     }
 }

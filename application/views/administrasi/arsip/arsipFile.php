@@ -4,12 +4,9 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Data Arsip Hasil Beasiswa</h1>
 
-
     <div class="row">
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
-
-
             <a href="<?= base_url('administrasi/arsip/arsip'); ?>" class="btn btn-primary mb-3">Arsipkan Hasil Beasiswa</a>
             <ul class="nav nav-pills mb-4">
                 <li class="nav-item">
@@ -32,21 +29,16 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $a['filename']; ?></td>
                             <td><?= $a['created_at']; ?></td>
-
-
                             <td>
                                 <a href="<?= base_url() ?>administrasi/hapusDataArsip/<?= $a['id']; ?>" class="badge badge-danger">delete</a>
                             </td>
-
                         </tr>
                         <?php $i++; ?>
                     <?php endforeach; ?>
-
                 </tbody>
             </table>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

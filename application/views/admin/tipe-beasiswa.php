@@ -11,7 +11,6 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-3">Beasiswa PPA (Berprestasi)</div>
-
                             <div class="h7 mb-0 font-weight-bold text-gray-800"><?= $ppaber ?> Mahasiswa</div>
                         </div>
                         <div class="col-auto">
@@ -160,9 +159,5 @@
             </div>
         </div>
     </div>
-
-
-
-
     <br>
 </div>

@@ -4,16 +4,14 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-
-
     <div class="row">
         <div class="col-lg">
             <?= form_error('role', '<div class="alert
                     alert-danger" role="alert">', '</div>'); ?>
-
             <?= $this->session->flashdata('message'); ?>
 
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add New Role</a>
+
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable">
                     <thead class="thead-dark">
@@ -33,7 +31,6 @@
                                     <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
 
                                     <a href="" class="badge badge-success" data-toggle="modal" data-target="#editRoleModal<?= $r['id']; ?>">edit</a>
-
 
                                     <div class="modal fade" id="editRoleModal<?= $r['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="newRoleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -65,7 +62,6 @@
                                     <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusRoleModal<?= $r['id']; ?>">delete</a>
 
                                     <div class="modal fade" id="hapusRoleModal<?= $r['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -94,15 +90,11 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
-
-<!-- Modal -->
-
 
 <!-- Modal -->
 <div class="modal fade" id="newRoleModal" tabindex="-1" role="dialog" aria-labelledby="newRoleModalLabel" aria-hidden="true">

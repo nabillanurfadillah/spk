@@ -10,10 +10,8 @@ class Role_model extends CI_Model
 
     public function ubahDataRole()
     {
-
         $role =  $this->input->post('roleedit', true);
         $id =  $this->input->post('id', true);
-
         $data = [
             'role' => $role
         ];

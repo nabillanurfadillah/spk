@@ -36,6 +36,7 @@
                     <?= form_error('email', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="password" class="col-sm-3 col-form-label">Password</label>
                 <div class="col-sm-6">
@@ -43,6 +44,7 @@
                     <?= form_error('password', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="password2" class="col-sm-3 col-form-label">Repeat Password</label>
                 <div class="col-sm-6">
@@ -50,13 +52,15 @@
                     <?= form_error('password2', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+
             <div class="form-group row">
-                <label for="hp" class="col-sm-3 col-form-label">Hp</label>
+                <label for="hp" class="col-sm-3 col-form-label">HP</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="hp" name="hp" placeholder="masukan nomer hp" value="<?= set_value('hp'); ?>">
                     <?= form_error('hp', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Aktif</label>
                 <div class="form-check form-check-inline pl-3">
@@ -69,6 +73,7 @@
 
                 </div>
             </div>
+
             <div class="form-group row">
                 <div class="col-sm-3">Foto</div>
                 <div class="col-sm-9">
@@ -85,20 +90,16 @@
                     </div>
                 </div>
             </div>
+
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <a href="<?= base_url('admin'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

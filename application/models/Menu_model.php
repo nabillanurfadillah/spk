@@ -15,10 +15,8 @@ class Menu_model extends CI_Model
 
     public function ubahDatamenu()
     {
-
         $menu =  $this->input->post('menuedit', true);
         $id =  $this->input->post('id', true);
-
         $data = [
             'menu' => $menu
         ];

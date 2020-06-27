@@ -21,10 +21,8 @@ class Admin extends CI_Controller
         $data['nilai'] = $this->Dashboard_model->getAllNilai();
         $data['beasiswa'] = $this->Dashboard_model->getBeasiswaByBea();
         $data['alternatif'] = $this->Dashboard_model->getAllAlternatifByBea();
-
         $data['graph'] = $this->Dashboard_model->graph();
         $data['kriteria'] = $this->Dashboard_model->getAllKriteriaByBea();
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -37,35 +35,27 @@ class Admin extends CI_Controller
         $data['title'] = 'Pilih Beasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
         $this->db->like('beasiswa_id', 1);
         $this->db->from('alternatif');
         $data['ppaber'] = $this->db->count_all_results();
-
         $this->db->like('beasiswa_id', 2);
         $this->db->from('alternatif');
         $data['ppakm'] = $this->db->count_all_results();
-
         $this->db->like('beasiswa_id', 3);
         $this->db->from('alternatif');
         $data['wber'] = $this->db->count_all_results();
-
         $this->db->like('beasiswa_id', 4);
         $this->db->from('alternatif');
         $data['wkm'] = $this->db->count_all_results();
-
         $this->db->like('beasiswa_id', 5);
         $this->db->from('alternatif');
         $data['per'] = $this->db->count_all_results();
-
         $this->db->like('beasiswa_id', 6);
         $this->db->from('alternatif');
         $data['bm'] = $this->db->count_all_results();
-
         $this->db->like('beasiswa_id', 7);
         $this->db->from('alternatif');
         $data['bmd'] = $this->db->count_all_results();
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/tipe-beasiswa', $data);
@@ -78,7 +68,6 @@ class Admin extends CI_Controller
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -93,7 +82,6 @@ class Admin extends CI_Controller
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -102,13 +90,13 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
+
     public function wkriBerprestasi()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -117,13 +105,13 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
+
     public function wkriKurangMampu()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -132,13 +120,13 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
+
     public function perseorangan()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -153,7 +141,6 @@ class Admin extends CI_Controller
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -162,13 +149,13 @@ class Admin extends CI_Controller
         $this->session->set_userdata($data);
         redirect('admin');
     }
+
     public function bidikMisiDifabel()
     {
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-
         $data = [
             'email' => $email,
             'role_id' => $role_id,
@@ -178,13 +165,12 @@ class Admin extends CI_Controller
         redirect('admin');
     }
 
-
     public function menuBeasiswa()
     {
-
         $this->session->unset_userdata('beasiswa_id');
         redirect('admin/tipebeasiswa');
     }
+
     // SuperAdmin Punya
     public function role()
     {
@@ -194,13 +180,9 @@ class Admin extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $data['role'] = $this->db->get('user_role')->result_array();
-
-
         $data['namarole']   = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
         $this->form_validation->set_rules('role', 'Role', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -223,7 +205,6 @@ class Admin extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $this->form_validation->set_rules('roleedit', 'Role', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -237,15 +218,14 @@ class Admin extends CI_Controller
             redirect('admin/role');
         }
     }
+
     public function hapusrole()
     {
-
         $this->Role_model->hapusDataRole();
         $this->session->set_flashdata('message', '<div class="alert
       alert-success" role="alert"> Role Berhasil Dihapus!</div>');
         redirect('admin/role');
     }
-
 
     public function roleAccess($role_id)
     {
@@ -255,19 +235,17 @@ class Admin extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
-
         $this->db->where('id !=', 1);
         $data['menu'] = $this->db->get('user_menu')->result_array();
-
         $data['namarole']   = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/role-access', $data);
         $this->load->view('templates/footer');
     }
+
     public function changeAccess()
     {
         $menu_id = $this->input->post('menuId');
@@ -276,9 +254,7 @@ class Admin extends CI_Controller
             'role_id' => $role_id,
             'menu_id' => $menu_id
         ];
-
         $result = $this->db->get_where('user_access_menu', $data);
-
         if ($result->num_rows() < 1) {
             $this->db->insert('user_access_menu', $data);
         } else {
@@ -286,6 +262,7 @@ class Admin extends CI_Controller
         }
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
     }
+
     public function admin()
     {
         $data['title'] = 'Admin';
@@ -302,6 +279,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/admin', $data);
         $this->load->view('templates/footer');
     }
+
     public function detailAdmin($id)
     {
         $data['title'] = 'Admin';
@@ -310,26 +288,22 @@ class Admin extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
         $data['admin'] = $this->Admin_model->getAdminById($id);
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/detailAdmin', $data);
         $this->load->view('templates/footer');
     }
+
     public function tambahAdmin()
     {
         $data['title'] = 'Admin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
-
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
             'is_unique' => 'This email has already registered!'
@@ -340,7 +314,6 @@ class Admin extends CI_Controller
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
         $this->form_validation->set_rules('hp', 'Hp', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -357,7 +330,6 @@ class Admin extends CI_Controller
     public function hapusadministrator($id)
     {
         $admin = $this->Admin_model->getAdminById($id);
-
         $this->Admin_model->hapusDataAdmin($id, $admin);
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('admin/admin');
@@ -367,15 +339,10 @@ class Admin extends CI_Controller
         $data['title'] = 'Admin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
-
-
         $data['admin'] = $this->Admin_model->getAdminById($id);
         $admin = $this->Admin_model->getAdminById($id);
-
-
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'trim|min_length[3]|matches[password2]', [
             'matches' => 'password dont match!',
@@ -383,7 +350,6 @@ class Admin extends CI_Controller
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'trim|matches[password]');
         $this->form_validation->set_rules('hp', 'Hp', 'required|trim');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -392,7 +358,6 @@ class Admin extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Admin_model->ubahDataAdmin($admin, $id);
-
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('admin/admin');
         }

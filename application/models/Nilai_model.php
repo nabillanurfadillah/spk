@@ -6,6 +6,7 @@ class Nilai_model extends CI_Model
     {
         return $this->db->get_where('nilai', ['id_nilai' => $id_nilai])->row_array();
     }
+
     public function getAllNilai()
     {
         return $this->db->get('nilai')->result_array();
@@ -17,7 +18,6 @@ class Nilai_model extends CI_Model
             'keterangan_nilai' => $this->input->post('keterangan_nilai', true),
             'jumlah_nilai' => $this->input->post('jumlah_nilai', true)
         ];
-
         $this->db->insert('nilai', $data);
     }
 

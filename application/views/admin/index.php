@@ -57,12 +57,16 @@
         </div>
     </div>
     <!-- /.container-fluid -->
+
     <div class="container2">
         <canvas id="myChart"></canvas>
     </div>
 </div>
 </div>
+<!-- End of Main Content -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 <script type="text/javascript">
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
@@ -94,4 +98,3 @@
         },
     });
 </script>
-<!-- End of Main Content -->

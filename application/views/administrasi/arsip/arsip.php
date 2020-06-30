@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Upload File Arsip Hasil Beasiswa</h1>
+    <h1 class="h3 mb-4 text-gray-800">Arsipkan Hasil Beasiswa</h1>
 
     <div class="row">
         <div class="col-lg-8">
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group justify-content-end row mt-3">
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <button type="submit" class="btn btn-primary">Arsipkan</button>
                 </div>
             </div>
             <?= form_close() ?>

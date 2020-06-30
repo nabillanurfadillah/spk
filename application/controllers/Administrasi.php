@@ -557,8 +557,7 @@ class Administrasi extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Arsip_model->upload();
-            $this->session->set_flashdata('message', '<div class="alert
-                alert-success" role="alert"> File berhasil Diupload!</div>');
+            $this->session->set_flashdata('message', 'Diarsipkan!');
             redirect('administrasi/arsipFile');
         }
     }
@@ -589,8 +588,7 @@ class Administrasi extends CI_Controller
     {
         $file = $this->Arsip_model->getFileById($id);
         $this->Arsip_model->hapusDataUpload($id, $file);
-        $this->session->set_flashdata('message', '<div class="alert
-        alert-success" role="alert"> File berhasil Dihapus!</div>');
+        $this->session->set_flashdata('message', 'Dihapus!');
         redirect('administrasi/arsipFile');
     }
 }

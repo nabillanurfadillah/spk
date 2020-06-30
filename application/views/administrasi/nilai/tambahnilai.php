@@ -6,10 +6,7 @@
 
     <div class="row">
         <div class="col-lg-8">
-
             <?= form_open_multipart('administrasi/tambahnilai'); ?>
-
-
             <div class="form-group row">
                 <label for="keterangan_nilai" class="col-sm-3 col-form-label">Keterangan Nilai</label>
                 <div class="col-sm-9">
@@ -24,22 +21,15 @@
                     <?= form_error('jumlah_nilai', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
-
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-
                     <a href="<?= base_url('administrasi/nilai'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

@@ -24,41 +24,29 @@
             <div class="col-md-10">
                 <div class="card-body">
                     <div class="row">
-                        <label for="alamat" class="col-sm-6">NIM</label>
-                        <div class="col-sm-6">
-                            <p class="card-text">: <?= $alternatif['nim']; ?></p>
-                        </div>
+                        <label for="alamat" class="col-lg-6"><b>NIM</b></label>
+                        <p class="card-text">&nbsp; <?= $alternatif['nim']; ?></p><br>
                     </div>
                     <div class="row">
-                        <label for="alamat" class="col-sm-6">Nama</label>
-                        <div class="col-sm-6">
-                            <p class="card-text">: <?= $alternatif['nama_alternatif']; ?></p>
-                        </div>
+                        <label for="alamat" class="col-sm-6"><b>Nama</b></label>
+                        <p class="card-text">&nbsp; <?= $alternatif['nama_alternatif']; ?></p><br>
                     </div>
                     <div class="row">
-                        <label for="alamat" class="col-sm-6">Jurusan</label>
-                        <div class="col-sm-6">
-                            <p class="card-text">: <?= $alternatif['jurusan']; ?></p>
-                        </div>
+                        <label for="alamat" class="col-sm-6"><b>Jurusan</b></label>
+                        <p class="card-text">&nbsp; <?= $alternatif['jurusan']; ?></p><br>
                     </div>
                     <div class="row">
-                        <label for="alamat" class="col-sm-6">Jenis Kelamin </label>
-                        <div class="col-sm-6">
-                            <p class="card-text">: <?= $alternatif['jk']; ?></p>
-                        </div>
+                        <label for="alamat" class="col-sm-6"><b>Jenis Kelamin</b></label>
+                        <p class="card-text">&nbsp; <?= $alternatif['jk']; ?></p><br>
                     </div>
                     <div class="row">
-                        <label for="alamat" class="col-sm-6">Alamat</label>
-                        <div class="col-sm-6">
-                            <p class="card-text">: <?= $alternatif['alamat']; ?></p>
-                        </div>
+                        <label for="alamat" class="col-sm-6"><b>Alamat</b></label>
+                        <p class="card-text">&nbsp; <?= $alternatif['alamat']; ?></p><br>
                     </div>
                     <?php foreach ($datamhs as $dm) : ?>
                         <div class="row">
-                            <label for="alamat" class="col-sm-6"><?= $dm['nama_kriteria']; ?></label>
-                            <div class="col-sm-6">
-                                <p class="card-text">: <?= $dm['nama_subkriteria']; ?></p>
-                            </div>
+                            <label for="alamat" class="col-sm-6"><b><?= $dm['nama_kriteria']; ?></b></label>
+                            <p class="card-text">&nbsp; <?= $dm['nama_subkriteria']; ?></p><br>
                         </div>
                     <?php endforeach; ?>
                 </div>

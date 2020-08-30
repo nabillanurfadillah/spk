@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Mei 2020 pada 09.07
+-- Generation Time: 30 Jun 2020 pada 08.52
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -43,8 +43,8 @@ CREATE TABLE `alternatif` (
 INSERT INTO `alternatif` (`id_alternatif`, `beasiswa_id`, `nim`, `nama_alternatif`, `jurusan`, `jk`, `alamat`) VALUES
 (36, 2, 201901082, 'Anisa Hidayah', 'D3 Komputerisasi Akuntansi', 'Perempuan', 'Jl. Adhiyaksa No. 90 Purwokerto Selatan'),
 (37, 2, 201901087, 'Saniya', 'S1 Desain Komunikasi Visual', 'Laki-laki', 'Jl. Berd No. 83 Ajibarang'),
-(38, 1, 201609054, 'Hana Silviana', 'S1 Teknik Informatika', 'Perempuan', 'Jl. Sudagaran No. 87 Banyumas'),
-(39, 1, 201409076, 'Erwin Tias', 'D3 Komputerisasi Akuntansi', 'Laki-laki', 'Jl. Atrium No. 76 Kroya'),
+(38, 1, 201803001, 'Hana Silviana', 'S1 Teknik Informatika', 'Perempuan', 'Jl. Sudagaran No. 87 Banyumas'),
+(39, 1, 201802001, 'Erwin Tias', 'D3 Komputerisasi Akuntansi', 'Laki-laki', 'Jl. Atrium No. 76 Kroya'),
 (40, 3, 201304098, 'Sarah Faros', 'S1 Teknik Informatika', 'Perempuan', 'Jl. Adira No. 76 Banjarnegara'),
 (41, 3, 201305098, 'Adiba Khanza', 'D3 Komputerisasi Akuntansi', 'Perempuan', 'Jl. Suparman No. 76 Cilacap'),
 (42, 4, 201807065, 'Silsila', 'D3 Komputerisasi Akuntansi', 'Laki-laki', 'Jl. Amarka No. 34 Banyumas'),
@@ -55,8 +55,8 @@ INSERT INTO `alternatif` (`id_alternatif`, `beasiswa_id`, `nim`, `nama_alternati
 (47, 6, 201209709, 'Ahmad', 'S1 Teknik Informatika', 'Laki-laki', 'Kroya'),
 (48, 7, 201901001, 'Gery', 'D3 Komputerisasi Akuntansi', 'Laki-laki', 'Jl. Adhiyaksa No. 90 Purwokerto Selatan'),
 (49, 7, 201901002, 'Ami', 'S1 Teknik Informatika', 'Perempuan', 'Jl. Adira No. 76 Banjarnegara'),
-(51, 1, 201702053, 'Aldoo', 'S1 Sistem Informasi', 'Laki-laki', 'Kroya'),
-(52, 1, 201601029, 'Suryo', 'S1 Sistem Informasi', 'Laki-laki', 'Banyumas');
+(51, 1, 201801001, 'Aldoo', 'S1 Sistem Informasi', 'Laki-laki', 'Kroya'),
+(52, 1, 201601002, 'Suryo', 'S1 Sistem Informasi', 'Laki-laki', 'Banyumas');
 
 -- --------------------------------------------------------
 
@@ -506,7 +506,7 @@ CREATE TABLE `tbl_arsip` (
 --
 
 INSERT INTO `tbl_arsip` (`id`, `filename`, `created_at`) VALUES
-(4, 'lecnote_Teknik_Evaluasi.doc', '2020-04-27 07:46:08');
+(7, 'Hasil_Akhir_Beasiswa_PPA_(Berprestasi)_Tahun_2020.pdf', '2020-06-30 06:10:12');
 
 -- --------------------------------------------------------
 
@@ -845,7 +845,7 @@ ALTER TABLE `subkriteria`
 -- AUTO_INCREMENT for table `tbl_arsip`
 --
 ALTER TABLE `tbl_arsip`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tbl_file`
 --

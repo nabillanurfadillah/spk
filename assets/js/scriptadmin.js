@@ -12,7 +12,6 @@ if (flashDataAdmin) {
 $('.hapusadmin').on('click', function (e) {
 	e.preventDefault();
 	const href = $(this).attr('href');
-
 	Swal.fire({
 		title: 'Apakah anda yakin?',
 		text: "data admin akan dihapus",

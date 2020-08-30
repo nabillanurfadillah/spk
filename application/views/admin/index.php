@@ -20,11 +20,19 @@
 
     <div class="row">
         <div class="col-lg-4">
-            <h4 class="text-center">Nilai Preferensi</h4>
+            <h4 class="text-center">Bobot Nilai</h4>
             <div class="card">
                 <div class="card-body">
+
+                    <?php
+                    $queryNilai = "SELECT keterangan_nilai, jumlah_nilai
+                        FROM nilai
+                        ORDER BY nilai.jumlah_nilai ASC";
+                    $hasilnilai = $this->db->query($queryNilai)->result_array();
+                    ?>
+
                     <ol>
-                        <?php foreach ($nilai as $n) : ?>
+                        <?php foreach ($hasilnilai as $n) : ?>
                             <li><?= $n['keterangan_nilai']; ?></li>
                         <?php endforeach; ?>
                     </ol>
@@ -32,7 +40,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <h4 class="text-center">Kriteria-Kriteria</h4>
+            <h4 class="text-center">Kriteria</h4>
             <div class="card">
                 <div class="card-body">
                     <ol>
@@ -44,7 +52,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <h4 class="text-center">Alternatif</h4>
+            <h4 class="text-center">Mahasiswa</h4>
             <div class="card">
                 <div class="card-body">
                     <ol>
@@ -59,7 +67,14 @@
     <!-- /.container-fluid -->
 
     <div class="container2">
-        <canvas id="myChart"></canvas>
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <br>
+                <h4 class="text-center">Hasil Beasiswa</h4>
+                <br>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
     </div>
 </div>
 </div>

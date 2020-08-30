@@ -2,7 +2,7 @@ const flashDataSubKriteria = $('.flash-data-subkriteria').data('flashdatasubkrit
 
 if (flashDataSubKriteria) {
 	Swal.fire({
-		title: 'Data Subkriteria ',
+		title: 'Data Sub Kriteria ',
 		text: 'Berhasil ' + flashDataSubKriteria,
 		type: 'success'
 	});
@@ -12,10 +12,9 @@ if (flashDataSubKriteria) {
 $('.tombol-hapus-kriteria').on('click', function (e) {
 	e.preventDefault();
 	const href = $(this).attr('href');
-
 	Swal.fire({
 		title: 'Apakah anda yakin?',
-		text: "data subkriteria akan dihapus",
+		text: "data sub kriteria akan dihapus",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',

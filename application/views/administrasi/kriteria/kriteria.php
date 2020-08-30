@@ -30,10 +30,10 @@
             <?php endif; ?>
             <a href="<?= base_url('administrasi/tambahkriteria'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" id="reminderss">
                     <thead>
                         <tr>
-                            <th scope="col">No</th>
+                            <th scope=" col">No</th>
                             <th scope="col">Nama Kriteria</th>
                             <th scope="col">Tipe Kriteria</th>
                             <th scope="col">Bobot Kriteria</th>

@@ -8,7 +8,7 @@
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
             <div class="table-responsive">
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" id="reminderss">
                     <thead>
                         <tr>
                             <th scope="col">No</th>

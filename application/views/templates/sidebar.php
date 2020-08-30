@@ -1,16 +1,51 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<!-- 
+<style>
+    /* Menambahkan sidebar scrollable */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        /* Behind the navbar */
+        padding: 48px 0 0;
+        /* Height of navbar */
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+
+    .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: .5rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    @supports ((position: -webkit-sticky) or (position: sticky)) {
+        .sidebar-sticky {
+            position: -webkit-sticky;
+            position: sticky;
+        }
+    }
+</style> -->
+
+
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-sticky sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-code"></i>
+            <i class="fas fa-key"></i>
         </div>
         <div class="sidebar-brand-text mx-3"><?= $namarole['role']; ?> </div>
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+
     <!-- QUERY MENU -->
     <?php
     $role_id = $this->session->userdata('role_id');
@@ -20,8 +55,8 @@
                     WHERE `user_access_menu`.`role_id` = $role_id
                     ORDER BY `user_menu`.`urutan` ASC";
     $menu = $this->db->query($queryMenu)->result_array();
-
     ?>
+
     <!-- LOOPING MENU -->
     <?php foreach ($menu as $m) : ?>
         <div class="sidebar-heading">
@@ -50,16 +85,7 @@
                 </li>
             <?php endforeach; ?>
             <hr class="sidebar-divider mt-3">
-
         <?php endforeach; ?>
-
-
-
-
-
-
-
-
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
@@ -73,6 +99,5 @@
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
-
 </ul>
 <!-- End of Sidebar -->

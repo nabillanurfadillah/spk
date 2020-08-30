@@ -3,6 +3,7 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
  */
+
 (function ($) {
 	"use strict"; // Start of use strict
 
@@ -39,8 +40,10 @@
 			$("#mainNav").removeClass("navbar-scrolled");
 		}
 	};
+
 	// Collapse now if page is not at top
 	navbarCollapse();
+
 	// Collapse the navbar when page is scrolled
 	$(window).scroll(navbarCollapse);
 

@@ -10,9 +10,9 @@
             <?= form_open_multipart('admin/tambahAdmin'); ?>
 
             <div class="form-group row">
-                <label for="nama" class="col-sm-3 col-form-label">Nama</label>
+                <label for="nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="masukan nama lengkap" value="<?= set_value('nama'); ?>">
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap" value="<?= set_value('nama'); ?>">
                     <?= form_error('nama', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="masukan email yang valid" value="<?= set_value('email'); ?>">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email yang Valid" value="<?= set_value('email'); ?>">
                     <?= form_error('email', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="form-group row">
                 <label for="hp" class="col-sm-3 col-form-label">HP</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="hp" name="hp" placeholder="masukan nomer hp" value="<?= set_value('hp'); ?>">
+                    <input type="text" class="form-control" id="hp" name="hp" placeholder="Masukkan Nomor HP" value="<?= set_value('hp'); ?>">
                     <?= form_error('hp', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -94,7 +94,7 @@
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-                    <a href="<?= base_url('admin'); ?>" class="btn btn-danger">Batal</a>
+                    <a href="<?= base_url('admin/admin'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
             </form>

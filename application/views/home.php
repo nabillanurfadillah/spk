@@ -7,18 +7,24 @@
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<title>SPK Beasiswa</title>
+
 	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+
 	<!-- Google fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+
 	<!-- Third party plugin CSS-->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet" />
+
 </head>
 
 <body id="page-top">
+
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
 		<div class="container">
@@ -31,6 +37,7 @@
 			</div>
 		</div>
 	</nav>
+
 	<!-- Masthead-->
 	<header class="masthead">
 		<div class="container h-100">
@@ -60,17 +67,17 @@
 						<table class="table table-sm table-bordered">
 							<thead>
 								<tr>
-									<th scope="col">No</th>
-									<th scope="col">Nama File</th>
-									<th scope="col">Waktu</th>
+									<th scope="col" class="text-white">No</th>
+									<th scope="col" class="text-white">Nama File</th>
+									<th scope="col" class="text-white">Waktu</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $i = 1; ?>
 								<?php foreach ($file as $f) : ?>
 									<tr>
-										<th scope="row"><?= $i; ?></th>
-										<td><a style="color: white;" href="<?= base_url('home/download/') . $f['id']; ?>"><?= $f['filename']; ?></a></td>
+										<th scope="row" class="text-white"><?= $i; ?></th>
+										<td><a style=" color: white;" href="<?= base_url('home/download/') . $f['id']; ?>"><?= $f['filename']; ?></a></td>
 										<td>
 											<p style="color: white;"><?= $f['created_at']; ?></p>
 										</td>
@@ -84,6 +91,7 @@
 			</div>
 		</div>
 	</section>
+
 	<!-- Contact section-->
 	<section class="page-section" id="contact">
 		<div class="container">
@@ -101,25 +109,51 @@
 				</div>
 				<div class="col-lg-4 mr-auto text-center">
 					<i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-					<a class="d-block" href="stikomyos.ac.id">stikomyos.ac.id</a>
+					<a class="d-block" href="https://www.stikomyos.ac.id">stikomyos.ac.id</a>
 				</div>
+				<div class="col-lg-4 mr-auto text-center">
+					<i class="fab fa-instagram-square fa-3x mb-3 text-muted"></i>
+					<a class="d-block" href="https://www.instagram.com/stikomyospwt">@stikomyospwt</a>
+				</div>
+
+			</div>
+			<br><br><br><br>
+			<div class="row">
+				<div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+					<i class="fab fa-whatsapp fa-3x mb-3 text-muted"></i>
+					<div>081542038100</div>
+				</div>
+				<div class="col-lg-4 mr-auto text-center">
+					<i class="fas fa-envelope-square fa-3x mb-3 text-muted"></i>
+					<a class="d-block">stikomyos@stikomyos.ac.id</a>
+				</div>
+				<div class="col-lg-4 mr-auto text-center">
+					<i class="fas fa-map-marker-alt fa-3x mb-3 text-muted"></i>
+					<a class="d-block">Jalan SMP 5 Karang Klesem, Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah 53144</a>
+				</div>
+
 			</div>
 		</div>
 	</section>
+
 	<!-- Footer-->
 	<footer class="bg-light py-5">
 		<div class="container">
 			<div class="small text-center text-muted">Copyright © <?= date('Y'); ?> - STIKOM YOS SUDARSO PURWOKERTO</div>
 		</div>
 	</footer>
+
 	<!-- Bootstrap core JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
 	<!-- Third party plugin JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
 	<!-- Core theme JS-->
 	<script src="<?= base_url('assets/js/scripthome.js'); ?>"></script>
+
 </body>
 
 </html>

@@ -26,7 +26,7 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama File</th>
-                            <th scope="col">Waktu Upload</th>
+                            <th scope="col">Waktu</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -46,10 +46,10 @@
                     </tbody>
                 </table>
             </div>
-            </>
         </div>
     </div>
-    <!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->

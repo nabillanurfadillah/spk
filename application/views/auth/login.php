@@ -2,9 +2,7 @@
 
     <!-- Outer Row -->
     <div class="mt-5 row justify-content-center">
-
         <div class="col-lg-5">
-
             <div class="card my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
@@ -24,14 +22,11 @@
                                         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-
                                     <button type="submit" class="btn btn-o btn-user btn-block">
                                         Login
                                     </button>
                                     <!-- <hr> -->
-
                                 </form>
-
                                 <!-- <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
                                 </div>
@@ -43,9 +38,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>

@@ -6,9 +6,7 @@
 
     <div class="row">
         <div class="col-lg-8">
-
             <?= form_open_multipart(); ?>
-
             <div class="form-group row">
                 <label for="id_kriteria" class="col-sm-3 col-form-label">Pilih Kriteria</label>
                 <div class="col-sm-9">
@@ -19,13 +17,10 @@
                             <?php else : ?>
                                 <option value="<?= $k['id_kriteria'] ?>"><?= $k['nama_kriteria'] ?></option>
                             <?php endif; ?>
-
-
                         <?php endforeach; ?>
                     </select>
                 </div>
             </div>
-
             <div class="form-group row">
                 <label for="nama_subkriteria" class="col-sm-3 col-form-label">Nama Subkriteria</label>
                 <div class="col-sm-7">
@@ -40,32 +35,21 @@
                     <?= form_error('nilai_subkriteria', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
-
             <?php
             $query = "SELECT subkriteria.id_subkriteria,kriteria.id_kriteria, subkriteria.nama_subkriteria, subkriteria.nilai_subkriteria FROM subkriteria INNER JOIN kriteria ON subkriteria.id_kriteria = kriteria.id_kriteria";
             $datasubkriteria = $this->db->query($query)->result_array();
-
             // var_dump($datakriteria);
             // die;
-
-
             ?>
-
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Ubah</button>
-
                     <a href="<?= base_url('administrasi/subkriteria'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

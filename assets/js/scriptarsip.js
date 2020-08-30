@@ -12,7 +12,6 @@ if (flashDataArsip) {
 $('.hapus-arsip').on('click', function (e) {
 	e.preventDefault();
 	const href = $(this).attr('href');
-
 	Swal.fire({
 		title: 'Apakah anda yakin?',
 		text: "arsip akan dihapus",

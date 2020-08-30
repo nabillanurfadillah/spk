@@ -3,7 +3,6 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
     <div class="row">
         <div class="col-lg-8">
             <?= form_open_multipart('user/edit'); ?>
@@ -35,7 +34,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group row justify-content-end">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Edit</button>
@@ -44,7 +42,6 @@
             </form>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

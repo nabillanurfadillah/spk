@@ -105,7 +105,7 @@ class Administrasi extends CI_Controller
 
     public function subkriteria()
     {
-        $data['title'] = 'Subkriteria';
+        $data['title'] = 'Sub Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -144,7 +144,7 @@ class Administrasi extends CI_Controller
 
     public function tambahsubkriteria()
     {
-        $data['title'] = 'Subkriteria';
+        $data['title'] = 'Sub Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -196,7 +196,7 @@ class Administrasi extends CI_Controller
 
     public function editsubkriteria($id_subkriteria)
     {
-        $data['title'] = 'Subkriteria';
+        $data['title'] = 'Sub Kriteria';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>

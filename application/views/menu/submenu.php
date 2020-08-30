@@ -1,11 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
-
-
     <div class="row">
         <div class="col-lg">
             <?php if (validation_errors()) : ?>
@@ -13,9 +9,7 @@
                     <?= validation_errors(); ?>
                 </div>
             <?php endif; ?>
-
             <?= $this->session->flashdata('message'); ?>
-
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable">
@@ -42,7 +36,6 @@
                                 <td><?= $sm['is_active']; ?></td>
                                 <td>
                                     <a href="" class="badge badge-success" data-toggle="modal" data-target="#editSubMenuModal<?= $sm['id']; ?>">edit</a>
-
                                     <div class="modal fade" id="editSubMenuModal<?= $sm['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="editSubMenuModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -56,7 +49,6 @@
                                                     <input type="hidden" name="id" value="<?= $sm['id'] ?>">
                                                     <div class="modal-body">
                                                         <div class="form-group">
-
                                                             <input type="text" class="form-control" id="title" name="title" value="<?= $sm['title']; ?>" required>
                                                         </div>
                                                         <div class="form-group">
@@ -70,7 +62,6 @@
                                                                 <?php endforeach; ?>
                                                             </select>
                                                         </div>
-
                                                         <div class="form-group">
                                                             <input type="text" class="form-control" id="url" name="url" value="<?= $sm['url']; ?>" required>
                                                         </div>
@@ -88,7 +79,6 @@
                                                                     <input type="hidden" name="cek" value="0" />
                                                                     <input type="checkbox" name="cek" value="1" />
                                                                 <?php endif; ?>
-
                                                                 <label class="form-check-label" for="aktif">&nbsp;AKtif ?</label>
                                                             </div>
                                                         </div>
@@ -101,12 +91,7 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <a href="" data-toggle="modal" data-target="#hapusSubMenuModal<?= $sm['id']; ?>" class="badge badge-danger">delete</a>
-
-
                                     <div class="modal fade" id="hapusSubMenuModal<?= $sm['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="hapusSubMenuModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -136,15 +121,10 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
-
 </div>
 <!-- End of Main Content -->
-
-<!-- Modal -->
-
 
 <!-- Modal -->
 <div class="modal fade" id="newSubMenuModal" tabindex="-1" role="dialog" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
@@ -176,17 +156,11 @@
                         <input type="text" class="form-control" id="icon" name="icon" placeholder="Submenu icon">
                     </div>
                     <div class="form-group row">
-
-
                         <div class="form-check form-check-inline pl-3">
-
                             <input type="hidden" name="is_active" value="0" />
                             <input type="checkbox" name="is_active" value="1" checked />
-
-
                             <label class="form-check-label" for="aktif">&nbsp;Aktif ?</label>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -6,17 +6,13 @@
 
     <div class="row">
         <div class="col-lg-8">
-
             <?= form_open_multipart('administrasi/tambahsubkriteria'); ?>
-
             <div class="form-group row">
                 <label for="id_kriteria" class="col-sm-3 col-form-label">Pilih Kriteria</label>
                 <div class="col-sm-9">
                     <select name="id_kriteria" id="id_kriteria" class="form-control col-sm-9">
                         <?php foreach ($kriteria as $k) : ?>
-
                             <option value="<?= $k['id_kriteria'] ?>"><?= $k['nama_kriteria'] ?></option>
-
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -35,22 +31,15 @@
                     <?= form_error('nilai_subkriteria', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
-
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-
                     <a href="<?= base_url('administrasi/subkriteria'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-
             </form>
-
-
         </div>
-
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

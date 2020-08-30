@@ -14,10 +14,8 @@
                 <label class="custom-file-label" for="customFile">Choose File</label>
             </div>
             <div class="row col-sm-12">
-
                 <p class="text-gray-800 ml-6">*Pastikan file yang dipilih adalah file PDF yang telah didownload pada menu Laporan!</p>
             </div>
-
             <div class="form-group justify-content-end row mt-3">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Upload</button>
@@ -26,7 +24,6 @@
             <?= form_close() ?>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

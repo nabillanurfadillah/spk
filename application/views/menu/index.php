@@ -1,18 +1,12 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
-
-
     <div class="row">
         <div class="col-sm">
             <?= form_error('menu', '<div class="alert
                     alert-danger" role="alert">', '</div>'); ?>
-
             <?= $this->session->flashdata('message'); ?>
-
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add New Menu</a>
             <div class="table-responsive">
                 <table class="table table-hover" id="dataTable">
@@ -31,7 +25,6 @@
                                 <td><?= $m['menu']; ?></td>
                                 <td>
                                     <a href="" class="badge badge-success" data-toggle="modal" data-target="#editMenuModal<?= $m['id']; ?>">edit</a>
-
                                     <div class="modal fade" id="editMenuModal<?= $m['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="editMenuModal" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -41,10 +34,8 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-
                                                 <form action="<?= base_url('menu/editmenu'); ?>" method="post">
                                                     <input type="hidden" name="id" value="<?= $m['id'] ?>">
-
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <input type="text" class="form-control" id="menuedit" name="menuedit" value="<?= $m['menu']; ?>" required>
@@ -58,11 +49,8 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusMenuModal<?= $m['id']; ?>">delete</a>
-
                                     <div class="modal fade" id="hapusMenuModal<?= $m['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="hapusMenuModal" aria-hidden="true">
-
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -91,15 +79,10 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
-
 </div>
 <!-- End of Main Content -->
-
-<!-- Modal -->
-
 
 <!-- Modal -->
 <div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">

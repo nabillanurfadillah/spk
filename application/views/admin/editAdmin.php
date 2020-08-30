@@ -11,7 +11,7 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="email" name="email" value="<?= $admin['email']; ?>" readonly>
+                    <input type="text" class="form-control" id="email" name="email" value="<?= $admin['email']; ?>">
                     <?= form_error('email', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Edit</button>
                     <button type="reset" class="btn btn-warning">Reset</button>
-                    <a href="<?= base_url('admin'); ?>" class="btn btn-danger">Batal</a>
+                    <a href="<?= base_url('admin/admin'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
             </form>

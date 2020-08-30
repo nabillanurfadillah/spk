@@ -12,7 +12,6 @@ if (flashDataSubMenu) {
 $('.hapus-submenu').on('click', function (e) {
 	e.preventDefault();
 	const href = $(this).attr('href');
-
 	Swal.fire({
 		title: 'Apakah anda yakin?',
 		text: "data submenu akan dihapus",

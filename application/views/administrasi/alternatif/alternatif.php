@@ -41,7 +41,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-hover" id="reminders">
+                <table class="table table-hover" id="reminderss">
                     <thead>
                         <tr>
                             <th scope="col">No</th>

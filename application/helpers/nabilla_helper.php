@@ -22,6 +22,22 @@ function is_logged_in()
         }
     }
 }
+
+function beasiswa()
+
+{
+    $ci = get_instance();
+    $beasiswa_id = $ci->session->userdata('beasiswa_id');
+
+    if ($beasiswa_id == 0) {
+        redirect('beasiswa');
+    }
+}
+
+
+
+
+
 function check_access($role_id, $menu_id)
 {
     $ci = get_instance();

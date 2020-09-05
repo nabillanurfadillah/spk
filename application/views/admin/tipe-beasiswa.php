@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/ppaBerprestasi'); ?>" class="btn btn-success btn-icon-split">
+                <a href="<?= base_url('beasiswa/ppaBerprestasi'); ?>" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/ppaKurangMampu'); ?>" class="btn btn-success btn-icon-split">
+                <a href="<?= base_url('beasiswa/ppaKurangMampu'); ?>" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/wkriBerprestasi'); ?>" class="btn btn-secondary btn-icon-split">
+                <a href="<?= base_url('beasiswa/wkriBerprestasi'); ?>" class="btn btn-secondary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/wkriKurangMampu'); ?>" class="btn btn-secondary btn-icon-split">
+                <a href="<?= base_url('beasiswa/wkriKurangMampu'); ?>" class="btn btn-secondary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/perseorangan'); ?>" class="btn btn-primary btn-icon-split">
+                <a href="<?= base_url('beasiswa/perseorangan'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/bidikMisi'); ?>" class="btn btn-warning btn-icon-split">
+                <a href="<?= base_url('beasiswa/bidikMisi'); ?>" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('admin/bidikMisiDifabel'); ?>" class="btn btn-warning btn-icon-split">
+                <a href="<?= base_url('beasiswa/bidikMisiDifabel'); ?>" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>

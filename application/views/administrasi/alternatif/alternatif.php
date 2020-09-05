@@ -37,7 +37,7 @@
             </div>
 
             <div class="row justify-content-end col-sm-12">
-                <p class="text-gray-800 ml-6">*Hati-hati semua data mahasiswa akan terhapus! Pastikan File Hasil Beasiswa sudah diarsipkan!</p>
+                <p class="text-gray-800 ml-6">*Hati-hati semua data mahasiswa pada tabel ini akan terhapus! Pastikan File Hasil Beasiswa sudah diarsipkan!</p>
             </div>
 
             <div class="table-responsive">

@@ -7,6 +7,7 @@ class Menu extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        beasiswa();
         $this->load->model('Menu_model');
         $this->load->model('Submenu_model', 'Submenu');
     }

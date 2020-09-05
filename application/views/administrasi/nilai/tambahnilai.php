@@ -24,7 +24,7 @@
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-                    <a href="<?= base_url('administrasi/nilai'); ?>" class="btn btn-danger">Kembali</a>
+                    <a href="<?= base_url('administrasi'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
             </form>

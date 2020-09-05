@@ -47,10 +47,8 @@ class Auth extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1 || $user['role_id'] == 2) {
-                        redirect('admin/tipeBeasiswa');}
-                     //else {
-                    //     redirect('user');
-                    // }
+                        redirect('beasiswa');
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password! </div>');
                     redirect('auth');

@@ -7,6 +7,7 @@ class Administrasi extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        beasiswa();
         $this->load->model('Nilai_model');
         $this->load->model('Kriteria_model');
         $this->load->model('SubKriteria_model');
@@ -17,7 +18,7 @@ class Administrasi extends CI_Controller
         $this->load->model('Laporan_model');
     }
 
-    public function nilai()
+    public function index()
     {
         $data['title'] = 'Nilai';
         $data['user'] = $this->db->get_where('user', ['email' =>
